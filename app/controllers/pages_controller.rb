@@ -3,4 +3,10 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def dashboard
+    @user = current_user
+    @rentals = Rental.where(user_id: current_user.id)
+  end
+
 end

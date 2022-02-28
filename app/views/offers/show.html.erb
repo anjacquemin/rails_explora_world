@@ -1,0 +1,14 @@
+<h2>Here is the offer details</h2>
+
+<h3> <%= @offer.title %></h3>
+<p> Address: <%= @offer.address %></h3>
+<p> Category: <%= @offer.category.name %></h3>
+<p> Description: <%= @offer.description %></h3>
+<p> Video type: <%= @offer.video_type %></h3>
+
+<h4> slots </h3>
+<% @offer.slots.each do |slot| %>
+<p> <%= slot.start_at %></p>
+<p> Guide: <%= slot.user.first_name %> <%= slot.user.last_name %></p>
+<%= link_to "book", slot_rentals_path(slot), method: :post %>
+<% end %>
