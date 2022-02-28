@@ -1,0 +1,9 @@
+<h2>DASHBOARD</h2>
+
+<p>All rentals</p>
+<% @rentals.each do |rental| %>
+<h2> <%=rental.slot.offer.title%> </h2>
+<p>Description : <%=rental.slot.offer.description%> </h2>
+<p>Start time : <%=rental.slot.start_at%> </h2>
+<%= link_to "Go on live visit",  slot_path(rental.slot)%>
+<% end %>
