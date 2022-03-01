@@ -1,7 +1,18 @@
-<h2>All offers</h2>
+<div class="container">
+  <h2>All offers</h2>
+
+  <%= form_tag offers_path, style:"display: block ruby", method: :get do %>
+    <%= text_field_tag :query,
+    params[:query],
+    #class: "form-control",
+    placeholder: "Find your perfect Visit"
+    %>
+    <%= submit_tag "Search" %>
+    <% end %>
 
 <% @offers.each do |offer| %>
   <h3><%=offer.title%></h3>
   <p><%=offer.description%></p>
   <p><%= link_to "See more", offer_path(offer) %></p>
 <% end %>
+</div>
