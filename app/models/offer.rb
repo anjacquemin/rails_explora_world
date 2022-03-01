@@ -7,6 +7,8 @@ class Offer < ApplicationRecord
   has_many :rentals, through: :slots
   has_many :reviews, through: :rentals
 
+  has_many_attached :photos
+
   validates :address, presence: true
   validates :description, presence: true
   validates :description, length: { minimum: 10 }
