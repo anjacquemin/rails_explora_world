@@ -1,6 +1,14 @@
 <div class="container">
 
-  <h1 id="test">DASHBOARD</h1>
+<div class="">
+  <div class="container mt-3">
+    <h1 class=""><%= "DASHBOARD" %></h1>
+      <% unless @last_rental.nil? %>
+      <p class="text-success" ><%= "Last visit confirmed !" %></p>
+      <p class="text-success"><%= "at : #{@last_rental.slot.start_at}" %></p>
+      <p class="text-success"> <%= "With #{@last_rental.user.first_name}" %></p>
+      <% end %>
+  </div>
 
   <div data-controller="maindashboard">
 
@@ -27,7 +35,7 @@
         <% end %>
       </div>
 
-      <div id="past-visits">
+      <div id="past-visits" class="d-none">
         <% @rentals.each do |rental| %>
           <% if (rental.slot.start_at < Date.today) %>
             <h2> <%=rental.slot.offer.title%> </h2>
@@ -38,8 +46,7 @@
       </div>
     </div>
 
-    <div id="my-offers">
-      <p>My offers</p>
+    <div id="my-offers" class="d-none">
       <% current_user.offers.each do |offer| %>
       <h2> <%= offer.title%> </h2>
       <p>Description : <%=offer.description%> </h2>
