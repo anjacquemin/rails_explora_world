@@ -5,7 +5,6 @@ Rails.application.routes.draw do
 
   get "/dashboard", to: "pages#dashboard", as: "dashboard"
 
-
   resources :offers, only: [:index, :show]
 
   resources :slots do
@@ -15,5 +14,4 @@ Rails.application.routes.draw do
   resources :rentals, only: [:create]
 
   resources :slots, only: [:show]
-
 end
