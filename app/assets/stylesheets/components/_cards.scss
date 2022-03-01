@@ -11,6 +11,18 @@
   border-radius: 6px;
 }
 
+.cards-hp{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+
+
+}
+
+.card-hp-category {
+  height: 30vh;
+  border-radius: 6px;
+}
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
