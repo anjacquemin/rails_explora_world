@@ -84,6 +84,32 @@ offer2.user = nico
 offer2.category = category1
 offer2.save!
 
+offer3 = Offer.new({
+  address: "Boulevard des plages",
+  description: "La plus belle cote",
+  video_type: "Live",
+  city: "Biarritz",
+  title: "Sables d'or",
+  price: 3.6
+})
+
+offer3.user = raph
+offer3.category = category1
+offer3.save!
+
+offer4 = Offer.new({
+  address: "Centre-ville",
+  description: "La campagne",
+  video_type: "Live",
+  city: "Arcangues",
+  title: "Arcangueszoo",
+  price: 3.6
+})
+
+offer4.user = nico
+offer4.category = category1
+offer4.save!
+
 #Seed of slots
 
 slot1 = Slot.new({
