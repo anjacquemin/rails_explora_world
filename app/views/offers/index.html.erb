@@ -1,21 +1,28 @@
 <div class="container">
   <h2>All offers</h2>
-  <%= form_tag offers_path, style:"display: block ruby", method: :get do %>
-    <%= text_field_tag :query,
-    params[:query],
-    #class: "form-control",
-    placeholder: "Find your perfect Visit"
-    %>
-    <%= submit_tag "Search" %>
-    <% end %>
+  <div class="wrap">
+    <div class="search">
+      <%= form_tag offers_path, class:'search-form', method: :get do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "search-term",
+        placeholder: "Find your perfect Visit"
+        %>
+        <button type="submit" class="search-button">
+          <i class="fa fa-search"></i>
+        </button>
+      <% end %>
+    </div>
+  </div>
 
-  <div class="cards my-5">
+  <div class="cards my-5 ">
     <% @offers.each do |offer| %>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.visitberlin.de/system/files/styles/visitberlin_teaser_single_visitberlin_mobile_1x/private/image/Berlin_SommerIMG_0677_c_visitBerlin_Foto_Thomas_Kierok_web.jpg?h=1c9b88c9&itok=rTtJ0q51)">
+    <div class="card-category mb-4">
+      <img class="pic" src="https://www.visitberlin.de/system/files/styles/visitberlin_teaser_single_visitberlin_mobile_1x/private/image/Berlin_SommerIMG_0677_c_visitBerlin_Foto_Thomas_Kierok_web.jpg?h=1c9b88c9&itok=rTtJ0q51" alt="Grapefruit slice atop a pile of other slices">
       <div class="text">
         <h3 class="title"><%=offer.title%></h3>
         <p><%=offer.description%></p>
-        <p><%= link_to "See more", offer_path(offer) %></p>
+        <div class="card-text"><%= link_to "See more", offer_path(offer) %></div>
       </div>
     </div>
     <% end %>
