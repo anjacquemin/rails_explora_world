@@ -1,9 +1,9 @@
 class OffersController < ApplicationController
   def index
     if params[:query].present?
-      @offers = Offer.search_by_city(params[:query])
+      @offers = policy_scope(Offer).search_by_city(params[:query])
     else
-      @offers = Offer.all
+      @offers = policy_scope(Offer).all
     end
   end
 
