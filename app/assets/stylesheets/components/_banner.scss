@@ -3,11 +3,11 @@
   background-position: center;
   position: relative;
   display: flex;
-  height: 600px;
+  height: 910px;
   align-items: center;
   justify-content: center;
   // background-image: linear-gradient(rgba(95, 64, 64, 0.1), rgba(70, 9, 211, 0.3)), asset-url('explore_lp.png');
-  background-image: linear-gradient(rgba(95, 64, 64, 0.1), rgba(0, 0, 0, 0.8), rgba(95, 64, 64, 0.1)), asset-url('explore_lp.png');
+  background-image: linear-gradient(rgba(95, 64, 64, 0.1), rgba(0, 0, 0, 0.7), rgba(95, 64, 64, 0.1)), asset-url('mappemonde.png');
 
   div {
     display: flex;
@@ -30,5 +30,32 @@
     opacity: .7;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   }
+
+  a {
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    &:hover {
+      opacity: .7;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    }
+    // background-image: asset-url('mappemonde.png');
+  }
+}
+
+.homepage  {
+  background-color: white;
+  text-align: center;
+  color: black;
+  font-size:larger;
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+
+.category {
+  display: flex;
+  background-color: white;
+  color: black;
+  text-align: center;
 
 }
