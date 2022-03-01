@@ -14,5 +14,10 @@ class Offer < ApplicationRecord
   validates :title, presence: true
   validates :title, length: { minimum: 5 }
   validates :price, numericality: { greater_than: 0 }
-
+  include PgSearch::Model
+  pg_search_scope :search_by_city,
+    against: [:city],
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
 end

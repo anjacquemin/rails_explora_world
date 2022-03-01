@@ -60,7 +60,7 @@ category1.save
 
 offer1 = Offer.new({
   address: "Villa Gaudelet",
-  description: "Le Wagon est un musé vraiment bien...",
+  description: "Le Wagon est un musée vraiment bien...",
   video_type: "Live",
   city: "Paris",
   title: "Visite du Wagon",
@@ -70,6 +70,45 @@ offer1 = Offer.new({
 offer1.user = raph
 offer1.category = category1
 offer1.save!
+
+offer2 = Offer.new({
+  address: "Rue Recamier",
+  description: "Rpz le 75007...",
+  video_type: "Live",
+  city: "Paris",
+  title: "Visite de Raph",
+  price: 3.6
+})
+
+offer2.user = nico
+offer2.category = category1
+offer2.save!
+
+offer3 = Offer.new({
+  address: "Boulevard des plages",
+  description: "La plus belle cote",
+  video_type: "Live",
+  city: "Biarritz",
+  title: "Sables d'or",
+  price: 3.6
+})
+
+offer3.user = raph
+offer3.category = category1
+offer3.save!
+
+offer4 = Offer.new({
+  address: "Centre-ville",
+  description: "La campagne",
+  video_type: "Live",
+  city: "Arcangues",
+  title: "Arcangueszoo",
+  price: 3.6
+})
+
+offer4.user = nico
+offer4.category = category1
+offer4.save!
 
 #Seed of slots
 
