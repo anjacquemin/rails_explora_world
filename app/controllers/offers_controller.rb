@@ -1,7 +1,6 @@
 class OffersController < ApplicationController
   def index
     if params[:query].present?
-
       @offers = Offer.search_by_city(params[:query])
     else
       @offers = Offer.all
@@ -11,6 +10,5 @@ class OffersController < ApplicationController
   def show
     @offer = Offer.find(params[:id])
   end
-  # search
   # map
 end
