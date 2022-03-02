@@ -6,7 +6,7 @@
       <% unless @last_rental.nil? %>
       <p class="text-success" ><%= "Last visit confirmed !" %></p>
       <p class="text-success"><%= "at : #{@last_rental.slot.start_at}" %></p>
-      <p class="text-success"> <%= "With #{@last_rental.user.first_name}" %></p>
+      <p class="text-success"> <%= "With #{@last_rental.slot.user.first_name}" %></p>
       <% end %>
   </div>
 

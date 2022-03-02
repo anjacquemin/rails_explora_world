@@ -12,3 +12,7 @@
 <p> Guide: <%= slot.user.first_name %> <%= slot.user.last_name %></p>
 <%= link_to "book", slot_rentals_path(slot), method: :post %>
 <% end %>
+
+<% @offer.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
