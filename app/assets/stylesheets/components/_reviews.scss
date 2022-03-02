@@ -1,8 +1,19 @@
 .review {
   display: flex;
   color: black;
-  justify-content: center;
-  border-top: 1px solid black;
+  justify-content: space-between;
   padding: 20px;
   text-align: center;
+  background-color: white;
+  margin-top: 100px;
+  margin-bottom: 100px;
+
+  h2 {
+    font-size: 50px;
+    font-weight: bold;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
 }

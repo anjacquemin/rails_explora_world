@@ -19,9 +19,11 @@
     margin: 0;
     color: white;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-    font-size: 32px;
+    font-size: 65px;
     font-weight: bold;
     text-align: center;
+    letter-spacing: 9px;
+    text-shadow: 3px 4px 9px rgb(11, 83, 17);
   }
 
   p {
@@ -57,5 +59,30 @@
   background-color: white;
   color: black;
   text-align: center;
+  padding-bottom: 70px;
+  border-bottom: 1px solid black;
+}
 
+.section-title {
+  position: relative;
+
+  &::before {
+    content: "";
+    width: 48px;
+    height: 4px;
+    background-color: #29c00f;
+    position: absolute;
+    right: 450px;
+    top: 23px;
+  }
+
+  &::after {
+    content: "";
+    width: 48px;
+    height: 4px;
+    background-color: #29c00f;
+    position: absolute;
+    left: 450px;
+    top: 23px;
+  }
 }
