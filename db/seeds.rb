@@ -226,6 +226,7 @@ offer5 = Offer.new({
   price: rand(5.0..10.0)
 })
 
+#gg
 offer5.user = julien
 offer5.category = category1
 file = URI.open("https://vivreparis.fr/wp-content/uploads/2021/03/palais-royal-paris.jpg")
