@@ -110,6 +110,58 @@ offer4.user = nico
 offer4.category = category1
 offer4.save!
 
+offer5 = Offer.new({
+  address: "Centre-ville",
+  description: "La campagne",
+  video_type: "Live",
+  city: "Paris",
+  title: "Palais Royal",
+  price: 3.6
+})
+
+offer5.user = nico
+offer5.category = category1
+offer5.save!
+
+offer6 = Offer.new({
+  address: "Centre-ville",
+  description: "Gugheneim de Venise, meilleure musee",
+  video_type: "Live",
+  city: "Venise",
+  title: "Le Gugenheim, Venise",
+  price: 3.6
+})
+
+offer6.user = nico
+offer6.category = category1
+offer6.save!
+
+offer7 = Offer.new({
+  address: "Centre-ville",
+  description: "La campagne",
+  video_type: "Live",
+  city: "Arcangues",
+  title: "Arcangueszoo",
+  price: 3.6
+})
+
+offer7.user = nico
+offer7.category = category1
+offer7.save!
+
+offer8 = Offer.new({
+  address: "Centre-ville",
+  description: "Gugheneim de Venise, meilleure musee",
+  video_type: "Live",
+  city: "Venise",
+  title: "Le Gugenheim, Venise",
+  price: 3.6
+})
+
+offer8.user = nico
+offer8.category = category1
+offer8.save!
+
 #Seed of slots
 
 slot1 = Slot.new({

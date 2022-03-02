@@ -1,0 +1,33 @@
+
+
+.search-form{
+  width: 100%;
+  display: flex;
+}
+
+.search-term {
+  width: 100%;
+  border: 3px solid $blue;
+  border-right: none;
+  padding: 12px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.search-term:focus{
+  color: $blue;
+}
+
+.search-button {
+  width: 40px;
+  border: 1px solid $blue;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
