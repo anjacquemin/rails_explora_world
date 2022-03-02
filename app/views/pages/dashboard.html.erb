@@ -1,9 +1,59 @@
-<h1 id="test">DASHBOARD</h1>
+<div class="container">
 
-<p>All rentals</p>
-<% @rentals.each do |rental| %>
-<h2> <%=rental.slot.offer.title%> </h2>
-<p>Description : <%=rental.slot.offer.description%> </h2>
-<p>Start time : <%=rental.slot.start_at%> </h2>
-<%= link_to "Go on live visit",  slot_path(rental.slot)%>
-<% end %>
+<div class="">
+  <div class="container mt-3">
+    <h1 class=""><%= "DASHBOARD" %></h1>
+      <% unless @last_rental.nil? %>
+      <p class="text-success" ><%= "Last visit confirmed !" %></p>
+      <p class="text-success"><%= "at : #{@last_rental.slot.start_at}" %></p>
+      <p class="text-success"> <%= "With #{@last_rental.user.first_name}" %></p>
+      <% end %>
+  </div>
+
+  <div data-controller="maindashboard">
+
+    <div class="tab container mt-5 d-flex justify-content-around">
+      <button id="button1" class="tablinks tab-button" data-action="click->maindashboard#openTab" data-tab="my-visits">MY VISITS</button>
+      <button id="button2" class="tablinks tab-button" data-action="click->maindashboard#openTab" data-tab="my-offers">MY OFFERS</button>
+    </div>
+
+    <div id="my-visits" data-controller="dashboard">
+
+      <div class="tab container mt-5 d-flex justify-content-around">
+        <button id="button3" class="tablinks tab-button" data-action="click->dashboard#openTab" data-tab="future-visits">FUTURE VISITS</button>
+        <button id="button4" class="tablinks tab-button" data-action="click->dashboard#openTab" data-tab="past-visits">PAST VISITS</button>
+      </div>
+
+      <div id="future-visits">
+        <% @rentals.each do |rental| %>
+          <% if (rental.slot.start_at > Date.today) %>
+            <h2> <%=rental.slot.offer.title%> </h2>
+            <p>Description : <%=rental.slot.offer.description%> </h2>
+            <p>Start time : <%=rental.slot.start_at%> </h2>
+            <%= link_to "Go on live visit",  slot_path(rental.slot)%>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div id="past-visits" class="d-none">
+        <% @rentals.each do |rental| %>
+          <% if (rental.slot.start_at < Date.today) %>
+            <h2> <%=rental.slot.offer.title%> </h2>
+            <p>Description : <%=rental.slot.offer.description%> </h2>
+            <p>Start time : <%=rental.slot.start_at%> </h2>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <div id="my-offers" class="d-none">
+      <% current_user.offers.each do |offer| %>
+      <h2> <%= offer.title%> </h2>
+      <p>Description : <%=offer.description%> </h2>
+      <%= link_to "Go see the offer",  offer_path(offer)%>
+      <% end %>
+    </div>
+
+  </div>
+
+</div>

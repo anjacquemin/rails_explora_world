@@ -7,6 +7,6 @@ class RentalsController < ApplicationController
     @rental.slot = @slot
     @rental.save!
     authorize @rental
-    redirect_to dashboard_path()
+    redirect_to dashboard_booking_path(@rental)
   end
 end

@@ -3,6 +3,7 @@
   grid-template-columns: 1fr 1fr 1fr ;
   grid-gap: 16px 38px;
 
+
 }
 
 .card-category {
@@ -25,7 +26,27 @@
   }
 }
 
+.cards-hp{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
 
+.card-hp-category {
+  height: 30vh;
+  border-radius: 6px;
+  background-size:contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  text-align: center;
+  font-size: large;
+
+  p {
+    font-size: medium;
+    margin-top: 70px;
+  }
+}
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
