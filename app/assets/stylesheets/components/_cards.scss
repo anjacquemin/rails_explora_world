@@ -29,11 +29,12 @@
 .cards-hp{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
+  grid-gap: 30px;
 }
 
 .card-hp-category {
-  height: 30vh;
+  height: 20vh;
+  width: 300px;
   border-radius: 6px;
   background-size:contain;
   background-position: center;
@@ -41,12 +42,34 @@
   color: white;
   text-align: center;
   font-size: large;
+  transition:all ease 1s;
+  margin-bottom: 20px;
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 20px 8px 12px rgb(66, 58, 58);
+  }
 
   p {
     font-size: medium;
     margin-top: 70px;
   }
 }
+
+.card-review {
+  height: 30vh;
+  width: 400px;
+  background-size:cover;
+  background-repeat: no-repeat;
+  // background: none;
+  transform: rotate(10deg);
+  border-radius: 10px;
+  margin-left: 150px;
+
+}
+
+
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
