@@ -1,7 +1,13 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: #F8F8F8;
   opacity:1;
+  border: 0.5px;
+}
+
+h3 {
+  font-family: $headers-font;
+
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -10,4 +16,15 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.navbar-brand{
+
+  animation:rotation 2.5s normal infinite linear;
+
+}
+
+@keyframes rotation {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(359deg);}
 }
