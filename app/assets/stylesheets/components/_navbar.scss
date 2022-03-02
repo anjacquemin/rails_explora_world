@@ -3,12 +3,13 @@
   background: #F8F8F8;
   opacity:1;
   border: 0.5px;
+  h2 {
+    font-family: $headers-font;
+    text-shadow: $blue 1px 0 5px;
+    margin: 0;
+  }
 }
 
-h3 {
-  font-family: $headers-font;
-
-}
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
