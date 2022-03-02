@@ -47,7 +47,7 @@
 
   &:hover {
     transform: scale(1.1);
-    box-shadow: 20px 8px 12px rgb(66, 58, 58);
+    box-shadow: 20px 8px 12px #466F88;
   }
 
   p {
@@ -57,12 +57,12 @@
 }
 
 .card-review {
-  height: 30vh;
-  width: 400px;
+  height: 35vh;
+  width: 500px;
   background-size:cover;
   background-repeat: no-repeat;
   // background: none;
-  transform: rotate(10deg);
+  transform: rotate(4deg);
   border-radius: 10px;
   margin-left: 150px;
 
