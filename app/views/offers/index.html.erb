@@ -15,14 +15,6 @@
     </div>
   </div>
 
-  <div class="cards my-5 ">
-    <% @offers.each do |offer| %>
-    <div class="card-category mb-4">
-      <img class="pic" src="https://www.visitberlin.de/system/files/styles/visitberlin_teaser_single_visitberlin_mobile_1x/private/image/Berlin_SommerIMG_0677_c_visitBerlin_Foto_Thomas_Kierok_web.jpg?h=1c9b88c9&itok=rTtJ0q51" alt="Grapefruit slice atop a pile of other slices">
-      <div class="text">
-        <h3 class="title"><%=offer.title%></h3>
-        <p><%=offer.description%></p>
-        <div class="card-text"><%= link_to "See more", offer_path(offer) %></div>
 
   <div data-controller="categories">
 
