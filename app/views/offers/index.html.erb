@@ -11,17 +11,63 @@
 
 
   <div data-controller="categories">
-    <div class="cards my-5">
-      <% @offers.each do |offer| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.visitberlin.de/system/files/styles/visitberlin_teaser_single_visitberlin_mobile_1x/private/image/Berlin_SommerIMG_0677_c_visitBerlin_Foto_Thomas_Kierok_web.jpg?h=1c9b88c9&itok=rTtJ0q51)">
-        <div class="text">
-          <h3 class="title"><%=offer.title%></h3>
-          <p><%=offer.description%></p>
-          <p><%= link_to "See more", offer_path(offer) %></p>
-        </div>
-      </div>
-      <% end %>
+
+    <div class="tab container mt-5 d-flex justify-content-around">
+      <button id="button6" class="tablinks tab-button" data-action="click->categories#openTab" data-tab="Museums">Museums</button>
+      <button id="button7" class="tablinks tab-button" data-action="click->categories#openTab" data-tab="Monuments">Monuments</button>
+      <button id="button8" class="tablinks tab-button" data-action="click->categories#openTab" data-tab="Neighborhoods">Neighborhoods</button>
     </div>
+
+    <div d-flex id="Museums">
+      <div class="cards my-5">
+        <% museums = @offers.select { |offer| offer.category.name == "Museum"} %>
+        <% museums.each do |museum| %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.visitberlin.de/system/files/styles/visitberlin_teaser_single_visitberlin_mobile_1x/private/image/Berlin_SommerIMG_0677_c_visitBerlin_Foto_Thomas_Kierok_web.jpg?h=1c9b88c9&itok=rTtJ0q51)">
+            <div class="text">
+              <h3 class="title"><%=museum.title%></h3>
+              <p><%=museum.description%></p>
+              <p><%=museum.category.name%></p>
+              <p><%= link_to "See more", offer_path(museum) %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div d-flex id="Monuments">
+      <div class="cards my-5">
+        <% monuments = @offers.select { |offer| offer.category.name == "Monument"} %>
+        <% monuments.each do |monument| %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.visitberlin.de/system/files/styles/visitberlin_teaser_single_visitberlin_mobile_1x/private/image/Berlin_SommerIMG_0677_c_visitBerlin_Foto_Thomas_Kierok_web.jpg?h=1c9b88c9&itok=rTtJ0q51)">
+            <div class="text">
+              <h3 class="title"><%=monument.title%></h3>
+              <p><%=monument.description%></p>
+              <p><%=monument.category.name%></p>
+              <p><%= link_to "See more", offer_path(monument) %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div d-flex id="Neighborhoods">
+      <div class="cards my-5">
+        <% neighborhoods = @offers.select { |offer| offer.category.name == "Neighborhood"} %>
+        <% neighborhoods.each do |neighborhood| %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.visitberlin.de/system/files/styles/visitberlin_teaser_single_visitberlin_mobile_1x/private/image/Berlin_SommerIMG_0677_c_visitBerlin_Foto_Thomas_Kierok_web.jpg?h=1c9b88c9&itok=rTtJ0q51)">
+            <div class="text">
+              <h3 class="title"><%=neighborhood.title%></h3>
+              <p><%=neighborhood.description%></p>
+              <p><%=neighborhood.category.name%></p>
+              <p><%= link_to "See more", offer_path(neighborhood) %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+
+
   </div>
 
 </div>

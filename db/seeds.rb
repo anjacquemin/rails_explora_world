@@ -52,9 +52,9 @@ nico.save!
 
 #Seed of category
 category1 = Category.new({
-  name: "street"
+  name: "Neighborhood"
 })
-category1.save
+category1.save!
 
 #Seed of offers
 
