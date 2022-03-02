@@ -226,12 +226,13 @@ offer5 = Offer.new({
   price: rand(5.0..10.0)
 })
 
+#gg
 offer5.user = julien
 offer5.category = category1
 file = URI.open("https://vivreparis.fr/wp-content/uploads/2021/03/palais-royal-paris.jpg")
 offer5.photos.attach(io: file, filename: "#{offer5.title}-1")
 
-file = URI.open("https://www.parisinfo.com/var/otcp/sites/images/media/1.-photos/80.-photos-sugar/lieux-de-loisirs-et-de-culture/domaine-national-du-palais-royal-1-630x405-c-e-revault-pour-cmn-paris/5050717-1-fre-FR/Domaine-national-du-Palais-Royal-1-630x405-C-E-Revault-pour-CMN-Paris.jpg")
+file = URI.open("https://www.carigami.fr/magazine/wp-content/uploads/2017/11/paris-palais-royal-colonnes-buren.jpg")
 offer5.photos.attach(io: file, filename: "#{offer5.title}-2")
 
 file = URI.open("https://upload.wikimedia.org/wikipedia/commons/c/ce/Jardins_du_Palais_Royal.JPG")
