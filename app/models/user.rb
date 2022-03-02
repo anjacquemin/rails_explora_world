@@ -11,4 +11,9 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+
+  def self.others(user)
+    User.where.not(id: user.id)
+  end
 end
