@@ -6,14 +6,14 @@
   height: 100px;
   padding: 0px 50px;
   color: rgba(0, 0, 0, 0.8);
-  border-top: 1px solid black;
+  border-top: 0.8px solid #466F88;
 }
 .footer-links {
   display: flex;
   align-items: center;
 }
 .footer-links a {
-  color: rgb(0, 0, 0);
+  color: #466F88;
   opacity: 0.15;
   text-decoration: none;
   font-size: 24px;
@@ -26,9 +26,4 @@
 .footer .fa-globe-americas {
   color: rgb(4, 4, 128);
   font-size: 20px;
-}
-
-.icon {
-  // background-image: asset-url('icon-earth.png');
-
 }

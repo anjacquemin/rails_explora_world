@@ -23,7 +23,7 @@
     font-weight: bold;
     text-align: center;
     letter-spacing: 9px;
-    text-shadow: 3px 4px 9px rgb(11, 83, 17);
+    text-shadow: 3px 4px 9px #466F88;
   }
 
   p {
@@ -60,17 +60,27 @@
   color: black;
   text-align: center;
   padding-bottom: 70px;
-  border-bottom: 1px solid black;
+  border-bottom: 0.8px solid #466F88;
+
+}
+
+h2 {
+  text-align: center;
+  color: #466F88;
+  margin-top: 20px;
 }
 
 .section-title {
   position: relative;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  color: black;
 
   &::before {
     content: "";
     width: 48px;
     height: 4px;
-    background-color: #29c00f;
+    background-color: #466F88;
     position: absolute;
     right: 450px;
     top: 23px;
@@ -80,7 +90,7 @@
     content: "";
     width: 48px;
     height: 4px;
-    background-color: #29c00f;
+    background-color: #466F88;
     position: absolute;
     left: 450px;
     top: 23px;
