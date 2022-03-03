@@ -1,18 +1,66 @@
-<h2>Here is the offer details</h2>
+<div class="container">
 
-<h3> <%= @offer.title %></h3>
-<p> Address: <%= @offer.address %></h3>
-<p> Category: <%= @offer.category.name %></h3>
-<p> Description: <%= @offer.description %></h3>
-<p> Video type: <%= @offer.video_type %></h3>
-
-<h4> slots </h3>
-<% @offer.slots.each do |slot| %>
-<p> <%= slot.start_at %></p>
-<p> Guide: <%= slot.user.first_name %> <%= slot.user.last_name %></p>
-<%= link_to "book", slot_rentals_path(slot), method: :post %>
-<% end %>
-
+<div class="card-hp-category">
 <% @offer.photos.each do |photo| %>
   <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
 <% end %>
+</div>
+
+<h3 class="text-center mb-5"> <%= @offer.title %></h3>
+<div class="d-flex justify-content-between">
+  <div>
+    <h4> Description: </h4>
+    <p><%= @offer.description %></p>
+  </div>
+  <div>
+    <p>MAP HERE</p>
+  </div>
+</div>
+
+<div class="vertical-divider mb-5 mt-5">
+</div>
+
+<div class="d-flex justify-content-around mb-5">
+  <div>
+    <h3 class="text-center">LIVE</h3>
+    <div class="card">
+      <section class="top"></section>
+      <div class="event-info">
+        <p id="price"><%= @offer.price %>$</p>
+        <p class="title"><%= @offer.title %></p>
+
+        <div class="additional-info">
+          <p class="info">
+            <i class="fas fa-map-marker-alt"></i>
+            <%= @offer.city %>
+            </p>
+          <p class="info">
+            <i class="fas fa-calendar-alt"></i>
+            <%= @offer.slots.all[0].start_at %>
+          </p>
+          <p class= "info">
+            <i class="fas fa-video"></i>
+            <%= "#{@offer.slots.all[0].user.first_name} #{@offer.slots.all[0].user.last_name}"%>
+          </p>
+          <p class= "info">
+            full schedule
+          </p>
+        </div>
+        <button class="action">Register</button>
+      </div>
+    </div>
+  </div>
+  <div>
+    <h3>VOD</h3>
+  </div>
+</div>
+
+<div class="vertical-divider mb-5 mt-5">
+</div>
+
+
+<div>
+  <p>CAROUSSEL</p>
+</div>
+
+</div>
