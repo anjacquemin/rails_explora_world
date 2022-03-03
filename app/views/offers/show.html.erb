@@ -1,12 +1,27 @@
-<div>
-  <div class="relative-position" data-slots-display-target="globaldiv" >
-    <div class="text-center">
+
+<div id="offer_carrousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <% @offer.photos.size.times do |i| %>
+    <button type="button" data-bs-target="#offer_carrousel" data-bs-slide-to="<%= i %>" class="<%= "active" if i==0%>" aria-current="<%= "true" if i==0%>" aria-label="Slide <%= i %>"></button>
+    <%end%>
+  </div>
+  <div class="carousel-inner">
     <% @offer.photos.each_with_index do |photo, i| %>
-      <%if i == 0  %>
-      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-      <%end  %>
-    <% end %>
-    </div>
+      <div class="carousel-item <%= "active" if i==0%>">
+        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class:"d-block w-100" %>
+      </div>
+    <%end%>
+
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#offer_carrousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#offer_carrousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
 
     <h3 class="text-center m-5"> <%= @offer.title %></h3>
     <div class="d-flex justify-content-around gray-background p-3" data-slots-display-target="description">
@@ -89,7 +104,7 @@
 
               </p>
             </div>
-            <button class="action">xxx</button>
+            <button class="action">Register</button>
           </div>
         </div>
       </div>
@@ -98,34 +113,6 @@
     <div class="vertical-divider mb-5 mt-5">
     </div>
 
-
-  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="card-hp-category">
-        <% @offer.photos.each_with_index do |photo, index| %>
-        <% if index == 0 %>
-          <div class="carousel-item active">
-            <%= cl_image_tag photo.key, class:"show-img", crop: :fill %>
-            <%# <img src="frelon.jpg" class="d-block w-100"> %>
-          </div>
-          <% else %>
-          <div class="carousel-item">
-            <%= cl_image_tag photo.key, class:"show-img", crop: :fill %>
-            <%# <img src="frelon.jpg" class="d-block w-100" alt="..."> %>
-          </div>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
 
     <div class="vertical-divider mb-5 mt-5">
       <h3>Comments</h3>
@@ -185,3 +172,18 @@
     </div>
   </div>
 </div>
+
+
+<div class="footer">
+    <div class="footer-links">
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <a href="#top">Back to top</a>
+    <div class="footer-copyright">
+      Let's explore the <i class="fas fa-globe-americas"></i> with Explora World !
+    </div>
+  </div>
