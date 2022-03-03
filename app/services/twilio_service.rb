@@ -25,6 +25,7 @@ class TwilioService
     grant.room = @room_id
 
     token = build_token(grant, identity)
+    p "token :#{token}"
     @jwt = token.to_jwt
   end
 
