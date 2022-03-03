@@ -401,7 +401,7 @@ offer13 = Offer.new({
 
 offer13.user = nico
 offer13.category = category2
-file = URI.open("https://reservation.parisinfo.com/InfoliveImages/culture_et_loisirs/musee/orsay/musee_orsay_-_copyright_graham-h.jpg?mode=crop&width=640&height=412&scale=both&quality=100")
+file = URI.open("https://www.sortiraparis.com/images/58/83517/421527-visuel-paris-musee-d-orsay.jpg")
 offer13.photos.attach(io: file, filename: "#{offer13.title}-1")
 
 file = URI.open("https://media.timeout.com/images/105581784/image.jpg")
