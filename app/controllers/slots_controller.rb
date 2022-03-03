@@ -22,7 +22,7 @@ class SlotsController < ApplicationController
 
     twilio = TwilioService.new
     # twilio.generate_token(current_user, @user)
-    twilio.generate_token(@slot, @user)
+    twilio.generate_token(@slot, @current_user)
     @twilio_jwt = twilio.jwt
     p "AFTER TOKEN GENERATION"
     p "twilio jwr : #{@twilio_jwt}"

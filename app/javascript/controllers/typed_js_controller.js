@@ -1,12 +1,12 @@
-import { Controller } from "@hotwired/stimulus"
-import Typed from "typed.js"
+// import { Controller } from "@hotwired/stimulus"
+// import Typed from "typed.js"
 
-export default class extends Controller {
-  connect() {
-    new Typed(this.element, {
-      strings: ["EXPLORA WORLD", "EXPLORA WORLD"],
-      typeSpeed: 50,
-      loop: true
-    });
-  }
-}
+// export default class extends Controller {
+//   connect() {
+//     new Typed(this.element, {
+//       strings: ["EXPLORA WORLD", "EXPLORA WORLD"],
+//       typeSpeed: 50,
+//       loop: true
+//     });
+//   }
+// }
