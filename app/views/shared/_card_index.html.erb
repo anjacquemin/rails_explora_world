@@ -3,10 +3,14 @@
   <div class="cards my-3">
     <% locals[:category].each do |offer| %>
       <div class="card-category mb-4">
-        <img class="pic" src="https://www.visitberlin.de/system/files/styles/visitberlin_teaser_single_visitberlin_mobile_1x/private/image/Berlin_SommerIMG_0677_c_visitBerlin_Foto_Thomas_Kierok_web.jpg?h=1c9b88c9&itok=rTtJ0q51" alt="Grapefruit slice atop a pile of other slices">
+        <% if offer.photos.attached? %>
+          <%= cl_image_tag offer.photos.all[0].key, height: 250 %>
+        <% else %>
+          <%= image_tag "taj-mahal.png", height: 250 %>
+        <% end %>
         <div class="text">
           <h3 class="title"><%=offer.title%></h3>
-          <p><%=offer.description%></p>
+          <p><%=offer.description.truncate(100)%></p>
         </div>
         <div class="card-text">
           <%= link_to "See more", offer_path(offer) %>
