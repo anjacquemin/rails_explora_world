@@ -489,7 +489,7 @@ offers = [offer1, offer2, offer3, offer4, offer5, offer6, offer7, offer8, offer9
 
   offer.user = fake_users.sample
   offer.category = categories.sample
-  file = URI.open("https://store-images.s-microsoft.com/image/apps.23032.13608622719434797.30372fd8-b4bd-41c0-beea-1c2a61e087c1.a8347bb5-9305-48e8-b668-08df54c5a91a?w=672&h=378&q=80&mode=letterbox&background=%23FFE4E4E4&format=jpg")
+  file = URI.open("https://res.cloudinary.com/dnabadsks/image/upload/v1646316846/montagne_cp1hxd.jpg")
   offer.photos.attach(io: file, filename: "#{offer.title}")
   offer.save!
   offers << offer
