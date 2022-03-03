@@ -6,3 +6,10 @@
 .carousel-inner {
   color: black;
 }
+
+#offer_carrousel {
+  img {
+    height: 50vh;
+    object-fit: cover;
+  }
+}
