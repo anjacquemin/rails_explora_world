@@ -24,10 +24,12 @@
       <button class="btn btn-ghost" data-action="click->categories#openTab" data-tab="Neighborhoods">Neighborhoods</button>
     </div>
 
+
     <%= render "shared/card_index", locals: {category: @offers.select { |offer| offer.category.name == "Museum"}, category_name: "Museums" } %>
     <%= render "shared/card_index", locals: {category: @offers.select { |offer| offer.category.name == "Monument"}, category_name: "Monuments"} %>
     <%= render "shared/card_index", locals: {category: @offers.select { |offer| offer.category.name == "Neighborhood"}, category_name: "Neighborhoods"} %>
   </div>
+
 
   <div style="width: 100%; height: 600px;"
     data-controller="mapbox"

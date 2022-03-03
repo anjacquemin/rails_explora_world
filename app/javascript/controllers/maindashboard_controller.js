@@ -13,7 +13,7 @@ export default class extends Controller {
     // this.bookingsTarget.classlist.toggle("active")
     const tab1 = document.querySelector("#my-visits");
     const tab2 = document.querySelector("#my-flashcards");
-    const tab2 = document.querySelector("#my-map");
+    const tab3 = document.querySelector("#my-map");
 
     console.log(tab)
     console.log(tab1)
