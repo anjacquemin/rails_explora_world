@@ -14,7 +14,9 @@
 
     <div class="tab container mt-5 d-flex justify-content-around">
       <button id="button1" class="tablinks tab-button" data-action="click->maindashboard#openTab" data-tab="my-visits">MY VISITS</button>
-      <button id="button2" class="tablinks tab-button" data-action="click->maindashboard#openTab" data-tab="my-offers">MY OFFERS</button>
+      <button id="button2" class="tablinks tab-button" data-action="click->maindashboard#openTab" data-tab="my-flashcards">MY FLASHCARDS</button>
+      <button id="button5" class="tablinks tab-button" data-action="click->maindashboard#openTab" data-tab="my-map">MY MAP</button>
+
     </div>
 
     <div id="my-visits" data-controller="dashboard">
@@ -46,14 +48,14 @@
       </div>
     </div>
 
-    <div id="my-offers" class="d-none">
-      <% current_user.offers.each do |offer| %>
-      <h2> <%= offer.title%> </h2>
-      <p>Description : <%=offer.description%> </h2>
-      <%= link_to "Go see the offer",  offer_path(offer)%>
-      <% end %>
+    <div id="my-flashcards" class="d-none">
+      MY FLASHCARDS
     </div>
 
+
+    <div id="my-flashcards" class="d-none">
+      MY MAP
+    </div>
   </div>
 
 </div>
