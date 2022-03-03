@@ -24,12 +24,31 @@
       <button class="btn btn-ghost" data-action="click->categories#openTab" data-tab="Neighborhoods">Neighborhoods</button>
     </div>
 
-    <%= render "shared/card_index", locals: { category: @offers.select { |offer| offer.category.name == "Museum" }, category_name: "Museums" } %>
-    <%= render "shared/card_index", locals: { category: @offers.select { |offer| offer.category.name == "Monument" }, category_name: "Monuments"} %>
-    <%= render "shared/card_index", locals: { category: @offers.select { |offer| offer.category.name == "Neighborhood"}, category_name: "Neighborhoods"} %>
 
-
-
+    <%= render "shared/card_index", locals: {category: @offers.select { |offer| offer.category.name == "Museum"}, category_name: "Museums" } %>
+    <%= render "shared/card_index", locals: {category: @offers.select { |offer| offer.category.name == "Monument"}, category_name: "Monuments"} %>
+    <%= render "shared/card_index", locals: {category: @offers.select { |offer| offer.category.name == "Neighborhood"}, category_name: "Neighborhoods"} %>
   </div>
 
+
+  <div style="width: 100%; height: 600px;"
+    data-controller="mapbox"
+    data-mapbox-markers-value="<%= @markers.to_json %>"
+    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+
+ 
 </div>
+<div class="footer">
+    <div class="footer-links">
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <a href="#top">Back to top</a>
+    <div class="footer-copyright">
+      Let's explore the <i class="fas fa-globe-americas"></i> with Explora World !
+    </div>
+  </div>
