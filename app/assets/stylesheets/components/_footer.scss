@@ -7,6 +7,17 @@
   padding: 0px 50px;
   color: rgba(0, 0, 0, 0.8);
   border-top: 0.8px solid #466F88;
+
+  a {
+    text-decoration: none;
+    color: black;
+
+      &:hover {
+      color: #466F88;
+      opacity: 0.7;
+   }
+  }
+
 }
 .footer-links {
   display: flex;
