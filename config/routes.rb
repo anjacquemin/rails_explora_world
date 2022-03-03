@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :slots do
     resources :rentals, only: [:create]
+    resources :messages, only: [:create]
   end
 
   resources :rentals, only: [:create]

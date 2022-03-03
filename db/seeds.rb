@@ -496,11 +496,12 @@ offers = [offer1, offer2, offer3, offer4, offer5, offer6, offer7, offer8, offer9
 end
 
 
-#Seed of slots
+#Seed of slots + chatrooms
 
 slots = []
 100.times do
   date = DateTime.new(2022, rand(3..6), rand(1..28), rand(0..23), [0, 30].sample)
+
   slot = Slot.new({
     start_at: date
   })
@@ -508,7 +509,12 @@ slots = []
   slot.user = agents.sample
   slot.save!
   slots << slot
+
+  chatroom = Chatroom.new
+  chatroom.slot = slot
+  chatroom.save!
 end
+
 
 #Seed of rental
 

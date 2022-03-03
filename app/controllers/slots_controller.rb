@@ -7,6 +7,10 @@ class SlotsController < ApplicationController
     @user = @slot.user #In theroy, in our case it is the guide
     p @user
     setup_video_call_token
+
+    #Chatroom
+    @chatroom = Chatroom.find(params[:id])
+    @message = Message.new()
   end
 
   private
