@@ -141,7 +141,7 @@ offer1 = Offer.new({
 })
 
 offer1.user = raph
-offer1.category = category1
+offer1.category = category3
 
 file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,h_240,q_auto,w_520/v1573658235/jj8r6pg0je6ldjiwktat.webp")
 offer1.photos.attach(io: file, filename: "#{offer1.title}-1")
@@ -164,7 +164,7 @@ offer2 = Offer.new({
 })
 
 offer2.user = raph
-offer2.category = category1
+offer2.category = category3
 file = URI.open("https://st2.depositphotos.com/1465075/8929/i/600/depositphotos_89292306-stock-photo-buried-treasure-in-a-cave.jpg")
 offer2.photos.attach(io: file, filename: "#{offer2.title}-1")
 
@@ -201,7 +201,7 @@ offer4 = Offer.new({
   description: "Arcangues, rendu célèbre par LUIS MARIANO, est un magnifique village vallonné qui a le charme d'un décor d'opérette.",
   video_type: "Live",
   city: "Arcangues",
-  title: "Arcangueszoo",
+  title: "Arcangues",
   price: rand(5.0..10.0)
 })
 
@@ -293,7 +293,7 @@ offer8 = Offer.new({
 })
 
 offer8.user = antho
-offer8.category = category1
+offer8.category = category2
 file = URI.open("https://api-www.louvre.fr/sites/default/files/2021-01/cour-napoleon-et-pyramide_1.jpg")
 offer8.photos.attach(io: file, filename: "#{offer8.title}-1")
 
