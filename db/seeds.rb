@@ -137,7 +137,7 @@ offer1 = Offer.new({
   video_type: "Both",
   city: "Paris",
   title: "La 8ème merveille du monde",
-  price: rand(5.0..10.0)
+  price: rand(5.0..10.0).round(1)
 })
 
 offer1.user = raph
@@ -160,7 +160,7 @@ offer2 = Offer.new({
   video_type: "Live",
   city: "Paris",
   title: "La caverne de Raph",
-  price: rand(5.0..10.0)
+  price: rand(5.0..10.0).round(1)
 })
 
 offer2.user = raph
@@ -181,7 +181,7 @@ offer3 = Offer.new({
   video_type: "Live",
   city: "Biarritz",
   title: "Sables d'or",
-  price: rand(5.0..10.0)
+  price: rand(5.0..10.0).round(1)
 })
 
 offer3.user = nico
@@ -202,7 +202,7 @@ offer4 = Offer.new({
   video_type: "Live",
   city: "Arcangues",
   title: "Arcangues",
-  price: rand(5.0..10.0)
+  price: rand(5.0..10.0).round(1)
 })
 
 offer4.user = nico
@@ -223,7 +223,7 @@ offer5 = Offer.new({
   video_type: "Both",
   city: "Paris",
   title: "Palais Royal",
-  price: rand(5.0..10.0)
+  price: rand(5.0..10.0).round(1)
 })
 
 #gg
@@ -240,12 +240,12 @@ offer5.photos.attach(io: file, filename: "#{offer5.title}-3")
 offer5.save!
 
 offer6 = Offer.new({
-  address: "Centre-ville",
-  description: "Gughenheim de Venise, meilleur musée d'art contemporain",
+  address: "704 Dorsoduro",
+  description: "La collection Peggy Guggenheim est un ensemble d'œuvres d'art accumulées au cours de sa vie par la collectionneuse et mécène Peggy Guggenheim (1898-1979). ",
   video_type: "Live",
   city: "Venise",
-  title: "Le Gugenheim, Venise",
-  price: rand(5.0..10.0)
+  title: "Le Guggenheim",
+  price: rand(5.0..10.0).round(1)
 })
 
 offer6.user = julien
@@ -268,7 +268,7 @@ offer7 = Offer.new({
   video_type: "Both",
   city: "Paris",
   title: "Arc de Triomphe",
-  price: rand(5.0..10.0)
+  price: rand(5.0..10.0).round(1)
 })
 
 offer7.user = antho
@@ -289,7 +289,7 @@ offer8 = Offer.new({
   video_type: "Both",
   city: "Paris",
   title: "Le Louvre",
-  price: rand(5.0..10.0)
+  price: rand(5.0..10.0).round(1)
 })
 
 offer8.user = antho
@@ -311,7 +311,7 @@ offer9 = Offer.new({
   video_type: "Both",
   city: "Paris",
   title: "Le Centre Pompidou",
-  price: rand(5.0..10.0)
+  price: rand(5.0..10.0).round(1)
 })
 
 offer9.user = antho
@@ -333,7 +333,7 @@ offer10 = Offer.new({
   video_type: "VoD",
   city: "Rio de Janeiro",
   title: "Pão de Açúcar",
-  price: rand(5.0..10.0)
+  price: rand(5.0..10.0).round(1)
 })
 
 offer10.user = antho
@@ -354,7 +354,7 @@ offer11 = Offer.new({
   video_type: "Both",
   city: "Rio de Janeiro",
   title: "Corcovado",
-  price: rand(5.0..10.0)
+  price: rand(5.0..10.0).round(1)
 })
 
 offer11.user = julien
@@ -375,7 +375,7 @@ offer12 = Offer.new({
   video_type: "VoD",
   city: "Rio de Janeiro",
   title: "Copacabana",
-  price: rand(5.0..10.0)
+  price: rand(5.0..10.0).round(1)
 })
 
 offer12.user = julien
@@ -396,7 +396,7 @@ offer13 = Offer.new({
   video_type: "Live",
   city: "Paris",
   title: "Musée d'Orsay",
-  price: rand(5.0..10.0)
+  price: rand(5.0..10.0).round(1)
 })
 
 offer13.user = nico
@@ -417,7 +417,7 @@ offer14 = Offer.new({
   video_type: "Both",
   city: "Londres",
   title: "Tate Museum",
-  price: rand(5.0..10.0)
+  price: rand(5.0..10.0).round(1)
 })
 
 offer14.user = nico
@@ -438,7 +438,7 @@ offer15 = Offer.new({
   video_type: "VoD",
   city: "Londres",
   title: "Big Ben",
-  price: rand(5.0..10.0)
+  price: rand(5.0..10.0).round(1)
 })
 
 offer15.user = raph
@@ -459,7 +459,7 @@ offer16 = Offer.new({
   video_type: "Live",
   city: "Londres",
   title: "Westminster Abbey",
-  price: rand(5.0..10.0)
+  price: rand(5.0..10.0).round(1)
 })
 
 offer16.user = raph
@@ -475,7 +475,7 @@ offer16.photos.attach(io: file, filename: "#{offer16.title}-3")
 offer16.save!
 
 video_type = ["Live", "VoD", "Both"]
-offers = [offer1, offer2, offer3, offer4, offer5, offer6, offer7, offer8, offer9, offer10, offer11, offer12, offer13, offer14]
+offers = [offer1, offer2, offer3, offer4, offer5, offer6, offer7, offer8, offer9, offer10, offer11, offer12, offer13, offer14, offer15, offer16]
 
 20.times do
   offer = Offer.new({
@@ -483,12 +483,14 @@ offers = [offer1, offer2, offer3, offer4, offer5, offer6, offer7, offer8, offer9
     description: Faker::Lorem.sentences(number: 3),
     video_type: video_type.sample,
     city: Faker::Address.city,
-    title: Faker::Lorem.sentence(word_count: 2),
-    price: rand(5.0..10.0)
+    title: Faker::Mountain.name,
+    price: rand(5.0..10.0).round(1)
     })
 
   offer.user = fake_users.sample
   offer.category = categories.sample
+  file = URI.open("https://store-images.s-microsoft.com/image/apps.23032.13608622719434797.30372fd8-b4bd-41c0-beea-1c2a61e087c1.a8347bb5-9305-48e8-b668-08df54c5a91a?w=672&h=378&q=80&mode=letterbox&background=%23FFE4E4E4&format=jpg")
+  offer.photos.attach(io: file, filename: "#{offer.title}")
   offer.save!
   offers << offer
 end
