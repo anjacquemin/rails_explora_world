@@ -66,14 +66,14 @@
             <%= @offer.city %>
             </p>
           <p class="info">
-            <i class="fas fa-calendar-alt"></i>
+            <i class="fas fa-calendar-day"></i>
             <%= @offer.slots.all[0].start_at %>
           </p>
           <p class= "info">
             <i class="fas fa-video"></i>
             <%= "#{@offer.slots.all[0].user.first_name} #{@offer.slots.all[0].user.last_name}"%>
           </p>
-          <button class= "info" data-action="click->slots-display#display" data-bs-toggle="modal" data-bs-target="#staticBackdrop">full schedule</button>
+          <button class= "info btn border-0 shadow-none text-white pt-0 ps-0" data-action="click->slots-display#display" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fas fa-calendar-alt"></i> Full schedule</button>
         </div>
         <button class="action"><%= link_to "Register", slot_rentals_path(@offer.slots.all[0]), method: :post%></button>
       </div>
@@ -93,7 +93,7 @@
             <%= @offer.city %>
             </p>
           <p class="info">
-            <i class="fas fa-calendar-alt"></i>
+            <i class="fas fa-calendar-day"></i>
             <%= @offer.slots.all[0].start_at %>
           </p>
           <p class= "info">
@@ -171,25 +171,22 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <h5 class="modal-title" id="staticBackdropLabel">Schedule</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <h3>Schedule</h3>
         <% @offer.slots.each do |slot|%>
-        <div class="d-flex">
+        <div class="d-flex justify-content-between">
           <div>
             <p> <%=slot.start_at %> </p>
           </div>
           <div>
-            <button> Register </button>
+            <button class="btn btn-primary"> Register </button>
           </div>
         </div>
         <% end %>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
       </div>
     </div>
   </div>
