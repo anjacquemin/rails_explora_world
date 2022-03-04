@@ -2,20 +2,21 @@
 <div id="<%= locals[:category_name] %>">
   <div class="cards my-3">
     <% locals[:category].each do |offer| %>
-      <div class="card-category mb-4">
-        <% if offer.photos.attached? %>
-          <%= cl_image_tag offer.photos.all[0].key, height: 250 %>
-        <% else %>
-          <%= image_tag "taj-mahal.png", height: 250 %>
-        <% end %>
-        <div class="text">
-          <h3 class="title"><%=offer.title%></h3>
-          <p><%=offer.description.truncate(100)%></p>
+      <%= link_to offer_path(offer) do %>
+        <div class="card-category mb-4">
+          <% if offer.photos.attached? %>
+            <%= cl_image_tag offer.photos.all[0].key, height: 250, class: 'fit-picture' %>
+          <% else %>
+            <%= image_tag "taj-mahal.png", height: 250, class: 'fit-picture' %>
+          <% end %>
+          <div class="text mt-3">
+            <h3 class="title"><%=offer.title%></h3>
+            <p><%=offer.description.truncate(100)%></p>
+          </div>
+          <div class="card-text">
+          </div>
         </div>
-        <div class="card-text">
-          <%= link_to "See more", offer_path(offer) %>
-        </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>
