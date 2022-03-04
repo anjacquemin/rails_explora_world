@@ -136,7 +136,7 @@ offer1 = Offer.new({
   description: "Là où la magie opère...",
   video_type: "Both",
   city: "Paris",
-  title: "La 8ème merveille du monde",
+  title: "Le wagon",
   price: rand(5.0..10.0).round(1)
 })
 
