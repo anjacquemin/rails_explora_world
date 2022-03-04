@@ -2,8 +2,10 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr ;
   grid-gap: 16px 38px;
+}
 
-
+.cards a {
+  text-decoration: none;
 }
 
 .card-category {
@@ -103,4 +105,16 @@
   .cards {
     grid-template-columns: 1fr  1fr 1fr;
   }
+}
+
+
+.fit-picture {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+.fit-picture img {
+  border-radius: 10px;
 }

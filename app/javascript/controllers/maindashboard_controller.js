@@ -12,7 +12,8 @@ export default class extends Controller {
 
     // this.bookingsTarget.classlist.toggle("active")
     const tab1 = document.querySelector("#my-visits");
-    const tab2 = document.querySelector("#my-offers");
+    const tab2 = document.querySelector("#my-flashcards");
+    const tab3 = document.querySelector("#my-map");
 
     console.log(tab)
     console.log(tab1)
@@ -20,12 +21,14 @@ export default class extends Controller {
 
     const button1 = document.querySelector("#button1");
     const button2 = document.querySelector("#button2");
+    const button5 = document.querySelector("#button5");
     console.log(target)
 
 
     // // console.log(tab)
     tab1.classList.add("d-none")
     tab2.classList.add("d-none")
+    tab3.classList.add("d-none")
     tab.classList.remove("d-none")
 
     // button1.classList.remove("tabgrey")

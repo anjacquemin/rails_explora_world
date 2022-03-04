@@ -7,12 +7,28 @@ class PagesController < ApplicationController
   def dashboard
     @user = current_user
     @rentals = Rental.where(user_id: current_user.id)
+    @markers = []
+    @rentals.each do |rental|
+      @markers <<
+        {
+          lat: rental.slot.offer.latitude,
+          lng: rental.slot.offer.longitude
+        }
+    end
   end
 
   def dashboard_booking
     @user = current_user
     @rentals = Rental.where(user_id: current_user.id)
     @last_rental = Rental.find(params[:id])
+    @markers = []
+    @rentals.each do |rental|
+      @markers <<
+        {
+          lat: rental.slot.offer.latitude,
+          lng: rental.slot.offer.longitude
+        }
+    end
     render :dashboard
   end
 end
