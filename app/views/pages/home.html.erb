@@ -5,8 +5,9 @@
       <span data-controller="typed-js"></span>
     <p>Ready to discover the world from your sofa?</p>
     </h1>
-    <%= link_to "All offers", offers_path %>
-    <%= link_to "Surprize me!", offers_path %>
+    <%= link_to "All offers", offers_path, class: "btn btn-ghost"%>
+    <%# <%= link_to "Surprize me!", offers_path %>
+    <%= image_tag "logoexplo.png", id: "logoexplobanner" %>
   </div>
 </div>
 <div class="container">
@@ -166,7 +167,8 @@
     </div>
     <a href="#top">Back to top</a>
     <div class="footer-copyright">
-      Let's explore the <i class="fas fa-globe-americas"></i> with Explora World !
+     <p> Let's explore the <i class="fas fa-globe-americas"></i> with Explora World ! </p>
+      <%= image_tag "logoexplo.png", id: "logoexplofooter" %>
     </div>
   </div>
 </div>
