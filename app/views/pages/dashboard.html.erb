@@ -20,7 +20,7 @@
 
       <div id="my-visits" data-controller="dashboard">
 
-        <div class="tab container mt-5 d-flex justify-content-left">
+        <div class="tab container mt-3 d-flex justify-content-left">
           <button id="button3" class="btn-ghost mx-3" data-action="click->dashboard#openTab" data-tab="future-visits">FUTURE VISITS</button>
           <button id="button4" class="btn-ghost mx-3" data-action="click->dashboard#openTab" data-tab="past-visits">PAST VISITS</button>
         </div>
@@ -59,20 +59,21 @@
 
       <div id="my-flashcards" class="d-none">
         <div class="flashcard m-5">
-          <h1>Are you ready for your flashcards ?!</h1>
-          <%= link_to "Go !", dashboard_path, class: 'btn-ghost'%>
+          <h1>Coming soon ! 😉</h1>
+          <%#= link_to "Go !", dashboard_path, class: 'btn-ghost'%>
           <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         </div>
       </div>
 
 
-      <div id="my-map" class="d-none">
-        <div style="width: 100%; height: 600px;"
+      <div id="my-map" class="d-none d-flex flex-column align-items-center">
+        <div class="m-5 map_dashboard" style="width: 100%; height: 600px;"
           data-controller="mapbox"
           data-mapbox-markers-value="<%= @markers.to_json %>"
           data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
       </div>
+
     </div>
 
   </div>
