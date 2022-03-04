@@ -25,6 +25,4 @@ class OffersController < ApplicationController
     ]
     end
   end
-
-  # map
 end
