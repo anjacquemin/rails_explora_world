@@ -5,7 +5,7 @@ export default class extends Controller {
   connect() {
     new Typed(this.element, {
       strings: ["EXPLORA WORLD", "EXPLORA WORLD"],
-      typeSpeed: 50,
+      typeSpeed: 75,
       loop: true
     });
   }

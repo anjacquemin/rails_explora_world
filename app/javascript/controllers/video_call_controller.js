@@ -1,7 +1,7 @@
 import TwilioVideoController from 'stimulus-twilio-video'
 
 export default class extends TwilioVideoController {
-  static targets = ['noCall', 'awaitingBuddy', 'joinCallButton', 'endCallButton', "liveDisplay"]
+  static targets = ['noCall', 'awaitingBuddy', 'joinCallButton', 'endCallButton', "liveDisplay", "map"]
 
   callStarted() {
     console.log('Call start')
@@ -29,5 +29,16 @@ export default class extends TwilioVideoController {
 
   buddyLeft() {
     console.log('Buddy has left')
+  }
+
+  togglemap() {
+    console.log(`TOGGLE MAP`)
+    console.log(this.mapTarget.style)
+    if (this.mapTarget.style.transform == "translateY(-5px)"){
+      this.mapTarget.style.transform = "translateY(200px)"
+    } else {
+      this.mapTarget.style.transform = "translateY(-5px)"
+    }
+    // this.mapTarget.classList.toggle('d-none')
   }
 }

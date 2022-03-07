@@ -1,3 +1,44 @@
+<script>
+
+
+  function initialize() {
+    var map = WE.map('map', {
+      center: [36.057944835, -112.18688965],
+      zoom: 2,
+      dragging: true,
+      scrollWheelZoom: true
+    });
+    var baselayer = WE.tileLayer('https://webglearth.github.io/webglearth2-offline/{z}/{x}/{y}.jpg', {
+      tileSize: 256,
+      bounds: [[-85, -180], [85, 180]],
+      minZoom: 0,
+      maxZoom: 16,
+      attribution: 'WebGLEarth example',
+      tms: true
+    }).addTo(map);
+
+
+    // rechercher les markers dans le DOM
+    var markers = JSON.parse(document.getElementById("map").dataset.markers);
+    console.log(markers)
+    markers.forEach(function (marker) {
+        WE.marker(marker).addTo(map)
+    });
+
+    var coords = [-10.45, -48.5];
+    var inputRandom = document.querySelector("#map input");
+      inputRandom.addEventListener("click", function(e) {
+      map.panTo(coords);
+      var marker = WE.marker(coords).addTo(map);
+      marker.bindPopup("<a href=/offers/12>Discover me !</a>", {maxWidth: 150, closeButton: true}).openPopup();
+    })
+  }
+
+  initialize();
+
+</script>
+
+
 <div class="container">
   <h2>All offers</h2>
   <div class="wrap">
@@ -15,19 +56,31 @@
     </div>
   </div>
 
+  <div class="d-flex justify-content-around">
+    <div data-controller="categories">
 
-  <div data-controller="categories">
+      <div class="tab container mt-5 d-flex justify-content-start">
+        <button class="btn btn-ghost" data-action="click->categories#openTab" data-tab="Museums">Museums</button>
+        <button class="btn btn-ghost" data-action="click->categories#openTab" data-tab="Monuments">Monuments</button>
+        <button class="btn btn-ghost" data-action="click->categories#openTab" data-tab="Neighborhoods">Neighborhoods</button>
+      </div>
 
-    <div class="tab container mt-5 d-flex justify-content-around">
-      <button class="btn btn-ghost" data-action="click->categories#openTab" data-tab="Museums">Museums</button>
-      <button class="btn btn-ghost" data-action="click->categories#openTab" data-tab="Monuments">Monuments</button>
-      <button class="btn btn-ghost" data-action="click->categories#openTab" data-tab="Neighborhoods">Neighborhoods</button>
+      <div class="d-flex">
+        <div>
+          <%= render "shared/card_index", locals: {category: @offers.select { |offer| offer.category.name == "Museum"}, category_name: "Museums" } %>
+          <%= render "shared/card_index", locals: {category: @offers.select { |offer| offer.category.name == "Monument"}, category_name: "Monuments"} %>
+          <%= render "shared/card_index", locals: {category: @offers.select { |offer| offer.category.name == "Neighborhood"}, category_name: "Neighborhoods"} %>
+        </div>
+
+
+        <div id="map" class="position-sticky" data-markers="<%= @markers.to_json %>">
+          <div id="coords"></div>
+          <div id="buttons">
+            <input type="button" class="btn-ghost" value="I feel lucky !"><br>
+          </div>
+        </div>
+      </div>
     </div>
-
-
-    <%= render "shared/card_index", locals: {category: @offers.select { |offer| offer.category.name == "Museum"}, category_name: "Museums" } %>
-    <%= render "shared/card_index", locals: {category: @offers.select { |offer| offer.category.name == "Monument"}, category_name: "Monuments"} %>
-    <%= render "shared/card_index", locals: {category: @offers.select { |offer| offer.category.name == "Neighborhood"}, category_name: "Neighborhoods"} %>
   </div>
 
 
