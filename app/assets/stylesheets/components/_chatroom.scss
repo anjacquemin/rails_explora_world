@@ -1,11 +1,14 @@
 .chatroom {
-  background: white;
+  background: #F1F3F7;
+  border-radius: 10px;
   // margin-top: 9px;
   // height: calc(100vh - 75px);
-  height: 555px;
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: space-between;
+  height: 700px;
+  width:300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  // align-items: center;
   // flex-grow: 1;
   overflow: hidden;
 
@@ -16,38 +19,47 @@
   }
 
   .messages {
-    border-top: $light-blue solid;
-    border-left: $light-blue solid;
-    border-right: $light-blue solid;
-    border-top: $light-blue solid;
     height: 420px;
     overflow: hidden
     // padding: 1rem;
   }
 
-  // #messages {
-  //   height:90vh;
-  //   overflow: hidden;
-  // }
-
-  // #new_message {
-  //   border-top: 1px solid $gray-200;
-  //   // padding: 1rem;
-
-  //   .form-group {
-  //     margin-bottom: 0;
-  //   }
-  // }
-
   .btn-height {
-    height: 61px;
+    height: 40px;
+    background-color: #fad585;
+    border: none;
   }
 
   .height-fix {
-    height: 40px;
+    height: 20px;
   }
 
   .message-height {
+    border-style: none;
     height: 20px;
+  }
+
+  #message_content {
+    border-style: none;
+    height: 20px;
+    margin-bottom: 0;
+  }
+
+  .messages-header {
+    background-color: white;
+    border-radius: 10px;
+  }
+
+  .header-message {
+    font-size: 14px;
+    font-weight: normal;
+  }
+
+  .active-tab {
+    background-color: #FFF3D9;
+    border-radius: 10px;
+  }
+  #input-message {
+    margin-bottom: 0 !important;
   }
 }
