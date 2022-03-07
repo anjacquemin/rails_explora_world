@@ -7,6 +7,8 @@ class PagesController < ApplicationController
   def dashboard
     @user = current_user
     @rentals = Rental.where(user_id: current_user.id)
+    # @slots= Slot.where(rental_
+    @pastvisit = @rentals.map { |rental| rental.slot if rental.slot.start_at < Date.today }.compact
     @markers = []
     @rentals.each do |rental|
       @markers <<

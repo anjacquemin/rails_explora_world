@@ -3,7 +3,7 @@
   background-position: center;
   position: relative;
   display: flex;
-  height: 910px;
+  height: 830px;
   align-items: center;
   justify-content: center;
   // background-image: linear-gradient(rgba(95, 64, 64, 0.1), rgba(70, 9, 211, 0.3)), asset-url('explore_lp.png');
@@ -95,4 +95,11 @@ h2 {
     left: 450px;
     top: 23px;
   }
+}
+
+#logoexplobanner {
+  width: 150px;
+  position: absolute;
+  right: 33px;
+  bottom: 11px;
 }

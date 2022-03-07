@@ -1,7 +1,8 @@
 .video-call {
-  width: 640px;
-  height: 536px;
+  width: 600px;
+  height: 480px;
   margin: 0 auto;
+  position: relative;
 }
 
 .hidden {
@@ -30,16 +31,21 @@
 }
 
 .call-buttons {
-  margin: 1rem 0;
+  margin: 1rem 1rem;
   display: flex;
   justify-content: space-around;
 
   .call-button {
     border: 1px solid black;
     color: black;
-    border-radius: 4px;
-    padding: 4px 8px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    padding: 4px 4px;
     text-decoration: none;
+    position: absolute;
+    bottom:5px;
+    text-align: center;
   }
 
   .call-button:hover {
@@ -70,6 +76,40 @@
 #remote-video {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100%;
+  // align-items: center;
+  height: 480px;
+}
+
+.title-inside {
+  position: absolute;
+  top: 0;
+  left:10px;
+  color: white;
+  z-index: 1000;
+}
+
+.live-record {
+  position: absolute;
+  top: 20px;
+  color: white;
+  right: 0;
+  z-index: 1000;
+}
+
+.end-visit{
+  position: absolute;
+  bottom: 14px;
+  color: white;
+  left: 10px;
+  z-index: 1000;
+}
+
+.btn-out {
+  background-color: transparent;
+  border: none;
+}
+
+.btn-send {
+  height: 62px;
+  background-color: $green;
 }

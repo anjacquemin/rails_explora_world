@@ -13,10 +13,10 @@ class Offer < ApplicationRecord
 
   validates :address, presence: true
   validates :description, presence: true
-  validates :description, length: { minimum: 10 }
+  # validates :description, length: { minimum: 10 }
   validates :video_type, inclusion: { in: ["VoD", "Live", "Both"] }
   validates :title, presence: true
-  validates :title, length: { minimum: 5 }
+  # validates :title, length: { minimum: 5 }
   validates :price, numericality: { greater_than: 0 }
   include PgSearch::Model
   pg_search_scope :search_by_city,
