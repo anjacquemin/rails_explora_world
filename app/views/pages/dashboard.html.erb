@@ -1,93 +1,114 @@
-<div class="container">
-
-  <div class="container">
-    <div class="mt-3 text-align-center d-flex flex-column align-items-center">
-      <h1 class="dashboard"><%= "DASHBOARD" %></h1>
-        <% unless @last_rental.nil? %>
-        <p class="text-center confirmation" ><%= "Congratulations !" %></p>
-        <p class="text-center confirmation" ><%= "#{@last_rental.slot.start_at.strftime("Visit confirmed the %d/%m/%Y at %H:%M")} with #{@last_rental.slot.user.first_name}" %></p>
-        <% end %>
+<div data-controller="maindashboard" class="dashboard-container ">
+  <div class="sidebar px-3 py-5">
+    <div class="items my-5">
+      <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-visits"> <i class=" icone pe-4 fas fa-eye color-red"></i>My visits</div>
+      <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-map"> <i class=" icone pe-4 fas  fa-map color-orange"></i>My map</div>
+      <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-vod"> <i class=" icone pe-4 fas fa-video color-blue"></i>My vod</div>
+      <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-friends"> <i class=" icone pe-4 fas fa-user-friends color-green"></i>My friends</div>
+      <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-leaderboard"> <i class=" icone pe-4 fas fa-solid fa-graduation-cap color-violet"></i>Leaderboard</div>
     </div>
-
-    <div data-controller="maindashboard">
-
-      <div class="tab container mt-5 d-flex justify-content-left">
-        <button id="button1" class="btn-ghost mx-3" data-action="click->maindashboard#openTab" data-tab="my-visits">MY VISITS</button>
-        <button id="button2" class="btn-ghost mx-3" data-action="click->maindashboard#openTab" data-tab="my-flashcards">MY FLASHCARDS</button>
-        <button id="button5" class="btn-ghost mx-3" data-action="click->maindashboard#openTab" data-tab="my-map">MY MAP</button>
-
+    <div class="profile">
+      <p>PROFILE BOARD</p>
+    </div>
+    <div class="picture">
+    </div>
+  </div>
+  <div class="dashboard-content bg-blue">
+    <div class="d-flex w-100 align-items-center justify-content-between  mb-4">
+      <div class="whitebox p-3" style="width:23%;" >
+      <p class="font-bold"> Total Visits</p>
+      TOTO
       </div>
 
-      <div id="my-visits" data-controller="dashboard">
 
-        <div class="tab container mt-3 d-flex justify-content-left">
-          <button id="button3" class="btn-ghost mx-3" data-action="click->dashboard#openTab" data-tab="future-visits">FUTURE VISITS</button>
-          <button id="button4" class="btn-ghost mx-3" data-action="click->dashboard#openTab" data-tab="past-visits">PAST VISITS</button>
-        </div>
+      <div class="whitebox p-3" style="width:23%;" >
+      <p class="font-bold"> Museums visited</p>
+      TOTO
+      </div>
 
-        <div id="future-visits">
-          <div class="cards my-5">
-            <% @rentals.each do |rental| %>
-              <% if (rental.slot.start_at > Date.today) %>
-                <div class="card-category mb-4">
-                  <%= cl_image_tag rental.slot.offer.photos.all[0].key, height: 250, class: 'fit-picture' %>
-                  <div class="text mt-3">
-                    <h3 class="title"><%= rental.slot.offer.title %></h3>
-                    <p><%= rental.slot.offer.description.truncate(200) %></p>
-                    <p class ="bold"><%= "#{rental.slot.start_at.strftime("Starts : %d/%m/%Y at %H:%M")}" %></p>
-                  </div>
-                  <div class="card-text">
-                    <%= link_to "Go to the live visit !", slot_path(rental.slot), class: 'btn-ghost'%>
-                  </div>
-                </div>
-              <% end %>
-            <% end %>
+      <div class="whitebox p-3" style="width:23%;" >
+      <p class="font-bold"> Monuments visited</p>
+      TOTO
+      </div>
+
+      <div class="whitebox p-3" style="width:23%;" >
+      <p class="font-bold"> Neighborhoods visited</p>
+      TOTO
+      </div>
+
+    </div>
+    <div class="d-flex w-100  justify-content-between mb-4">
+
+    <%# MAP %>
+      <div class="whitebox " style="width:70%;">
+        <div id="my-map" class=" d-flex flex-column align-items-center">
+          <div class=" map_dashboard" style="width: 100%; height: 600px;"
+
+            data-controller="mapbox"
+            data-mapbox-markers-value="<%= @markers.to_json %>"
+            data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
           </div>
         </div>
+      </div>
 
-        <div id="past-visits" class="d-none">
+    <%# FLASHCARDS %>
+      <div class="whitebox p-3" style="width:28.5%;">
+        <div id="my-flashcards" class="">
+          <div class="flashcard m-5">
+            <h1>Coming soon !  Best Pictures visited😉</h1>
+            <%#= link_to "Go !", dashboard_path, class: 'btn-ghost'%>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%# PAST VISIT HERE  %>
+
+    <div class="past-visit">
+     <h2>Past Visits</h2>
+      <div class="whitebox d-flex flex-wrap w-100 align-items-start justify-content-evenly mb-4 p-2">
+        <% if @pastvisit.size >= 1 %>
           <% @rentals.each do |rental| %>
             <% if (rental.slot.start_at < Date.today) %>
-              <h2> <%=rental.slot.offer.title%> </h2>
-              <p>Description : <%=rental.slot.offer.description%> </h2>
-              <p>Start time : <%=rental.slot.start_at%> </h2>
+              <div class="card-category my-4" style="width:30%;">
+                <%= cl_image_tag rental.slot.offer.photos.all[0].key, height: 250 , style: "width:100%;"%>
+                <div class="text mt-3">
+                  <h3 class="title"><%= rental.slot.offer.title %></h3>
+                  <p><%= rental.slot.offer.description %></p>
+                  <p><%= "Starts at: #{rental.slot.start_at}" %></p>
+                </div>
+                <div class="card-text">
+                  <%= link_to "Go to the live visit !",  slot_path(rental.slot)%>
+                </div>
+              </div>
             <% end %>
           <% end %>
-          <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        </div>
+        <% else %>
+          <%= "THERE IS NO PAST VISITS" %>
+        <% end %>
       </div>
-
-      <div id="my-flashcards" class="d-none">
-        <div class="flashcard m-5">
-          <h1>Coming soon ! 😉</h1>
-          <%#= link_to "Go !", dashboard_path, class: 'btn-ghost'%>
-          <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        </div>
-      </div>
-
-      <div id="my-map" class="d-none d-flex flex-column align-items-center">
-        <div class="m-5 map_dashboard" style="width: 100%; height: 600px;"
-
-          data-controller="mapbox"
-          data-mapbox-markers-value="<%= @markers.to_json %>"
-          data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-        </div>
-      </div>
-
     </div>
 
+
+    <%# FUTURE VISIT HERE  %>
+
+     <%# <h2>Future Visits</h2> %>
+      <div class="whitebox d-flex flex-wrap w-100 align-items-start justify-content-evenly mb-4 p-2">
+        <% @rentals.each do |rental| %>
+          <% if (rental.slot.start_at > Date.today) %>
+            <div class="card-category my-4" style="width:21%;">
+              <%= cl_image_tag rental.slot.offer.photos.all[0].key, height: 250 , style: "width:100%;"%>
+              <div class="text mt-3">
+                <h3 class="title"><%= rental.slot.offer.title %></h3>
+                <p class="text-truncate"><%= rental.slot.offer.description %></p>
+                <p><%= "Begin at: #{rental.slot.start_at}" %></p>
+              </div>
+              <div class="card-text">
+                <%= link_to "Go to the live visit !",  slot_path(rental.slot)%>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
   </div>
 </div>
-<div class="footer">
-    <div class="footer-links">
-      <a href="#"><i class="fab fa-github"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-linkedin"></i></a>
-    </div>
-    <a href="#top">Back to top</a>
-    <div class="footer-copyright">
-      Let's explore the <i class="fas fa-globe-americas"></i> with Explora World !
-    </div>
-  </div>

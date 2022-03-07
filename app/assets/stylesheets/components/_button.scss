@@ -1,7 +1,7 @@
 .btn-ghost {
 	display: inline-block;
 	padding: .75rem 1.25rem;
-	border-radius: 10rem;
+	border-radius: 4px;
 	color: #fff;
 	text-transform: uppercase;
 	font-size: 1rem;
@@ -10,7 +10,7 @@
 	position: relative;
 	overflow: hidden;
 	z-index: 1;
-  font-family: $headers-font;
+  font-family: $body-font;
 	&:after {
 		content: '';
 		position: absolute;
@@ -18,12 +18,7 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background-color: $text_gray;
-		border-radius: 10rem;
-		z-index: -2;
-	}
-	&:before {
-		content: '';
+		background-color: #0B7DC2;
 		position: absolute;
 		bottom: 0;
 		left: 0;

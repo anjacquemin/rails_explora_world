@@ -1,3 +1,56 @@
+.sidebar{
+  width: 20%;
+  height: calc(100vh - 66px);
+  li{
+    color: black;
+    margin-bottom: 10px;
+  }
+  border-right: 1.5px solid rgba(0, 0, 0, 0.1);
+}
+
+
+.whitebox{
+  background-color: white;
+  border-radius: 10px;
+  // border: 1.5px solid rgba(0, 0, 0, 0.1);
+}
+.ok{
+  font-size: 23px;
+}
+.icone{
+  font-size: 25px;
+}
+.dashboard-container{
+  overflow: hidden;
+  display: flex;
+  height: calc(100vh - 66px);
+}
+
+.dashboard-content{
+  width: 80%;
+  padding: 2em;
+  overflow-y: scroll;
+  p{
+    color:#72777a
+  }
+}
+
+.items{
+  margin-bottom: 15px;
+}
+
+.profile{
+  display: flex;
+  height: 400px;
+  width: 80%;
+}
+
+.picture{
+  display:flex;
+  height: 600px;
+  width: 60%;
+}
+
 .confirmation {
   color: $blue;
   font-size: 24px;
@@ -12,5 +65,17 @@
 }
 
 .map_dashboard {
-  border-radius: 20px;
+  border-radius: 3px;
+}
+
+.text-truncate{
+  flex: 1;
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.picture{
+  object-fit: content;
 }
