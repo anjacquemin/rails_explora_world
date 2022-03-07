@@ -95,7 +95,7 @@ antho.save!
 
 agents = [raph, nico, antho, julien]
 
-fake_users = []
+fake_users = [raph, nico, antho, julien]
 
 20.times do
   user = User.new({
@@ -132,51 +132,51 @@ categories = [category1, category2, category3]
 #Seed of offers
 
 offer1 = Offer.new({
-  address: "Villa Gaudelet",
-  description: "Là où la magie opère...",
+  address: "R. Fazenda Velha",
+  description: "The Amazon rainforest, alternatively, the Amazon jungle[a] or Amazonia, is a moist broadleaf tropical rainforest in the Amazon biome that covers most of the Amazon basin of South America. ",
   video_type: "Both",
-  city: "Paris",
-  title: "Le wagon",
+  city: "Belem",
+  title: "Amazonia",
   price: rand(5.0..10.0).round(1)
 })
 
 offer1.user = raph
-offer1.category = category3
+offer1.category = category1
 
-file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,h_240,q_auto,w_520/v1573658235/jj8r6pg0je6ldjiwktat.webp")
+file = URI.open("https://www.souriya.fr/wp-content/uploads/2020/10/mata-atlantica-atlantic-forest-in-brazil-royalty-free-image-935746242-1567619461.jpg")
 offer1.photos.attach(io: file, filename: "#{offer1.title}-1")
 
-file = URI.open("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFJz0Gonzr6LHJ_0rOeIxrQvV-E4FFTX52jA&usqp=CAU")
+file = URI.open("https://www.furosystems.com/wp-content/uploads/2020/06/amazon-rainforest.jpg")
 offer1.photos.attach(io: file, filename: "#{offer1.title}-2")
 
-file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,h_522,w_1000/v1596821544/c7qciahbutrpoi4o0bi9.jpg")
+file = URI.open("https://static.dw.com/image/40320815_101.jpg")
 offer1.photos.attach(io: file, filename: "#{offer1.title}-3")
 
 offer1.save!
 
 offer2 = Offer.new({
-  address: "Rue Recamier",
-  description: "Rpz le 75007...",
+  address: "C14, Talek, Kenya",
+  description: "Masai Mara, also sometimes spelled Masai Mara and locally known simply as The Mara, is a large national game reserve in Narok, Kenya, contiguous with the Serengeti National Park in Tanzania.",
   video_type: "Live",
-  city: "Paris",
-  title: "La caverne de Raph",
+  city: "Talek",
+  title: "Masai Mara National Reserve",
   price: rand(5.0..10.0).round(1)
 })
 
 offer2.user = raph
 offer2.category = category3
-file = URI.open("https://st2.depositphotos.com/1465075/8929/i/600/depositphotos_89292306-stock-photo-buried-treasure-in-a-cave.jpg")
+file = URI.open("https://cdn.getyourguide.com/img/location/5d2c5760b47fd.jpeg/88.jpg")
 offer2.photos.attach(io: file, filename: "#{offer2.title}-1")
 
-file = URI.open("https://st2.depositphotos.com/1465075/8929/i/600/depositphotos_89292306-stock-photo-buried-treasure-in-a-cave.jpg")
+file = URI.open("https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/e1/8a/69/the-animals-in-the-wild.jpg?w=1000&h=600&s=1")
 offer2.photos.attach(io: file, filename: "#{offer2.title}-2")
 
-file = URI.open("https://st2.depositphotos.com/1465075/8929/i/600/depositphotos_89292306-stock-photo-buried-treasure-in-a-cave.jpg")
+file = URI.open("https://www.bouger-voyager.com/wp-content/uploads/2021/01/137260408_m.jpg")
 offer2.photos.attach(io: file, filename: "#{offer2.title}-3")
 offer2.save!
 
 offer3 = Offer.new({
-  address: "Boulevard des plages",
+  address: "Boulevard des plages, Biarritz",
   description: "Située au nord de la station, La Barre est la plus petite plage d’Anglet. Elle est aussi marquée par la proximité de l’embouchure de l’Adour. Très encaissée entre 2 longs épis, elle est la plus calme du littoral. Elle porte les stigmates de l’Occupation : des blockhaus aménagés en terrasse, qui agrémentent une promenade très agréable.",
   video_type: "Live",
   city: "Biarritz",
@@ -197,7 +197,7 @@ offer3.photos.attach(io: file, filename: "#{offer3.title}-3")
 offer3.save!
 
 offer4 = Offer.new({
-  address: "Centre-ville",
+  address: "1 Av. de la Plage, 64200 Biarritz",
   description: "Arcangues, rendu célèbre par LUIS MARIANO, est un magnifique village vallonné qui a le charme d'un décor d'opérette.",
   video_type: "Live",
   city: "Arcangues",
@@ -218,7 +218,7 @@ offer4.photos.attach(io: file, filename: "#{offer4.title}-3")
 offer4.save!
 
 offer5 = Offer.new({
-  address: "Centre-ville",
+  address: "8 Rue de Montpensier, 75001 Paris",
   description: "Un lieu de loisirs entouré de son décor monumental à l'antique très en vogue au XVIIIe siècle. C'est un des endroits de déambulation favoris des Parisiens et des touristes. La Comédie-Française, le théâtre du Palais-Royal et le restaurant Le Grand Véfour, au décor classé monument historique, contribuent à sa notoriété. L'art contemporain y est également fortement présent dans sa cour d'honneur avec les colonnes de Buren et deux fontaines mobiles de Pol Bury (1985). ",
   video_type: "Both",
   city: "Paris",
@@ -226,7 +226,7 @@ offer5 = Offer.new({
   price: rand(5.0..10.0).round(1)
 })
 
-#gg
+
 offer5.user = julien
 offer5.category = category1
 file = URI.open("https://vivreparis.fr/wp-content/uploads/2021/03/palais-royal-paris.jpg")
@@ -240,11 +240,11 @@ offer5.photos.attach(io: file, filename: "#{offer5.title}-3")
 offer5.save!
 
 offer6 = Offer.new({
-  address: "704 Dorsoduro",
+  address: "704 Dorsoduro, Venice",
   description: "La collection Peggy Guggenheim est un ensemble d'œuvres d'art accumulées au cours de sa vie par la collectionneuse et mécène Peggy Guggenheim (1898-1979). ",
   video_type: "Live",
   city: "Venise",
-  title: "Le Guggenheim",
+  title: "Guggenheim Museum",
   price: rand(5.0..10.0).round(1)
 })
 
@@ -263,7 +263,7 @@ offer6.save!
 
 
 offer7 = Offer.new({
-  address: "Place de l'étoile",
+  address: "Place de l'étoile, Paris",
   description: "Un haut lieu des grandes manifestations nationales. Souhaité par Napoléon Ier dès 1806, l'Arc de triomphe est inauguré en 1836 par le roi des Français, Louis-Philippe, qui le dédie aux armées de la Révolution et de l'Empire. Le Soldat inconnu est inhumé sur le terre-plein en 1921. La flamme du souvenir est ravivée tous les jours à 18h30.",
   video_type: "Both",
   city: "Paris",
@@ -284,7 +284,7 @@ offer7.photos.attach(io: file, filename: "#{offer7.title}-3")
 offer7.save!
 
 offer8 = Offer.new({
-  address: "Rue de Rivoli",
+  address: "Rue de Rivoli, Paris",
   description: "Ancien palais des rois, le Louvre épouse l’histoire de France depuis huit siècles. Conçu dès sa création en 1793 comme un musée universel, ses collections, qui figurent parmi les plus belles au monde, couvrent plusieurs millénaires et un territoire qui s’étend de l’Amérique aux frontières de l’Asie.",
   video_type: "Both",
   city: "Paris",
@@ -306,7 +306,7 @@ offer8.save!
 
 
 offer9 = Offer.new({
-  address: "Rue Beaubourg",
+  address: "Rue Beaubourg, Paris",
   description: "Le centre national d’art et de culture Georges-Pompidou (CNAC) – communément appelé « centre Pompidou », ou plus familièrement « Beaubourg » – est un établissement pluridisciplinaire né de la volonté du président Georges Pompidou, grand amateur d'art moderne, de créer au cœur de Paris une institution culturelle originale entièrement vouée à la création moderne et contemporaine.",
   video_type: "Both",
   city: "Paris",
@@ -328,7 +328,7 @@ offer9.save!
 
 
 offer10 = Offer.new({
-  address: "Praia da Urca",
+  address: "Praia da Urca, Rio de Janeiro",
   description: "Le Pain de Sucre (Pão de Açúcar en portugais), est un monolithe et un inselberg granitique situé dans la ville de Rio de Janeiro au Brésil. Il culmine à 396 mètres d'altitude et est accessible par un téléphérique.",
   video_type: "VoD",
   city: "Rio de Janeiro",
@@ -349,7 +349,7 @@ offer10.photos.attach(io: file, filename: "#{offer10.title}-3")
 offer10.save!
 
 offer11 = Offer.new({
-  address: "Alto da Boa Vista",
+  address: "Alto da Boa Vista, Rio de Janeiro",
   description: "Le Corcovado (« bossu » en portugaisa) est l'un des nombreux reliefs de la ville de Rio de Janeiro. Il s'élève à 704 mètres d'altitude. Il est célèbre pour accueillir en son sommet la statue du Christ Rédempteur, l'un des principaux symboles de la ville et du pays, et pour offrir une vue sur l'ensemble de la zone sud de la ville.",
   video_type: "Both",
   city: "Rio de Janeiro",
@@ -370,7 +370,7 @@ offer11.photos.attach(io: file, filename: "#{offer11.title}-3")
 offer11.save!
 
 offer12 = Offer.new({
-  address: "Praia de Copacabana",
+  address: "Praia de Copacabana, rio de Janeiro",
   description: "Copacabana est un quartier de Rio de Janeiro au Brésil. Il est situé au sud de la ville. Le quartier comprend la plage du même nom, longue de 4,5 km, l'une des plages les plus célèbres de la planète.",
   video_type: "VoD",
   city: "Rio de Janeiro",
@@ -391,7 +391,7 @@ offer12.photos.attach(io: file, filename: "#{offer12.title}-3")
 offer12.save!
 
 offer13 = Offer.new({
-  address: "Quai d'Orsay",
+  address: "Quai d'Orsay, Paris",
   description: "Le musée possède la plus importante collection de peintures impressionnistes et postimpressionnistes au monde, avec près de 1 100 toiles3 au total sur plus de 3 650, et l’on peut y voir des chefs-d’œuvre de la peinture et de la sculpture.",
   video_type: "Live",
   city: "Paris",
@@ -474,33 +474,127 @@ file = URI.open("https://www.clondres.com/wp-content/uploads/sites/5/2018/03/int
 offer16.photos.attach(io: file, filename: "#{offer16.title}-3")
 offer16.save!
 
+offer17 = Offer.new({
+  address: "Dharmapuri, Forest Colony, Tajganj, Agra, Uttar Pradesh 282001, Inde",
+  description: "The Taj Mahal (lit. 'Crown of the Palace',[5] is an ivory-white marble mausoleum on the right bank of the river Yamuna in the Indian city of Agra.",
+  video_type: "Live",
+  city: "Agra",
+  title: "Taj Mahal",
+  price: rand(5.0..10.0).round(1)
+})
+
+offer17.user = raph
+offer17.category = category3
+file = URI.open("https://static.nationalgeographic.fr/files/styles/image_3200/public/taj-mahal.jpg?w=1600")
+offer17.photos.attach(io: file, filename: "#{offer17.title}-1")
+
+file = URI.open("https://www.costacroisieres.fr/content/dam/costa/costa-magazine/article-images/f1f6595/india.jpg")
+offer17.photos.attach(io: file, filename: "#{offer17.title}-2")
+
+file = URI.open("https://lyonsecret.com/wp-content/uploads/2020/04/thetajmahali.jpg")
+offer17.photos.attach(io: file, filename: "#{offer17.title}-3")
+offer17.save!
+
+
+offer18 = Offer.new({
+  address: "Saadiyat - Abu Dhabi - Émirats arabes unis",
+  description: "The Louvre Abu Dhabi (Arabic: اللوفر أبوظبي; French: Louvre Abou Dabi) is an art museum located on Saadiyat Island in Abu Dhabi, United Arab Emirates. It runs under an agreement between the UAE and France.",
+  video_type: "Live",
+  city: "Abu Dhabi",
+  title: "Louvre Abu Dhabi",
+  price: rand(5.0..10.0).round(1)
+})
+
+offer18.user = nico
+offer18.category = category2
+file = URI.open("https://www.amc-archi.com/mediatheque/8/0/3/000292308/photo-11259-699926-k2-k1-1671449-jpg.jpg")
+offer18.photos.attach(io: file, filename: "#{offer18.title}-1")
+
+file = URI.open("https://www.voyageway.com/wp-content/uploads/2019/10/louvre-abu-dhabi.jpg")
+offer18.photos.attach(io: file, filename: "#{offer18.title}-2")
+
+file = URI.open("https://medias.exotismes.fr/images/produit/27450/louvre-abu-dhabi-h-c-063-slide.jpg")
+offer18.photos.attach(io: file, filename: "#{offer18.title}-3")
+offer18.save!
+
+offer19 = Offer.new({
+  address: "Temple St, Jordan, Hong Kong",
+  description: "Temple Street is a street located in the areas of Jordan and Yau Ma Tei in Kowloon, Hong Kong. It is known for its night market and as one of the busiest flea markets at night in the territory.",
+  video_type: "Live",
+  city: "Hong Kong",
+  title: "Temple Street Market",
+  price: rand(5.0..10.0).round(1)
+})
+
+offer19.user = julien
+offer19.category = category1
+file = URI.open("https://media.istockphoto.com/photos/neon-signs-in-hongkong-china-at-night-picture-id1089667668?k=20&m=1089667668&s=612x612&w=0&h=LgsYUEkHyCWzxqkjNWH9-OZ2N01n_MTiHS7Px3a_i7I=")
+offer19.photos.attach(io: file, filename: "#{offer19.title}-1")
+
+file = URI.open("https://media.timeout.com/images/105643791/750/562/image.jpg")
+offer19.photos.attach(io: file, filename: "#{offer19.title}-2")
+
+file = URI.open("https://previews.123rf.com/images/javarman/javarman1807/javarman180700045/104797734-temple-street-night-market-in-hong-kong.jpg")
+offer19.photos.attach(io: file, filename: "#{offer19.title}-3")
+offer19.save!
+
+
+
+
+offer20 = Offer.new({
+  address: "Museumstraat 1, Amsterdam, Netherlands",
+  description: "The Rijksmuseum is the national museum of the Netherlands dedicated to Dutch arts and history and is located in Amsterdam. The museum is located at the Museum Square in the borough Amsterdam South",
+  video_type: "Both",
+  city: "Amsterdam",
+  title: "Rijksmuseum",
+  price: rand(5.0..10.0).round(1)
+})
+
+offer20.user = antho
+offer20.category = category2
+file = URI.open("https://cdn.getyourguide.com/img/tour/5db0759f4ad16.jpeg/148.jpg")
+offer20.photos.attach(io: file, filename: "#{offer20.title}-1")
+
+file = URI.open("https://cms-assets.jung.de/cms/media/39/3967/980x496/standard/rijksmuseum-amsterdam-16.jpg")
+offer20.photos.attach(io: file, filename: "#{offer20.title}-2")
+
+file = URI.open("https://bons-plans-amsterdam.com/wp-content/uploads/2019/04/Rijksmuseum03-1024x683.jpg")
+offer20.photos.attach(io: file, filename: "#{offer20.title}-3")
+offer20.save!
+
+
+
+offer21 = Offer.new({
+  address: "Giza, Greater Cairo, Egypt",
+  description: "The Giza pyramid complex, also called the Giza necropolis, is the site on the Giza Plateau in Greater Cairo, Egypt that includes the Great Pyramid of Giza, the Pyramid of Khafre, and the Pyramid of Menkaure, along with their associated pyramid complexes and the Great Sphinx of Giza. ",
+  video_type: "Both",
+  city: "Cairo",
+  title: "Giza Pyramid",
+  price: rand(5.0..10.0).round(1)
+})
+
+offer21.user = nico
+offer21.category = category3
+file = URI.open("https://i.natgeofe.com/n/535f3cba-f8bb-4df2-b0c5-aaca16e9ff31/giza-plateau-pyramids_2x1.jpg")
+offer21.photos.attach(io: file, filename: "#{offer21.title}-1")
+
+file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Kheops-Pyramid.jpg/1200px-Kheops-Pyramid.jpg")
+offer21.photos.attach(io: file, filename: "#{offer21.title}-2")
+
+file = URI.open("https://media.architecturaldigest.com/photos/58e2a407c0e88d1a6a20066b/2:1/w_1287,h_643,c_limit/Pyramid%20of%20Giza%201.jpg")
+offer21.photos.attach(io: file, filename: "#{offer21.title}-3")
+offer21.save!
+
+
 video_type = ["Live", "VoD", "Both"]
-offers = [offer1, offer2, offer3, offer4, offer5, offer6, offer7, offer8, offer9, offer10, offer11, offer12, offer13, offer14, offer15, offer16]
-
-20.times do
-  offer = Offer.new({
-    address: Faker::Address.street_name,
-    description: Faker::Lorem.sentences(number: 3),
-    video_type: video_type.sample,
-    city: Faker::Address.city,
-    title: Faker::Mountain.name,
-    price: rand(5.0..10.0).round(1)
-    })
-
-  offer.user = fake_users.sample
-  offer.category = categories.sample
-  file = URI.open("https://res.cloudinary.com/dnabadsks/image/upload/v1646316846/montagne_cp1hxd.jpg")
-  offer.photos.attach(io: file, filename: "#{offer.title}")
-  offer.save!
-  offers << offer
-end
+offers = [offer1, offer2, offer3, offer4, offer5, offer6, offer7, offer8, offer9, offer10, offer11, offer12, offer13, offer14, offer15, offer16, offer17, offer18, offer19, offer20, offer21]
 
 
 #Seed of slots + chatrooms
 
 slots = []
 100.times do
-  date = DateTime.new(2022, rand(3..6), rand(1..28), rand(0..23), [0, 30].sample)
+  date = DateTime.new(2022, rand(1..6), rand(1..28), rand(0..23), [0, 30].sample)
 
   slot = Slot.new({
     start_at: date
@@ -530,7 +624,7 @@ end
 
 #Seed of reviews
 
-2000.times do
+500.times do
   review = Review.new({
   content: Faker::Lorem.sentences(number: 2),
   rating: rand(1..5)
@@ -541,10 +635,10 @@ end
 
 #Seed of flashcards
 
-120.times do
+300.times do
   flashcard = Flashcard.new({
-    question: Faker::Lorem.sentences(number: 2),
-    answer: Faker::Lorem.sentences(number: 1)
+    question: Faker::Lorem.sentences(number: 1),
+    answer: Faker::Lorem.sentences(number: 2)
   })
   flashcard.offer = offers.sample
   flashcard.save!
@@ -610,14 +704,6 @@ puts ""
 
 
 p "-----------TEST OF THROUGH and other Active record----------"
-
-p "------------------Reach slots and reviews from offers------------------"
-lewagon = Offer.find_by(title: "La 8ème merveille du monde")
-p "slots from le wagon = #{lewagon.slots}"
-p "rentals from le wagon = #{lewagon.rentals}"
-p "reviews from le wagon = #{lewagon.reviews}"
-puts ""
-puts ""
 
 
 p "-----------TEST OF Active records ----------"

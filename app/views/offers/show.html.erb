@@ -67,7 +67,7 @@
             </p>
           <p class="info">
             <i class="fas fa-calendar-day"></i>
-            <%= @offer.slots.all[0].start_at %>
+            <%= @offer.slots.all[0].start_at.strftime("Starts : %d/%m/%Y at %H:%M") %>
           </p>
           <p class= "info">
             <i class="fas fa-video"></i>
@@ -94,7 +94,7 @@
             </p>
           <p class="info">
             <i class="fas fa-calendar-day"></i>
-            <%= @offer.slots.all[0].start_at %>
+            <%= @offer.slots.all[0].start_at.strftime("Starts : %d/%m/%Y at %H:%M") %>
           </p>
           <p class= "info">
             <i class="fas fa-clock"></i>

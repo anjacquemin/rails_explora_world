@@ -34,7 +34,7 @@
                   <div class="text mt-3">
                     <h3 class="title"><%= rental.slot.offer.title %></h3>
                     <p><%= rental.slot.offer.description.truncate(200) %></p>
-                    <p class ="bold"><%= "Starts at: #{rental.slot.start_at}" %></p>
+                    <p class ="bold"><%= "#{rental.slot.start_at.strftime("Starts : %d/%m/%Y at %H:%M")}" %></p>
                   </div>
                   <div class="card-text">
                     <%= link_to "Go to the live visit !", slot_path(rental.slot), class: 'btn-ghost'%>

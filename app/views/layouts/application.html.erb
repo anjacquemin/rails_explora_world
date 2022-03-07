@@ -2,7 +2,8 @@
 <html>
   <head>
 
-    <title>RailsExploraWorld</title>
+    <title>Explora World - Explore the word from your sofa</title>
+    <link href="/assets/favicon_exploraworld.png" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,9 +12,12 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+
+    <%# <script src="http://www.webglearth.com/v2/api.js"></script> %>
+
   </head>
 
-  <body>
+  <%# <body onload="initialize()"> %>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
 
