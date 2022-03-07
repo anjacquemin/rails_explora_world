@@ -1,13 +1,22 @@
 
 
 <div class="d-flex">
-    <div class="flex-grow-1 video-call ms-5 mt-5"
-        data-controller="video-call"
-        data-video-call-access-token-value="<%= @twilio_jwt %>"
+    <div class="flex-grow-1 d-flex flex-column me-5 ms-5 mb-5 mt-4 " data-controller="video-call"         data-video-call-access-token-value="<%= @twilio_jwt %>"
         data-video-call-room-id-value="<%= @room_id %>"
-        data-video-call-buddy-video-width-value="800"
-        >
-      <h2 class="title-inside"><%= @chatroom.slot.offer.title %></h2>
+        data-video-call-buddy-video-width-value="800">
+      <div class="d-flex">
+        <h3 class="title-inside"><%= @chatroom.slot.offer.title %></h3>
+        <p class="visit-type"><%= @chatroom.slot.offer.category.name %></p>
+      </div>
+      <div class="separator-thin"></div>
+      <div class="d-flex justify-content-between align-items-center pb-2">
+        <p class="mb-0">By <%= @chatroom.slot.user.first_name %> <%= @chatroom.slot.user.last_name %></p>
+        <div class="d-flex align-items-center">
+          <div class=""><i class="fas fa-plus-square yellow-bg"></i></div>
+          <p class="invite">Invite</p>
+        </div>
+      </div>
+      <div class="video-call">
       <div class="d-none" data-video-call-target="liveDisplay">
         <div class="live-record d-flex align-items-center">
           <i class="fas fa-circle text-danger"></i>
@@ -15,9 +24,15 @@
         </div>
       </div>
         <div class="end-visit">
-        <button class="btn-out" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fas fa-sign-out-alt text-white"></i></button>
       </div>
       <div class="call-video-views">
+        <div class="map" data-video-call-target="map">
+          <div style="width: 100%; height: 100%; border-radius: 10px"
+      data-controller="mapbox"
+      data-mapbox-markers-value="<%= @markers.to_json %>"
+      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
+        </div>
         <div id="remote-video" data-video-call-target="buddyVideo">
           <div class="no-call" data-video-call-target="noCall">
             No call in progress. Click 'Call' to connect!
@@ -29,48 +44,80 @@
         </div>
         <div id="local-video" data-video-call-target="localVideo"></div>
       </div>
-      <div class="call-buttons">
-        <%= link_to '#',
-                    class: 'call-button btn-start-call',
-                    data: {
-                      action: 'click->video-call#joinCall',
-                      video_call_target: 'joinCallButton'
-                    } do %>
-          <i class="fas fa-phone"></i>
-        <% end %>
-        <%= link_to '#',
-                    class: 'call-button btn-end-call d-none',
-                    data: {
-                      action: 'click->video-call#endCall',
-                      video_call_target: 'endCallButton'
-                    } do %>
-          <i class="fas fa-phone-slash"></i>
-        <% end %>
+    </div>
+    <div class="separator"></div>
+    <div class="d-flex justify-content-between video-parameter">
+      <div>
+        <div class="volume d-flex align-items-center">
+         <i class="ms-2 fas fa-volume-up volume-icon"></i>
+           <input class="volume" type="range" id="volume" name="volume"
+         min="0" max="11">
+        </div>
+      </div>
+      <div class="d-flex align-items-center">
+        <div>
+          <div class="call-buttons">
+            <%= link_to '#',
+                        class: 'call-button btn-start-call',
+                        data: {
+                          action: 'click->video-call#joinCall',
+                          video_call_target: 'joinCallButton'
+                        } do %>
+              <i class="fas fa-phone"></i>
+            <% end %>
+            <%= link_to '#',
+                        class: 'call-button btn-end-call d-none',
+                        data: {
+                          action: 'click->video-call#endCall',
+                          video_call_target: 'endCallButton'
+                        } do %>
+              <i class="fas fa-phone-slash"></i>
+            <% end %>
+          </div>
+        </div>
+        <div class="circle parameter-button">
+          <button class="border-0" style="background:none"><i class="fas fa-expand"></i></button>
+        </div>
+        <div class="circle parameter-button">
+          <button class="border-0" style="background:none"><i class="fas fa-microphone"></i></button>
+        </div>
+        <div class="circle parameter-button">
+          <button class="border-0" style="background:none"><i class="fas fa-video"></i></button>
+        </div>
+        <div class="circle parameter-button">
+          <button class="border-0" style="background:none" data-action="click->video-call#togglemap"><i class="fas fa-map-marked-alt"></i></button>
+        </div>
+      </div>
+      <div class="circle">
+        <button class="border-0" style="background:none" class="btn-out" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fas fa-sign-out-alt"></i></button>
       </div>
     </div>
+  </div>
 
 
-
-  <div class="w-20 chatroom me-5 mt-5 ms-2"
+  <div class="w-20 chatroom mt-4 me-5 ms-2 "
     data-controller="chatroom-subscription"
     data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
   >
 
-  <div class="p-2 messages" id ="messages" data-chatroom-subscription-target="messages">
-    <div class="pt-2 mb-2 d-flex justify-content-around align-items-center">
-      <i class="fas fa-cog"></i>
-      <h3 class="align-self-center"><strong>Chat</strong></h3>
-      <i class="fas fa-user-friends"></i>
+  <div class="m-3 messages" id ="messages" data-chatroom-subscription-target="messages">
+    <div class="messages-header py-2 d-flex justify-content-around align-items-center mb-3">
+      <p class="header-message p-2 mb-0 active-tab align-self-center"><strong>Messages</strong></p>
+      <p class="header-message p-2 mb-0 align-self-center"><strong>Participants</strong></p>
     </div>
     <% @chatroom.messages.each do |message| %>
       <%= render "messages/message", message: message %>
     <% end %>
   </div>
 
-    <%= simple_form_for [@slot, @message], remote: true, html: {data: {chatroom_subscription_target: "form"}, class: "d-flex height-fix"} do |f| %>
-      <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.id}", wrapper_html: {class: "message-height flex-grow-1"} %>
-      <%= f.submit "Send", class: "btn btn-primary btn-height" %>
+  <div class ="bg-white mt-1 mb-2 me-2 ms-2 p-1">
+    <%= simple_form_for [@slot, @message], remote: true, html: {data: {chatroom_subscription_target: "form"}, class: "d-flex align-items-center"} do |f| %>
+      <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.id}", wrapper_html: {class: "flex-grow-1", id:"input-message"}%>
+      <%= button_tag type: "submit", class: "btn btn-primary btn-height" do %>
+         <i class="fas fa-paper-plane"></i>
+      <% end %>
     <% end %>
+  </div>
   </div>
 </div>
 
@@ -83,21 +130,51 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body d-flex flex-column align-items-center">
-        <h3>Review</h3>
-        <input type="text">
-        <h3 class="mt-3">Rating</h3>
-        <div class="stars d-flex justify-content-center">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
+        <p class="mb-1">Review</p>
+        <input type="text" placeholder="Share your review">
+        <p class="mt-4 mb-1">Rating</p>
+        <div class="rating d-flex justify-content-center">
+            <input id="rating1" type="radio" name="rating" value="1">
+            <label for="rating1">1</label>
+            <input id="rating2" type="radio" name="rating" value="2">
+            <label for="rating2">2</label>
+            <input id="rating3" type="radio" name="rating" value="3">
+            <label for="rating3">3</label>
+            <input id="rating4" type="radio" name="rating" value="4">
+            <label for="rating4">4</label>
+            <input id="rating5" type="radio" name="rating" value="5">
+            <label for="rating5">5</label>
         </div>
-        <h3 class="mt-3">Tips</h3>
-        <input type="text">
+        <p class="mt-4 mb-1">Tips</p>
+        <div class="d-flex">
+          <div class="form-check m-2">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios0" value="option0" checked>
+            <label class="form-check-label" for="exampleRadios0">
+              0€
+            </label>
+          </div>
+          <div class="form-check m-2">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+            <label class="form-check-label" for="exampleRadios1">
+              1€
+            </label>
+          </div>
+          <div class="form-check m-2">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            <label class="form-check-label" for="exampleRadios2">
+              5€
+            </label>
+          </div>
+          <div class="form-check m-2">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+            <label class="form-check-label" for="exampleRadios3">
+              10€
+            </label>
+          </div>
+        </div>
       </div>
       <div class="modal-footer d-flex flex-column align-items-center">
-        <%= link_to 'SEND', dashboard_path(), class: "btn btn-primary"%>
+        <%= link_to '<i class="fas fa-paper-plane"></i>  Send'.html_safe, dashboard_path(), class: "btn btn-primary"%>
       </div>
     </div>
   </div>

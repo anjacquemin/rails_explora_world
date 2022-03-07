@@ -1,7 +1,7 @@
 .video-call {
-  width: 600px;
+  width: 100%;
   height: 480px;
-  margin: 0 auto;
+  // margin: 0 auto;
   position: relative;
 }
 
@@ -13,6 +13,8 @@
   position: relative;
   height: 100%;
   background-color: black;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .no-call {
@@ -24,6 +26,7 @@
   align-items: center;
   height: 100%;
   padding: 1rem;
+  border-radius: 10px;
 }
 
 .waiting-for-buddy {
@@ -31,40 +34,57 @@
 }
 
 .call-buttons {
-  margin: 1rem 1rem;
+  // margin: 1rem 1rem;
   display: flex;
   justify-content: space-around;
 
   .call-button {
-    border: 1px solid black;
-    color: black;
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-    padding: 4px 4px;
-    text-decoration: none;
-    position: absolute;
-    bottom:5px;
+    // border: 1px solid black;
+    // color: black;
+    // height: 40px;
+    // width: 40px;
+    // border-radius: 50%;
+    // padding: 4px 4px;
+    // text-decoration: none;
+    // // position: absolute;
+    // bottom:5px;
+    // text-align: center;
+    height: 50px;
+    width: 50px;
+    border-radius: 4px;
+    border: #e8e9ea solid 1px;
+    margin: 0 5px;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .call-button:hover {
-    box-shadow: 0 0 12px rgba(0,0,0, 0.3);
-  }
 }
 
 .btn-start-call {
-  background-color: $green;
+  color: $green;
+}
+
+.btn-start-call:hover {
+  box-shadow: 0 0 12px rgba(0,0,0, 0.3);
+  color: $green;
 }
 
 .btn-end-call {
-  background-color: $red;
+  color: $red;
+}
+
+.btn-end-call:hover {
+  box-shadow: 0 0 12px rgba(0,0,0, 0.3);
+  color: $red;
 }
 
 #local-video {
   position: absolute;
   bottom: 1rem;
   right: 1rem;
+  border-radius: 10px;
 
   video {
     background: black;
@@ -81,11 +101,13 @@
 }
 
 .title-inside {
-  position: absolute;
-  top: 0;
-  left:10px;
-  color: white;
-  z-index: 1000;
+  text-align: left;
+  margin-top: 0;
+  // position: absolute;
+  // top: 0;
+  // left:10px;
+  // color: white;
+  // z-index: 1000;
 }
 
 .live-record {
@@ -112,4 +134,147 @@
 .btn-send {
   height: 62px;
   background-color: $green;
+}
+
+.circle {
+  height: 50px;
+  width: 50px;
+  border-radius: 4px;
+  border: #e8e9ea solid 1px;
+  margin: 0 5px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.separator {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-top: 1.5px solid rgba(0, 0, 0, 0.1);
+}
+
+.separator-thin {
+  margin-top: 0px;
+  margin-bottom: 5px;
+  border-top: 1.5px solid rgba(0, 0, 0, 0.1);
+}
+
+.volume {
+  border: #e8e9ea solid 1px;
+  width: 100px;
+  height: 50px;
+  border-radius: 4px;
+}
+
+.visit-type {
+  background-color: #FFF3D9;
+  color: #f8da99;
+  border-radius: 10px;
+  margin-left: 20px;
+  padding: 5px
+}
+
+.invite {
+  color: #f8da99;
+  border-radius: 10px;
+  margin-left: 5px;
+  margin-bottom: 0px;
+  padding: 5px
+}
+
+.yellow-bg {
+  color: #f8da99;
+}
+
+.map {
+  position: absolute;
+  bottom: 0;
+  left: 5px;
+  height: 200px;
+  width: 200px;
+  background-color: white;
+  border-radius: 10px;
+  transform: translateY(200px);
+  transition: 1s transform;
+}
+
+// Sliding volume customization
+
+.volume {
+  width: 65%;
+  margin-left: 2px;
+}
+
+.volume-icon {
+  color:#f8da99;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  margin-right: 15px;
+  width: 60%;
+  height: 7px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 5px;
+  background-image: linear-gradient(#f8da99, #fccd68);
+  background-size: 70% 100%;
+  background-repeat: no-repeat;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #f8da99;
+  // cursor: ew-resize;
+  // box-shadow: 0 0 2px 0 #555;
+  // transition: background .3s ease-in-out;
+}
+
+input[type=range]::-webkit-slider-runnable-track  {
+  -webkit-appearance: none;
+  box-shadow: none;
+  border: none;
+  background: transparent;
+}
+
+.parameter-button:hover {
+  box-shadow: 0 0 12px rgba(0,0,0, 0.3);
+}
+
+.btn-send {
+  background-color: #fad585;
+  color: white;
+}
+
+
+// For stars rating
+
+.rating{
+  display : flex;
+}
+
+.rating input{
+  position : absolute;
+  left     : -100vw;
+}
+
+.rating label{
+  width      : 48px;
+  height     : 48px;
+  padding    : 48px 0 0;
+  overflow   : hidden;
+  background : url('stars.svg') no-repeat top left;
+}
+
+.rating:not(:hover) input:indeterminate + label,
+.rating:not(:hover) input:checked ~ input + label,
+.rating input:hover ~ input + label{
+  background-position : -48px 0;
+}
+
+.rating:not(:hover) input:focus-visible + label{
+  background-position : -96px 0;
 }
