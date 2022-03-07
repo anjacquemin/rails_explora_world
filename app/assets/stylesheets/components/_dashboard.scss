@@ -1,0 +1,43 @@
+.sidebar{
+  flex: 0 0 300px;
+  background-color: rgb(255, 177, 177);
+  li{
+    color: black;
+    margin-bottom: 10px;
+  }
+}
+
+.dashboard-container{
+  display: flex;
+  min-height: calc(100vh - 66px);
+}
+
+.dashboard-content{
+  flex-grow: 0;
+  padding: 2em;
+}
+
+.endbar{
+  flex: 0 0 300px;
+  background-color: $blue;
+  border: 0.5px solid grey;
+  p{
+    color: black;
+  }
+}
+
+.items{
+  margin-bottom: 15px;
+}
+
+.profile{
+  display: flex;
+  height: 400px;
+  width: 80%;
+}
+
+.picture{
+  display: flex;
+  height: 400px;
+  width: 80%;
+}
