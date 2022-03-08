@@ -30,7 +30,7 @@
 
 .show-description {
   height: 400px;
-  width: 500px;
+  width: 400px;
   background-color: white;
   border-radius: 10px;
   color: $text_gray;
@@ -45,7 +45,7 @@
 }
 
 .gray-background {
-  background-color: #F8F8F8;
+  background-color: #F1F3F7;
 }
 
 .card {
@@ -164,4 +164,16 @@
 
 #very-gray-background {
   background-color: #414141;
+}
+
+.stars {
+  color: #f8da99
+}
+
+.visit-type-description {
+  background-color: #FFF3D9;
+  color: #f8da99;
+  border-radius: 10px;
+  margin-left: 20px;
+  padding: 5px
 }
