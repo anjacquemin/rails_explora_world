@@ -1,13 +1,13 @@
 .partners {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 16px 38px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 8px 8px;
   justify-content: center;
   align-items: center;
 }
 
 #places {
 background-color: white;
-width: 170px;
+width: 70px;
 padding: 10px;
 }

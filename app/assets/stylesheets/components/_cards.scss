@@ -135,3 +135,122 @@
 .fit-picture img {
   border-radius: 10px;
 }
+
+// card click to action VoD / Live
+
+.card-cta {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 400px;
+  height:450px
+}
+
+.card-cta > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-cta h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-cta p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-cta .card-cta-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-cta-infos .card-cta-user {
+  // position: absolute;
+  // right: 16px;
+  // top: -20px;
+  width: 40px;
+}
+
+.card-cta-guide {
+  background-color: #F1F3F7;
+}
+
+.card-cta-separator-thin {
+  margin-top: 0px;
+  // margin-bottom: 5px;
+  border-top: 1.5px solid rgba(0, 0, 0, 0.1);
+}
+
+.card-cta-button {
+  height: 40px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.card-cta-price {
+  background-color: rgb(168, 167, 167);
+  color: white;
+  height: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px 0 0 10px
+}
+
+.card-cta-booking {
+  height: 100%;
+  text-decoration: none;
+  background-color: #f8da99;
+  border: 0;
+  border-radius: 0 10px 10px 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100px;
+}
+
+.card-cta-booking a {
+  text-decoration: none;
+  color: white;
+}
+
+.card-cta-booking a:hover {
+  text-decoration: none;
+  color: #fab92c;
+}
+
+
+// New hompage tellow card
+
+.yellow-card {
+  height: 200px;
+  width: 300px;
+  border-radius: 6px;
+  background-size:cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  text-align: center;
+  font-size: large;
+  transition:all ease 1s;
+  margin-bottom: 20px;
+}
+
+.yellow-card-title-underline {
+  border-top: 1.5px solid white;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 50%;
+  // border: white;
+}
+
+.yellow-card-shadow {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
