@@ -153,7 +153,7 @@
   <% @offer.slots.each do |slot|%>
   <div class="d-flex">
     <div>
-      <p> <%=slot.start_at %> </p>
+      <p> <%= slot.start_at.strftime("Starts : %d/%m/%Y at %H:%M") %> </p>
     </div>
     <div>
       <button> Register </button>
@@ -175,7 +175,7 @@
         <% @offer.slots.each do |slot|%>
         <div class="d-flex justify-content-between">
           <div>
-            <p> <%=slot.start_at %> </p>
+            <p> <%= slot.start_at.strftime("Starts : %d/%m/%Y at %H:%M") %> </p>
           </div>
           <div>
             <button class="btn btn-primary"> Register </button>
