@@ -7,9 +7,19 @@
       <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-friends"> <i class=" icone pe-4 fas fa-user-friends color-green"></i>My friends</div>
       <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-leaderboard"> <i class=" icone pe-4 fas fa-solid fa-graduation-cap color-violet"></i>Leaderboard</div>
     </div>
-    <div class="profile">
-      <p>PROFILE BOARD</p>
+    <div class="explora-profile">
+      <img class="avatar-bordered" alt="avatar-bordered" src="https://kitt.lewagon.com/placeholder/users/sarahlafer">
+      <h3 class="text-center">Sarah</h3>
+      <div class="main-wrapper">
+        <div class="explora-badge green">
+          <div class="badge-circle">
+            <i class="fas fa-tree"></i>
+              <div class="ribbon">JUNGLER</div>
+          </div>
+        </div>
+      </div>
     </div>
+
     <div class="picture">
     </div>
   </div>
@@ -51,10 +61,10 @@
         </div>
       </div>
 
-    <%# FLASHCARDS %>
+    <%# PICTURES %>
       <div class="whitebox p-3" style="width:28.5%;">
-        <div id="my-flashcards" class="">
-          <div class="flashcard m-5">
+        <div id="my-pictures" class="">
+          <div class="picture m-5">
             <h1>Coming soon !  Best Pictures visited😉</h1>
             <%#= link_to "Go !", dashboard_path, class: 'btn-ghost'%>
           </div>
@@ -92,8 +102,8 @@
 
     <%# FUTURE VISIT HERE  %>
 
-     <%# <h2>Future Visits</h2> %>
-      <div class="whitebox d-flex flex-wrap w-100 align-items-start justify-content-evenly mb-4 p-2">
+      <h2>Future Visits</h2>
+      <div class="whitebox d-flex flex-wrap w-600 align-items-start justify-content-evenly mb-4 p-2">
         <% @rentals.each do |rental| %>
           <% if (rental.slot.start_at > Date.today) %>
             <div class="card-category my-4" style="width:21%;">
@@ -109,6 +119,46 @@
             </div>
           <% end %>
         <% end %>
+      </div>
+
+      <%# FLASHCARDS %>
+      <div class="whitebox p-3" style="width:50%;">
+          <div id="my-flashcards" class="">
+            <div class="flashcard m-5">
+              <h1 class="d-flex align-items-baseline">Flashcards<img class="deck " alt="flashcards-deck" src="https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/512x512/playing_cards_deck.png"></h1>
+              <div class="museum">
+                <div class="explora-progress-bar">
+                  <span>Museums</span>
+                  <span id="progress">50%</span>
+                  <input type="checkbox" id="water"/>
+                  <label for="water">
+                    <div id="fill"></div>
+                  </label>
+                </div>
+              </div>
+              <div class="monuments">
+                <div class="explora-progress-bar">
+                  <span>Monuments</span>
+                  <span id="progress">30%</span>
+                  <input type="checkbox" id="water"/>
+                  <label for="water">
+                    <div id="fill"></div>
+                  </label>
+                </div>
+              </div>
+              <div class="Neighborhoods">
+                <div class="explora-progress-bar">
+                  <span>Neighborhoods</span>
+                  <span id="progress">50%</span>
+                  <input type="checkbox" id="water"/>
+                  <label for="water">
+                    <div id="fill"></div>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
   </div>
 </div>
