@@ -15,37 +15,26 @@
     <h1 class="section-title">What we offer</h1>
     <p>EXPLORA WORLD offers you the world from your house ! Save yourself from costly and polluting trips, it is now possible to travel from your sofa. We offer you all kinds of visits from monuments to museums or simply famous sites of our world. Sit comfortably and get ready for a total immersion. The Machu Pichu, the Great Wall, or the Guggenheim museum are knocking at your door !</p>
   </div>
-  <div class="category py-5">
-    <div class="cards-hp m-2 mt-O">
-      <div class="d-flex flex-column justify-content-start align-items-center">
-        <div class="card-hp-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn-icons-png.flaticon.com/512/223/223351.png)">
-          <h3 class="title"><h3>MUSEUMS</h3>
-          <%# <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur voluptatibus maiores ipsa laudantium totam magnam ducimus deserunt eos minima! Ea culpa neque impedit repellat a quidem dignissimos itaque, sapiente veniam.</p> %>
-          <%# <p><%= link_to "See more", offer_path(offer)</p>  %>
-        </div>
-        <p>You can't afford to travel the world to see all the famous museums? Don't panic, and enjoy them all from your home!</p>
-      </div>
-      <div class="d-flex flex-column justify-content-start align-items-center">
-        <div class="card-hp-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn-icons-png.flaticon.com/512/185/185342.png)">
-          <h3 class="title"><h3>MONUMENTS</h3>
-          <%# <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur voluptatibus maiores ipsa laudantium totam magnam ducimus deserunt eos minima! Ea culpa neque impedit repellat a quidem dignissimos itaque, sapiente veniam.</p> %>
-          <%# <p><%= link_to "See more", offer_path(offer)</p>  %>
-        </div>
-        <p>The Taj Mahal? The Eiffel Tower? The Golden Gate? Enjoy them all from home!</p>
-      </div>
-      <div class="d-flex flex-column justify-content-start align-items-center">
-        <div class="card-hp-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://icon-library.com/images/icon-for-house/icon-for-house-6.jpg)">
-          <h3 class="title"><h3>NEIGHBORHOODS</h3>
-          <%# <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur voluptatibus maiores ipsa laudantium totam magnam ducimus deserunt eos minima! Ea culpa neque impedit repellat a quidem dignissimos itaque, sapiente veniam.</p> %>
-          <%# <p><%= link_to "See more", offer_path(offer)</p>  %>
-        </div>
-        <p>Ever wanted to discover the streets of Paris, or Mexico ? Discover all famous neighborhood in live visit!</p>
-      </div>
+  <div class="d-flex justify-content-around">
+    <div class="yellow-card d-flex flex-column justify-content-center align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(https://media.vogue.fr/photos/5c8a60d93d44a01271cbef6a/master/w_1600%2Cc_limit/GettyImages-502721407.jpg)">
+      <h3 class="yellow-card-shadow title ">MUSEUMS</h3>
+      <div class="yellow-card-title-underline mx-3"></div>
+      <p class="yellow-card-shadow mx-3">Want to see all the famous museums?</p>
+    </div>
+    <div class="yellow-card d-flex flex-column justify-content-center align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(https://geo.img.pmdstatic.net/fit/https.3A.2F.2Fi.2Epmdstatic.2Enet.2Fgeo.2F2021.2F12.2F21.2F5d2df5d2-15e6-4190-b1af-c90880cd2cd5.2Ejpeg/767x438/background-color/ffffff/focus-point/393%2C753/quality/70/a-londres-big-ben-sonnera-pour-le-nouvel-an-avant-la-fin-de-sa-restauration.jpg)">
+      <h3 class="yellow-card-shadow title ">MONUMENTS</h3>
+      <div class="yellow-card-title-underline mx-3"></div>
+      <p class="yellow-card-shadow mx-3"> Want to see The Taj Mahal? The Eiffel Tower?</p>
+    </div>
+    <div class="yellow-card d-flex flex-column justify-content-center align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(https://img-4.linternaute.com/JuTHPe2EFvGYTo06x4UJCbUrA7Q=/660x366/smart/0fde0dde0bbb4404be0f44dec1b6ee30/ccmcms-linternaute/28899994.jpg)">
+      <h3 class="yellow-card-shadow title ">NEIGHBORHOODS</h3>
+      <div class="yellow-card-title-underline mx-3"></div>
+      <p class="yellow-card-shadow mx-3">Want to discover the streets of New York, or Mexico ?</p>
     </div>
   </div>
-  <h2>They recommand us:</h2>
+  <div class="separator-thin my-4"></div>
 
-
+  <h2>They recommand us</h2>
   <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <%# one %>
@@ -118,9 +107,9 @@
     </button>
   </div>
 
-  <h2>They talk about us:</h2>
+  <h2>They talk about us</h2>
   <div class="talk">
-    <div class="container d-flex justify-content-center align-items-center">
+    <div class="container d-flex justify-content-around align-items-center">
     <%= image_tag "le-monde-icon.png", id: "newspapers"%>
 
     <%= image_tag "guardian-icon.png", id: "newspapers"%>
@@ -130,8 +119,8 @@
     <%= image_tag "huffpost-icon.png", id: "newspapers"%>
     </div>
   </div>
-  <h2>Our partners:</h2>
-  <div class="partners">
+  <h2 class="mt-5">Our partners</h2>
+  <div class="partners my-5">
       <%# <div class="container d-flex justify-content-around align-items-center"> %>
         <%= image_tag "acro-logo.png", id: "places"%>
         <%= image_tag "london.png", id: "places"%>
