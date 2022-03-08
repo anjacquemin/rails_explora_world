@@ -12,11 +12,11 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-// MAPPEMONDE //
+// MAPMONDE //
 function initialize() {
   var map = WE.map('map', {
     center: [36.057944835, -112.18688965],
-    zoom: 2,
+    zoom: 3.1,
     dragging: true,
     scrollWheelZoom: true
   });
@@ -37,6 +37,7 @@ function initialize() {
       WE.marker(marker).addTo(map)
   });
 
+  //coordonnées amazonie en dur
   var coords = [-10.45, -48.5];
   var inputRandom = document.querySelector("#map input");
     inputRandom.addEventListener("click", function(e) {
@@ -47,7 +48,7 @@ function initialize() {
 }
 
 initialize();
-// MAPPEMONDE //
+// MAPMONDE //
 
 
 
