@@ -28,13 +28,13 @@
             data-controller="mapbox"
             data-mapbox-markers-value="<%= @markers.to_json %>"
             data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-            class ="my-3 mx-4 position-sticky"
+            class ="my-3 mx-4 position-sticky d-none"
             id="map_index">
           </div>
 
           <button id="btn-3D" class="btn btn-ghost">3D</button>
 
-          <div id="map" class="d-none" data-markers="<%= @markers.to_json %>">
+          <div id="map" class="" data-markers="<%= @markers.to_json %>">
             <div id="coords"></div>
             <div id="buttons">
               <input type="button" class="btn-ghost" value="I feel lucky !"><br>
