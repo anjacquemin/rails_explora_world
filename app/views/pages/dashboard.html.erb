@@ -67,7 +67,7 @@
     <div class="past-visit">
      <h2>Past Visits</h2>
       <div class="whitebox d-flex flex-wrap w-100 align-items-start justify-content-evenly mb-4 p-2">
-        <% if @pastvisit.size >= 1 %>
+        <% if @pastvisit %>
           <% @rentals.each do |rental| %>
             <% if (rental.slot.start_at < Date.today) %>
               <div class="card-category my-4" style="width:30%;">
