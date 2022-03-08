@@ -2,13 +2,26 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr ;
   grid-gap: 16px 38px;
-}
+
+ }
+
+
+
 .cards .bold {
   font-weight: bold;
 }
 
 .cards a {
   text-decoration: none;
+  transition:all ease 1s;
+  border-radius: 10px;
+
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 6px 4px 4px #DDDDDD;
+  }
+
 }
 
 .card-category {
@@ -28,6 +41,7 @@
   }
   p{
     color: $text_gray;
+    font-size: 12px;
   }
 }
 
@@ -51,8 +65,8 @@
   margin-bottom: 20px;
 
   &:hover {
-    transform: scale(1.1);
-    box-shadow: 20px 8px 12px #466F88;
+    transform: scale(1.05);
+    box-shadow: 6px 4px 4px #DDDDDD;
   }
 
   p {

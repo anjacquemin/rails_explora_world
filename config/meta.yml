@@ -1,0 +1,5 @@
+meta_product_name: "Explora World"
+meta_title: "Explora World - Discover the world from your sofa"
+meta_description: "EXPLORA WORLD offers you the world from your house ! Save yourself from costly and polluting trips, it is now possible to travel from your sofa. We offer you all kinds of visits from monuments to museums or simply famous sites of our world. Sit comfortably and get ready for a total immersion. The Machu Pichu, the Great Wall, or the Guggenheim museum are knocking at your door !"
+meta_image: "mappemonde_meta.png" # should exist in `app/assets/images/`
+twitter_account: "@Lewagonparis"   # required for Twitter Cards
