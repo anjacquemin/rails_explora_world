@@ -5,7 +5,7 @@
       <span data-controller="typed-js"></span>
     <p>Ready to discover the world from your sofa?</p>
     </h1>
-    <%= link_to "All offers", offers_path, class: "btn btn-ghost"%>
+    <%= link_to "All offers", offers_path, class: "btn btn-ghost", data: {turbolinks: false}%>
     <%# <%= link_to "Surprize me!", offers_path %>
     <%= image_tag "logoexplo.png", id: "logoexplobanner" %>
   </div>

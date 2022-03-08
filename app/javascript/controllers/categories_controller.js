@@ -34,6 +34,10 @@ export default class extends Controller {
     tab3.classList.add("d-none")
 
     tab.classList.remove("d-none")
+    document.querySelectorAll(".tab .tab-ghost").forEach(function(button){
+      button.classList.remove("active")
+    })
+    event.currentTarget.classList.add("active")
 
     // button1.classList.remove("tabgrey")
     // button2.classList.remove("tabgrey")
