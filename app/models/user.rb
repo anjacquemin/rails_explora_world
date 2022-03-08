@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :slots
   has_many :offers, dependent: :destroy
   has_many :reviews, through: :rentals
+  has_one_attached :photo
 
   belongs_to :agency
 

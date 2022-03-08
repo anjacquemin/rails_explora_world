@@ -7,9 +7,9 @@
       <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-friends"> <i class=" icone pe-4 fas fa-user-friends color-green"></i>My friends</div>
       <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-leaderboard"> <i class=" icone pe-4 fas fa-solid fa-graduation-cap color-violet"></i>Leaderboard</div>
     </div>
-    <div class="explora-profile ">
-      <img class="avatar-bordered" alt="avatar-bordered" src="https://kitt.lewagon.com/placeholder/users/sarahlafer">
-      <h3 class="text-center">Sarah</h3>
+    <div class="explora-profile d-flex flex-column align-items-center">
+      <%= cl_image_tag current_user.photo.key, class: "avatar-bordered", alt: "avatar-bordered" %>
+      <h3> <%= current_user.first_name %> </h3>
       <div class="main-wrapper">
         <div class="explora-badge green">
           <div class="badge-circle">
@@ -24,29 +24,34 @@
   </div>
   <div class="dashboard-content bg-blue">
     <div class="d-flex w-100 align-items-center justify-content-between  mb-4">
-      <div class="whitebox p-3" style="width:23%;" >
-      <p class="font-bold"> Total Visits</p>
-      TOTO
+
+      <div class="whitebox p-3" style="width:19%;" >
+      <p class="font-bold"> Visits planned</p>
+       <%= current_user.rentals.select {|rental| rental.slot.start_at > Date.today}.count %>
       </div>
 
+      <div class="whitebox p-3" style="width:19%;" >
+      <p class="font-bold"> Totals visits</p>
+      <%= "#{((current_user.rentals.count).fdiv(@offers.count)*100).round} %" %>
+      </div>
 
-      <div class="whitebox p-3" style="width:23%;" >
+      <div class="whitebox p-3" style="width:19%;" >
       <p class="font-bold"> Museums visited</p>
-      TOTO
+      <%= @museums_visited %>
       </div>
 
-      <div class="whitebox p-3" style="width:23%;" >
+      <div class="whitebox p-3" style="width:19%;" >
       <p class="font-bold"> Monuments visited</p>
-      TOTO
+      <%= @monuments_visited %>
       </div>
 
-      <div class="whitebox p-3" style="width:23%;" >
+      <div class="whitebox p-3" style="width:19%;" >
       <p class="font-bold"> Neighborhoods visited</p>
-      TOTO
+      <%= @neighborhoods_visited %>
       </div>
 
     </div>
-    <div class="d-flex w-100  justify-content-between mb-4">
+    <div class="d-flex w-100 justify-content-between mb-4" style="height:600px">
 
     <%# MAP %>
       <div class="whitebox " style="width:70%;">
@@ -61,13 +66,15 @@
       </div>
 
     <%# PICTURES %>
-      <div class="whitebox p-3" style="width:28.5%;">
-        <div id="my-pictures" class="">
-          <div class="picture m-5">
-            <h1>Coming soon !  Best Pictures visited😉</h1>
-            <%#= link_to "Go !", dashboard_path, class: 'btn-ghost'%>
+      <div class="whitebox" style="width:28.5%;">
+        <p class="font-bold p-2 m-2"> Memories of my visits</p>
+          <div class="my-3 mx-2">
+            <div class="mosaic my-3">
+              <% current_user.rentals.each do |rental| %>
+                <%= cl_image_tag rental.slot.offer.photos.all[0].key, height: 60, class: 'fit-picture' %>
+              <% end %>
+            </div>
           </div>
-        </div>
       </div>
     </div>
 
@@ -85,11 +92,11 @@
                 <%= cl_image_tag rental.slot.offer.photos.all[0].key, height: 250 , style: "width:100%;"%>
                 <div class="text mt-3">
                   <h3 class="title"><%= rental.slot.offer.title %></h3>
-                  <p><%= rental.slot.offer.description %></p>
-                  <p><%= "Starts at: #{rental.slot.start_at}" %></p>
+                  <p class="text-truncate"><%= rental.slot.offer.description %></p>
+                  <p><%= rental.slot.start_at.strftime("Visited the %d/%m/%Y")  %></p>
                 </div>
                 <div class="card-text">
-                  <%= link_to "Go to the live visit !",  slot_path(rental.slot)%>
+                  <%= link_to "Visit again ?",  offer_path(rental.slot.offer)%>
                 </div>
               </div>
             <% end %>
@@ -110,7 +117,7 @@
               <div class="text mt-3">
                 <h3 class="title"><%= rental.slot.offer.title %></h3>
                 <p class="text-truncate"><%= rental.slot.offer.description %></p>
-                <p><%= "Begin at: #{rental.slot.start_at}" %></p>
+                <p><%= rental.slot.start_at.strftime("Starts : %d/%m/%Y at %H:%M")  %></p>
               </div>
               <div class="card-text">
                 <%= link_to "Go to the live visit !",  slot_path(rental.slot)%>
