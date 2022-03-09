@@ -7,15 +7,23 @@
     </h1>
     <%= link_to "All offers", offers_path, class: "fill", data: {turbolinks: false}%>
     <%# <%= link_to "Surprize me!", offers_path %>
-    <%= image_tag "logoexplo.png", id: "logoexplobanner" %>
+    <%#= image_tag "logoexplo.png", id: "logoexplobanner" %>
   </div>
 </div>
-<div class="container">
-  <div class="homepage py-5">
-    <h1 class="section-title">What we offer</h1>
-    <p>EXPLORA WORLD offers you the world from your house ! Save yourself from costly and polluting trips, it is now possible to travel from your sofa. We offer you all kinds of visits from monuments to museums or simply famous sites of our world. Sit comfortably and get ready for a total immersion. The Machu Pichu, the Great Wall, or the Guggenheim museum are knocking at your door !</p>
+<div class="container py-5">
+  <div class="homepage mb-5">
+    <div class="d-flex justify-content-center align-items-center my-5">
+      <div class="hp-border-title">....</div>
+      <h1 class="hp-title">What we offer</h1>
+      <div class="hp-border-title">....</div>
+    </div>
+    <p>EXPLORA WORLD offers you the world from your house !</p>
+    <p>Save yourself from costly and polluting trips, it is now possible to travel from your sofa.</p>
+    <p>We offer you all kinds of visits from monuments to museums or simply famous sites of our world.</p>
+    <p>Sit comfortably and get ready for a total immersion.</p>
+    <p>The Machu Pichu, the Great Wall, or the Guggenheim museum are knocking at your door !</p>
   </div>
-  <div class="d-flex justify-content-around">
+  <div class="d-flex justify-content-around pb-5">
     <div class="yellow-card d-flex flex-column justify-content-center align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(https://media.vogue.fr/photos/5c8a60d93d44a01271cbef6a/master/w_1600%2Cc_limit/GettyImages-502721407.jpg)">
       <h3 class="yellow-card-shadow title ">MUSEUMS</h3>
       <div class="yellow-card-title-underline mx-3"></div>
@@ -32,112 +40,113 @@
       <p class="yellow-card-shadow mx-3">Want to discover the streets of New York, or Mexico ?</p>
     </div>
   </div>
-  <div class="separator-thin my-4"></div>
+</div>
 
-  <h2>They recommand us</h2>
-  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <%# one %>
-      <div class="carousel-item active">
-        <div class="review py-5">
-          <div class="recommand">
-            <h1>"BEST EXPERIENCE EVER"</h2>
-            <h3>"Seeing the Pyramids was a dream since I was a kid and now it came true ! It was one of the best experience ever !"</h3>
-            <div class="icons-grades">
-            <%= image_tag "frelon.png", id: "avatar-review" %>
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-google"></i></a>
-            </div>
-          </div>
-          <div class="img-review">
-            <div class="card-review" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(https://ak.picdn.net/shutterstock/videos/1024420484/thumb/1.jpg)">
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <%# two %>
-      <div class="carousel-item">
-        <div class="review py-5">
-          <div class="recommand">
-            <h1>"ABSOLUTELY STUNNING"</h2>
-            <h3>"Great visit ! I had not travelled for several years but Explora World made me feel like I was on a real trip. I really felt like I was on the streets of Indonesia with a guide ! Thank you !"</h3>
-            <div class="icons-grades">
-            <%= image_tag "frelon.png", id: "avatar-review" %>
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-google"></i></a>
-            </div>
-          </div>
-          <div class="img-review">
-            <div class="card-review" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(https://img.itinari.com/regions/id-special-region-of-yogyakarta.jpg?ch=DPR&dpr=1&w=1600&s=ee620d84a4303821bfb65f8b7819708f)">
-            </div>
-          </div>
-        </div>
-      </div>
-      <%# three %>
-      <div class="carousel-item">
-        <div class="review py-5">
-          <div class="recommand">
-            <h1>"ONE WORD: AMAZING!"</h2>
-            <h3>"Because of glboal warming, I am really happy I could travel without having to take the plane. The planet and myself are grateful."</h3>
-            <div class="icons-grades">
-            <%= image_tag "frelon.png", id: "avatar-review" %>
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-google"></i></a>
-            </div>
-          </div>
-          <div class="img-review">
-            <div class="card-review" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(https://cdn.getyourguide.com/img/location/5ce265372f802.jpeg/88.jpg)">
-            </div>
-          </div>
-        </div>
-      </div>
+<div class="gray-background">
+  <div class="container py-5">
+    <div class="d-flex justify-content-center align-items-center my-5">
+      <div class="hp-border-title">....</div>
+      <h1 class="hp-title">They recommand us</h1>
+      <div class="hp-border-title">....</div>
     </div>
-    <%# arrow %>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
+    <div id="carouselExampleControls" class="carousel slide pb-5 mx-auto" style="width: 80%" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <%# one %>
+        <div class="carousel-item active">
+          <div class="review p-5">
+            <div class="recommand">
+              <h1>"BEST EXPERIENCE EVER"</h2>
+              <h3>"Seeing the Pyramids was a dream since I was a kid and now it came true ! It was one of the best experience ever !"</h3>
+              <div class="icons-grades">
+              <%= image_tag "frelon.png", id: "avatar-review" %>
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-google"></i></a>
+              </div>
+            </div>
+            <div class="img-review">
+              <div class="card-review" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(https://ak.picdn.net/shutterstock/videos/1024420484/thumb/1.jpg)">
+              </div>
+            </div>
+          </div>
 
-  <h2>They talk about us</h2>
-  <div class="talk">
-    <div class="container d-flex justify-content-around align-items-center">
-    <%= image_tag "le-monde-icon.png", id: "newspapers"%>
-
-    <%= image_tag "guardian-icon.png", id: "newspapers"%>
-
-    <%= image_tag "nytimes-icon.png", id: "newspapers"%>
-
-    <%= image_tag "huffpost-icon.png", id: "newspapers"%>
+        </div>
+        <%# two %>
+        <div class="carousel-item">
+          <div class="review p-5">
+            <div class="recommand">
+              <h1>"ABSOLUTELY STUNNING"</h2>
+              <h3>"Great visit ! I had not travelled for several years but Explora World made me feel like I was on a real trip. I really felt like I was on the streets of Indonesia with a guide ! Thank you !"</h3>
+              <div class="icons-grades">
+              <%= image_tag "frelon.png", id: "avatar-review" %>
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-google"></i></a>
+              </div>
+            </div>
+            <div class="img-review">
+              <div class="card-review" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(https://img.itinari.com/regions/id-special-region-of-yogyakarta.jpg?ch=DPR&dpr=1&w=1600&s=ee620d84a4303821bfb65f8b7819708f)">
+              </div>
+            </div>
+          </div>
+        </div>
+        <%# three %>
+        <div class="carousel-item">
+          <div class="review p-5">
+            <div class="recommand">
+              <h1>"ONE WORD: AMAZING!"</h2>
+              <h3>"Because of glboal warming, I am really happy I could travel without having to take the plane. The planet and myself are grateful."</h3>
+              <div class="icons-grades">
+              <%= image_tag "frelon.png", id: "avatar-review" %>
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-google"></i></a>
+              </div>
+            </div>
+            <div class="img-review">
+              <div class="card-review" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(https://cdn.getyourguide.com/img/location/5ce265372f802.jpeg/88.jpg)">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%# arrow %>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
   </div>
-  <h2 class="mt-5">Our partners</h2>
-  <div class="partners my-5">
-      <%# <div class="container d-flex justify-content-around align-items-center"> %>
-        <%= image_tag "acro-logo.png", id: "places"%>
-        <%= image_tag "london.png", id: "places"%>
-        <%= image_tag "kuala.png", id: "places"%>
-        <%= image_tag "louvre.png", id: "places"%>
-        <%= image_tag "machu-logo.png", id: "places"%>
-        <%= image_tag "met-logo.png", id: "places"%>
-        <%= image_tag "mexico-logo.png", id: "places"%>
-        <%= image_tag "paris-logo.png", id: "places"%>
-        <%= image_tag "senso-logo.png", id: "places"%>
-        <%= image_tag "syndey-logo.png", id: "places"%>
-        <%= image_tag "forbidden-logo.png", id: "places"%>
-        <%= image_tag "british-logo.png", id: "places"%>
-        <%= image_tag "vatican.png", id: "places"%>
-        <%= image_tag "greatwall.png", id: "places"%>
-        <%= image_tag "rio.png", id: "places"%>
-        <%= image_tag "niagara.png", id: "places"%>
-      </div>
+
+</div>
+
+
+<div class="container py-5">
+  <div class="d-flex justify-content-center align-items-center my-5">
+    <div class="hp-border-title">....</div>
+    <h1 class="hp-title">Our partners</h1>
+    <div class="hp-border-title">....</div>
+  </div>
+  <div class="partners mb-5">
+    <%= image_tag "acro-logo.png", id: "places"%>
+    <%= image_tag "london.png", id: "places"%>
+    <%= image_tag "kuala.png", id: "places"%>
+    <%= image_tag "louvre.png", id: "places"%>
+    <%= image_tag "machu-logo.png", id: "places"%>
+    <%= image_tag "met-logo.png", id: "places"%>
+    <%= image_tag "mexico-logo.png", id: "places"%>
+    <%= image_tag "paris-logo.png", id: "places"%>
+    <%= image_tag "senso-logo.png", id: "places"%>
+    <%= image_tag "syndey-logo.png", id: "places"%>
+    <%= image_tag "forbidden-logo.png", id: "places"%>
+    <%= image_tag "british-logo.png", id: "places"%>
+    <%= image_tag "vatican.png", id: "places"%>
+    <%= image_tag "greatwall.png", id: "places"%>
+    <%= image_tag "rio.png", id: "places"%>
+    <%= image_tag "niagara.png", id: "places"%>
   </div>
 </div>

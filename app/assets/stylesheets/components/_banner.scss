@@ -3,11 +3,11 @@
   background-position: center;
   position: relative;
   display: flex;
-  height: 830px;
+  height: 90vh;
   align-items: center;
   justify-content: center;
   // background-image: linear-gradient(rgba(95, 64, 64, 0.1), rgba(70, 9, 211, 0.3)), asset-url('explore_lp.png');
-  background-image: linear-gradient(rgba(95, 64, 64, 0.1), rgba(0, 0, 0, 0.5), rgba(95, 64, 64, 0.1)), asset-url('mappemonde.png');
+  background-image: linear-gradient(rgba(95, 64, 64, 0.1), rgba(0, 0, 0, 0.5), rgba(95, 64, 64, 0.1)), asset-url('earth_background.png');
 
   div {
     display: flex;
@@ -18,12 +18,10 @@
   h1 {
     margin: 0;
     color: white;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
     font-size: 65px;
     font-weight: bold;
     text-align: center;
     letter-spacing: 9px;
-    text-shadow: 3px 4px 9px #466F88;
   }
 
   p {
@@ -37,10 +35,10 @@
     text-decoration: none;
     font-size: 20px;
     color: white;
-    &:hover {
+/*     &:hover {
       opacity: .7;
       text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-    }
+    } */
     // background-image: asset-url('mappemonde.png');
   }
 }
@@ -50,8 +48,7 @@
   text-align: center;
   color: black;
   font-size:larger;
-  padding-top: 90px;
-  padding-bottom: 90px;
+  padding-bottom: 50px;
 }
 
 .category {
@@ -102,4 +99,20 @@ h2 {
   position: absolute;
   right: 33px;
   bottom: 11px;
+}
+
+.hp-title {
+  color: black;
+  margin-bottom: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.hp-border-title {
+  // border-bottom: 5px solid #466F88;
+  color:#466F88;
+  background-color: #466F88;
+  width: 30px;
+  font-size: 5px;
+  height: 5px;
 }
