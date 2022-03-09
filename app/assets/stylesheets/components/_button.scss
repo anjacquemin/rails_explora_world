@@ -1,40 +1,4 @@
 .tab-ghost {
-	// display: inline-block;
-	// padding: .75rem 1.25rem;
-	// border-radius: 4px;
-	// color: #0B7DC2;
-	// text-transform: uppercase;
-	// font-size: 1rem;
-	// letter-spacing: .15rem;
-	// transition: all .3s;
-	// position: relative;
-	// overflow: hidden;
-	// z-index: 1;
-  // font-family: $body-font;
-	// &:after {
-	// 	content: '';
-	// 	position: absolute;
-	// 	bottom: 0;
-	// 	left: 0;
-	// 	width: 100%;
-	// 	height: 100%;
-	// 	background-color: #0B7DC2;
-	// 	position: absolute;
-	// 	bottom: 0;
-	// 	left: 0;
-	// 	width: 0%;
-	// 	height: 100%;
-	// 	background-color: darken($blue, 15%);
-	// 	transition: all .3s;
-	// 	border-radius: 10rem;
-	// 	z-index: -1;
-	// }
-	// &:hover {
-	// 	color: #0B7DC2;
-	// 	&:before {
-	// 		width: 100%;
-	// 	}
-	// }
   color: #0B7DC2;
   background-color: #0B7DC21A;
   padding: 5px 10px;
@@ -131,14 +95,13 @@
   z-index: -1;
   } */
   &:hover {
-  // background-color: white !important;
-  // color: $purple-explora;
-  background-color: #304099;
-  color: white;
-
+    // background-color: white !important;
+    // color: $purple-explora;
+    background-color: #304099;
+    color: white;
+  }
   &:before {
     width: 100%;
-  }
   }
 }
 
