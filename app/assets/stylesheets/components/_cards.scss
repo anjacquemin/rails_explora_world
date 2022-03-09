@@ -5,7 +5,9 @@
 
  }
 
-
+.img-card{
+border-radius: 6px;
+}
 
 .cards .bold {
   font-weight: bold;
@@ -14,7 +16,7 @@
 .cards a {
   text-decoration: none;
   transition:all ease 1s;
-  border-radius: 10px;
+  border-radius: 6px;
 
 
   &:hover {
@@ -26,10 +28,11 @@
 
 .card-category {
   border-radius: 6px;
+
 }
 
 .pic {
-  border-radius: 20px;
+  border-radius: 6px;
   margin-bottom: 15px;
   width: 100%;
 }
@@ -49,6 +52,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 30px;
+  border-radius: 6px;
+
 }
 
 .card-hp-category {
