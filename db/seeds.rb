@@ -198,7 +198,7 @@ offer2 = Offer.new({
 })
 
 offer2.user = raph
-offer2.category = category3
+offer2.category = category1
 file = URI.open("https://cdn.getyourguide.com/img/location/5d2c5760b47fd.jpeg/88.jpg")
 offer2.photos.attach(io: file, filename: "#{offer2.title}-1")
 
