@@ -646,18 +646,19 @@ end
 #Seed of rental
 
 rentals = []
-10.times do
+
+slots.each do |slot|
   rental = Rental.new
   rental.user = raph
-  rental.slot = slots.sample
+  rental.slot = slot
   rental.save!
   rentals << rental
 end
 
-10.times do
+slots.each do |slot|
   rental = Rental.new
   rental.user = nico
-  rental.slot = slots.sample
+  rental.slot = slot
   rental.save!
   rentals << rental
 end
