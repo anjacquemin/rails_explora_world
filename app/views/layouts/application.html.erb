@@ -38,7 +38,9 @@
 
   <%# <body onload="initialize()"> %>
   <body>
+    <% unless action_name == "home" %>
     <%= render 'shared/navbar' %>
+    <% end %>
     <%= render 'shared/flashes' %>
 
     <%= yield %>
