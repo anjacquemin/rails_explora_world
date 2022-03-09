@@ -100,7 +100,7 @@ antho = User.new({
   password_confirmation: "PASSWORD"
 })
 antho.agency = agency4
-file = URI.open("https://avatars.githubusercontent.com/u/88970113?v=4")
+file = URI.open("https://avatars.githubusercontent.com/u/7106777?v=4")
 antho.photo.attach(io: file, filename: "#{antho.last_name}-1")
 antho.save!
 
@@ -167,7 +167,7 @@ categories = [category1, category2, category3]
 
 offer1 = Offer.new({
   address: "R. Fazenda Velha",
-  description: "The Amazon rainforest, alternatively, the Amazon jungle[a] or Amazonia, is a moist broadleaf tropical rainforest in the Amazon biome that covers most of the Amazon basin of South America. ",
+  description: "The Amazon rainforest, alternatively, the Amazon jungle or Amazonia, is a moist broadleaf tropical rainforest in the Amazon biome that covers most of the Amazon basin of South America. This basin encompasses 7,000,000 km2 (2,700,000 sq mi), of which 5,500,000 km2 (2,100,000 sq mi) are covered by the rainforest. This region includes territory belonging to nine nations and 3,344 formally acknowledged indigenous territories. ",
   video_type: "Both",
   city: "Belem",
   title: "Amazonia",
@@ -190,7 +190,7 @@ offer1.save!
 
 offer2 = Offer.new({
   address: "C14, Talek, Kenya",
-  description: "Masai Mara, also sometimes spelled Masai Mara and locally known simply as The Mara, is a large national game reserve in Narok, Kenya, contiguous with the Serengeti National Park in Tanzania.",
+  description: "Maasai Mara, also sometimes spelled Masai Mara and locally known simply as The Mara, is a large national game reserve in Narok, Kenya, contiguous with the Serengeti National Park in Tanzania. It is named in honor of the Maasai people, the ancestral inhabitants of the area, who migrated to the area from the Nile Basin. Their description of the area when looked at from afar: Mara means spotted in the local Maasai language, due to the many short bushy trees which dot the landscape. ",
   video_type: "Live",
   city: "Talek",
   title: "Masai Mara National Reserve",
@@ -211,7 +211,7 @@ offer2.save!
 
 offer3 = Offer.new({
   address: "Boulevard des plages, Biarritz",
-  description: "Située au nord de la station, La Barre est la plus petite plage d’Anglet. Elle est aussi marquée par la proximité de l’embouchure de l’Adour. Très encaissée entre 2 longs épis, elle est la plus calme du littoral. Elle porte les stigmates de l’Occupation : des blockhaus aménagés en terrasse, qui agrémentent une promenade très agréable.",
+  description: "Biarritz is a city on the Bay of Biscay, on the Atlantic coast in the Pyrénées-Atlantiques department in the French Basque Country in southwestern France. It is located 35 kilometres (22 mi) from the border with Spain. It is a luxurious seaside tourist destination known for the Hôtel du Palais (originally built for the Empress Eugénie circa 1855), its casinos in front of the sea and its surfing culture. ",
   video_type: "Live",
   city: "Biarritz",
   title: "Sables d'or",
@@ -232,7 +232,7 @@ offer3.save!
 
 offer4 = Offer.new({
   address: "1 Av. de la Plage, 64200 Biarritz",
-  description: "Arcangues, rendu célèbre par LUIS MARIANO, est un magnifique village vallonné qui a le charme d'un décor d'opérette.",
+  description: "Arcangues, rendu célèbre par LUIS MARIANO, est un magnifique village vallonné qui a le charme d'un décor d'opérette. It is a commune in the Pyrénées-Atlantiques department in the Nouvelle-Aquitaine region of southwestern France in what was formerly the Basque province of Labourd. ",
   video_type: "Live",
   city: "Arcangues",
   title: "Arcangues",
@@ -253,7 +253,7 @@ offer4.save!
 
 offer5 = Offer.new({
   address: "8 Rue de Montpensier, 75001 Paris",
-  description: "Un lieu de loisirs entouré de son décor monumental à l'antique très en vogue au XVIIIe siècle. C'est un des endroits de déambulation favoris des Parisiens et des touristes. La Comédie-Française, le théâtre du Palais-Royal et le restaurant Le Grand Véfour, au décor classé monument historique, contribuent à sa notoriété. L'art contemporain y est également fortement présent dans sa cour d'honneur avec les colonnes de Buren et deux fontaines mobiles de Pol Bury (1985). ",
+  description: "The Palais-Royal is a former royal palace located in the 1st arrondissement of Paris, France. The screened entrance court faces the Place du Palais-Royal, opposite the Louvre. Originally called the Palais-Cardinal, it was built for Cardinal Richelieu from about 1633 to 1639 by the architect Jacques Lemercier. Richelieu bequeathed it to Louis XIII, and Louis XIV gave it to his younger brother, the Duke of Orléans. As the succeeding dukes of Orléans made such extensive alterations over the years, almost nothing remains of Lemercier's original design. ",
   video_type: "Both",
   city: "Paris",
   title: "Palais Royal",
@@ -275,7 +275,7 @@ offer5.save!
 
 offer6 = Offer.new({
   address: "704 Dorsoduro, Venice",
-  description: "La collection Peggy Guggenheim est un ensemble d'œuvres d'art accumulées au cours de sa vie par la collectionneuse et mécène Peggy Guggenheim (1898-1979). ",
+  description: "The Peggy Guggenheim Collection is a modern art museum on the Grand Canal in the Dorsoduro sestiere of Venice, Italy. It is one of the most visited attractions in Venice. The collection is housed in the Palazzo Venier dei Leoni, an 18th-century palace, which was the home of the American heiress Peggy Guggenheim for three decades. She began displaying her private collection of modern artworks to the public seasonally in 1951. After her death in 1979, it passed to the Solomon R. Guggenheim Foundation, which opened the collection year-round from 1980.",
   video_type: "Live",
   city: "Venise",
   title: "Guggenheim Museum",
@@ -298,7 +298,7 @@ offer6.save!
 
 offer7 = Offer.new({
   address: "Place de l'étoile, Paris",
-  description: "Un haut lieu des grandes manifestations nationales. Souhaité par Napoléon Ier dès 1806, l'Arc de triomphe est inauguré en 1836 par le roi des Français, Louis-Philippe, qui le dédie aux armées de la Révolution et de l'Empire. Le Soldat inconnu est inhumé sur le terre-plein en 1921. La flamme du souvenir est ravivée tous les jours à 18h30.",
+  description: "Place Charles de Gaulle historically known as the Place de l'Étoile (French: [plas də letwal]), is a large road junction in Paris, France, the meeting point of twelve straight avenues (hence its historic name, which translates as Square of the Star) including the Champs-Élysées. It was renamed in 1970 following the death of President Charles de Gaulle. It is still often referred to by its original name; the nearby Métro and RER station retains the designation Charles de Gaulle–Étoile.",
   video_type: "Both",
   city: "Paris",
   title: "Arc de Triomphe",
@@ -319,7 +319,7 @@ offer7.save!
 
 offer8 = Offer.new({
   address: "Rue de Rivoli, Paris",
-  description: "Ancien palais des rois, le Louvre épouse l’histoire de France depuis huit siècles. Conçu dès sa création en 1793 comme un musée universel, ses collections, qui figurent parmi les plus belles au monde, couvrent plusieurs millénaires et un territoire qui s’étend de l’Amérique aux frontières de l’Asie.",
+  description: "The Louvre or the Louvre Museum, is the world's most-visited museum, and a historic landmark in Paris, France. It is the home of some of the best-known works of art, including the Mona Lisa and the Venus de Milo. A central landmark of the city, it is located on the Right Bank of the Seine in the city's 1st arrondissement (district or ward). At any given point in time, approximately 38,000 objects from prehistory to the 21st century are being exhibited over an area of 72,735 square meters.",
   video_type: "Both",
   city: "Paris",
   title: "Le Louvre",
@@ -341,7 +341,7 @@ offer8.save!
 
 offer9 = Offer.new({
   address: "Rue Beaubourg, Paris",
-  description: "Le centre national d’art et de culture Georges-Pompidou (CNAC) – communément appelé « centre Pompidou », ou plus familièrement « Beaubourg » – est un établissement pluridisciplinaire né de la volonté du président Georges Pompidou, grand amateur d'art moderne, de créer au cœur de Paris une institution culturelle originale entièrement vouée à la création moderne et contemporaine.",
+  description: "The Centre Pompidou, more fully the Centre national d'art et de culture Georges-Pompidou, also known as the Pompidou Centre in English, is a complex building in the Beaubourg area of the 4th arrondissement of Paris, near Les Halles, rue Montorgueil, and the Marais. It was designed in the style of high-tech architecture by the architectural team of Richard Rogers, Su Rogers, Renzo Piano, along with Gianfranco Franchini.",
   video_type: "Both",
   city: "Paris",
   title: "Le Centre Pompidou",
@@ -350,7 +350,7 @@ offer9 = Offer.new({
 
 offer9.user = antho
 offer9.category = category2
-file = URI.open("https://www.guide-artistique.com/images/header/musee-georges-pompidou.jpg")
+file = URI.open("https://www.centrepompidou.fr/media/picture/f4/f6/f4f6b50e5f2f95fcfb0aca428c12583d/thumb_large.jpg")
 offer9.photos.attach(io: file, filename: "#{offer9.title}-1")
 
 file = URI.open("https://media.lesechos.com/api/v1/images/view/5ca44cdc3e454605f4225865/1280x720/0601006628268-web-tete.jpg")
@@ -363,7 +363,7 @@ offer9.save!
 
 offer10 = Offer.new({
   address: "Praia da Urca, Rio de Janeiro",
-  description: "Le Pain de Sucre (Pão de Açúcar en portugais), est un monolithe et un inselberg granitique situé dans la ville de Rio de Janeiro au Brésil. Il culmine à 396 mètres d'altitude et est accessible par un téléphérique.",
+  description: "Sugarloaf Mountain is a peak situated in Rio de Janeiro, Brazil, at the mouth of Guanabara Bay on a peninsula that juts out into the Atlantic Ocean. Rising 396 m (1,299 ft) above the harbor, its name is said to refer to its resemblance to the traditional shape of concentrated refined loaf sugar. It is known worldwide for its cableway and panoramic views of the city and beyond.",
   video_type: "VoD",
   city: "Rio de Janeiro",
   title: "Pão de Açúcar",
@@ -384,7 +384,7 @@ offer10.save!
 
 offer11 = Offer.new({
   address: "Alto da Boa Vista, Rio de Janeiro",
-  description: "Le Corcovado (« bossu » en portugaisa) est l'un des nombreux reliefs de la ville de Rio de Janeiro. Il s'élève à 704 mètres d'altitude. Il est célèbre pour accueillir en son sommet la statue du Christ Rédempteur, l'un des principaux symboles de la ville et du pays, et pour offrir une vue sur l'ensemble de la zone sud de la ville.",
+  description: "Corcovado which means hunchback in Portuguese,[1] is a mountain in central Rio de Janeiro, Brazil. It is a 710-metre granite peak located in the Tijuca Forest, a national park. Corcovado hill lies just west of the city center but is wholly within the city limits and visible from great distances. It is known worldwide for the 38-metre statue of Jesus atop its peak, entitled Christ the Redeemer, which was voted as one of the New Seven Wonders of the World. ",
   video_type: "Both",
   city: "Rio de Janeiro",
   title: "Corcovado",
@@ -405,7 +405,7 @@ offer11.save!
 
 offer12 = Offer.new({
   address: "Praia de Copacabana, rio de Janeiro",
-  description: "Copacabana est un quartier de Rio de Janeiro au Brésil. Il est situé au sud de la ville. Le quartier comprend la plage du même nom, longue de 4,5 km, l'une des plages les plus célèbres de la planète.",
+  description: "Copacabana is a bairro (neighbourhood) located in the South Zone of the city of Rio de Janeiro, Brazil. It is most prominently known for its 4 km (2.5 miles) balneario beach, which is one of the most famous in the world. ",
   video_type: "VoD",
   city: "Rio de Janeiro",
   title: "Copacabana",
@@ -426,7 +426,7 @@ offer12.save!
 
 offer13 = Offer.new({
   address: "Quai d'Orsay, Paris",
-  description: "Le musée possède la plus importante collection de peintures impressionnistes et postimpressionnistes au monde, avec près de 1 100 toiles3 au total sur plus de 3 650, et l’on peut y voir des chefs-d’œuvre de la peinture et de la sculpture.",
+  description: "The Musée d'Orsay is a museum in Paris, France, on the Left Bank of the Seine. It is housed in the former Gare d'Orsay, a Beaux-Arts railway station built between 1898 and 1900. The museum holds mainly French art dating from 1848 to 1914, including paintings, sculptures, furniture, and photography. It houses the largest collection of Impressionist and post-Impressionist masterpieces in the world, by painters including Berthe Morisot, Monet, Manet, Degas, Renoir, Cézanne, Seurat, Sisley, Gauguin, and Van Gogh.",
   video_type: "Live",
   city: "Paris",
   title: "Musée d'Orsay",
@@ -447,7 +447,7 @@ offer13.save!
 
 offer14 = Offer.new({
   address: "Millbank",
-  description: "La Tate Britain, appelée Tate Galerie jusqu'en 2000, est l'un des musées du réseau Tate avec la Tate Modern, la Tate Liverpool et la Tate St Ives. Elle est située sur le site d'une ancienne prison à Millbank. ",
+  description: "Tate Britain, known from 1897 to 1932 as the National Gallery of British Art and from 1932 to 2000 as the Tate Gallery, is an art museum on Millbank in the City of Westminster in London, England.[3] It is part of the Tate network of galleries in England, with Tate Modern, Tate Liverpool and Tate St Ives. It is the oldest gallery in the network, having opened in 1897.[4][5] It houses a substantial collection of the art of the United Kingdom since Tudor times, and in particular has large holdings of the works of J. M. W. Turner, who bequeathed all his own collection to the nation.",
   video_type: "Both",
   city: "Londres",
   title: "Tate Museum",
@@ -468,7 +468,7 @@ offer14.save!
 
 offer15 = Offer.new({
   address: "House of commons",
-  description: "Big Ben est le surnom de la grande cloche de 13,5 tonnes se trouvant au sommet de la tour Élisabeth (Elizabeth Tower).",
+  description: "Big Ben is the nickname for the Great Bell of the striking clock at the north end of the Palace of Westminster in London, England,[1] although the name is frequently extended to refer also to the clock and the clock tower.[2] The official name of the tower in which Big Ben is located was originally the Clock Tower, but it was renamed Elizabeth Tower in 2012, to mark the Diamond Jubilee of Elizabeth II.",
   video_type: "VoD",
   city: "Londres",
   title: "Big Ben",
@@ -489,7 +489,7 @@ offer15.save!
 
 offer16 = Offer.new({
   address: "20 Deans Yd",
-  description: "L’abbaye de Westminster est l'un des édifices religieux les plus célèbres de Londres. Sa construction date pour l'essentiel du XIIIᵉ siècle, sous Henri III.",
+  description: "Westminster Abbey, formally titled the Collegiate Church of Saint Peter at Westminster, is a large, mainly Gothic abbey church in the City of Westminster, London, England, just to the west of the Palace of Westminster. It is one of the United Kingdom's most notable religious buildings and the traditional place of coronation and a burial site for English and, later, British monarchs.",
   video_type: "Live",
   city: "Londres",
   title: "Westminster Abbey",
@@ -510,7 +510,7 @@ offer16.save!
 
 offer17 = Offer.new({
   address: "Dharmapuri, Forest Colony, Tajganj, Agra, Uttar Pradesh 282001, Inde",
-  description: "The Taj Mahal (lit. 'Crown of the Palace',[5] is an ivory-white marble mausoleum on the right bank of the river Yamuna in the Indian city of Agra.",
+  description: "The Taj Mahal is an ivory-white marble mausoleum on the right bank of the river Yamuna in the Indian city of Agra. It was commissioned in 1632 by the Mughal emperor Shah Jahan (r. 1628–1658) to house the tomb of his favourite wife, Mumtaz Mahal; it also houses the tomb of Shah Jahan himself.",
   video_type: "Live",
   city: "Agra",
   title: "Taj Mahal",
@@ -532,7 +532,7 @@ offer17.save!
 
 offer18 = Offer.new({
   address: "Saadiyat - Abu Dhabi - Émirats arabes unis",
-  description: "The Louvre Abu Dhabi (Arabic: اللوفر أبوظبي; French: Louvre Abou Dabi) is an art museum located on Saadiyat Island in Abu Dhabi, United Arab Emirates. It runs under an agreement between the UAE and France.",
+  description: "The Louvre Abu Dhabi is an art museum located on Saadiyat Island in Abu Dhabi, United Arab Emirates. It runs under an agreement between the UAE and France, signed in March 2007, that allows it to use the Louvre's name until 2037, and has been described by the Louvre as France’s largest cultural project abroad.",
   video_type: "Live",
   city: "Abu Dhabi",
   title: "Louvre Abu Dhabi",
@@ -553,7 +553,7 @@ offer18.save!
 
 offer19 = Offer.new({
   address: "Temple St, Jordan, Hong Kong",
-  description: "Temple Street is a street located in the areas of Jordan and Yau Ma Tei in Kowloon, Hong Kong. It is known for its night market and as one of the busiest flea markets at night in the territory.",
+  description: "Temple Street is a street located in the areas of Jordan and Yau Ma Tei in Kowloon, Hong Kong. It is known for its night market and as one of the busiest flea markets at night in the territory. The night market lies in the Yau Ma Tei, Jordan part of the street. Popular with tourists and locals alike in the evening, it is also common to see the place crowded at dusk. It sells cheap merchandise and food items.",
   video_type: "Live",
   city: "Hong Kong",
   title: "Temple Street Market",
@@ -577,7 +577,7 @@ offer19.save!
 
 offer20 = Offer.new({
   address: "Museumstraat 1, Amsterdam, Netherlands",
-  description: "The Rijksmuseum is the national museum of the Netherlands dedicated to Dutch arts and history and is located in Amsterdam. The museum is located at the Museum Square in the borough Amsterdam South",
+  description: "The Rijksmuseum is the national museum of the Netherlands dedicated to Dutch arts and history and is located in Amsterdam.[10] The museum is located at the Museum Square in the borough Amsterdam South, close to the Van Gogh Museum, the Stedelijk Museum Amsterdam, and the Concertgebouw.",
   video_type: "Both",
   city: "Amsterdam",
   title: "Rijksmuseum",
@@ -600,7 +600,7 @@ offer20.save!
 
 offer21 = Offer.new({
   address: "Giza, Greater Cairo, Egypt",
-  description: "The Giza pyramid complex, also called the Giza necropolis, is the site on the Giza Plateau in Greater Cairo, Egypt that includes the Great Pyramid of Giza, the Pyramid of Khafre, and the Pyramid of Menkaure, along with their associated pyramid complexes and the Great Sphinx of Giza. ",
+  description: "The Giza pyramid complex, also called the Giza necropolis, is the site on the Giza Plateau in Greater Cairo, Egypt that includes the Great Pyramid of Giza, the Pyramid of Khafre, and the Pyramid of Menkaure, along with their associated pyramid complexes and the Great Sphinx of Giza. All were built during the Fourth Dynasty of the Old Kingdom of Ancient Egypt, between 2600 and 2500 BC.",
   video_type: "Both",
   city: "Cairo",
   title: "Giza Pyramid",
@@ -627,13 +627,11 @@ offers = [offer1, offer2, offer3, offer4, offer5, offer6, offer7, offer8, offer9
 #Seed of slots + chatrooms
 
 slots = []
-80.times do
-  date = DateTime.new(2022, rand(1..6), rand(1..28), rand(0..23), [0, 30].sample)
 
-  slot = Slot.new({
-    start_at: date
-  })
-  slot.offer = offers.sample
+Offer.all.each do |offer|
+  date = DateTime.new(2022, rand(1..5), rand(1..28), rand(0..23), [0, 30].sample)
+  slot = Slot.new({ start_at: date })
+  slot.offer = offer
   slot.user = agents.sample
   slot.save!
   slots << slot
@@ -641,20 +639,28 @@ slots = []
   chatroom = Chatroom.new
   chatroom.slot = slot
   chatroom.save!
+
 end
 
 
 #Seed of rental
 
 rentals = []
-200.times do
+10.times do
   rental = Rental.new
-  rental.user = fake_users.sample
+  rental.user = raph
   rental.slot = slots.sample
   rental.save!
   rentals << rental
 end
 
+10.times do
+  rental = Rental.new
+  rental.user = nico
+  rental.slot = slots.sample
+  rental.save!
+  rentals << rental
+end
 
 #Seed of reviews
 

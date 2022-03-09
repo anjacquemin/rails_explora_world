@@ -32,6 +32,7 @@ function initialize() {
 
   // rechercher les markers dans le DOM
   var markers = JSON.parse(document.getElementById("map").dataset.markers);
+  var amazonia = JSON.parse(document.getElementById("map").dataset.amazonia);
   console.log(markers)
   markers.forEach(function (marker) {
       WE.marker(marker).addTo(map)
@@ -43,7 +44,7 @@ function initialize() {
     inputRandom.addEventListener("click", function(e) {
     map.panTo(coords);
     var marker = WE.marker(coords).addTo(map);
-    marker.bindPopup('<a href=/offers/12>Discover me !</a>', {maxWidth: 150, closeButton: true}).openPopup();
+    marker.bindPopup('<a href=/offers/'.concat(amazonia).concat('>Discover me !</a>'), {maxWidth: 150, closeButton: true}).openPopup();
   })
 }
 

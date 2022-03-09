@@ -1,5 +1,7 @@
 class OffersController < ApplicationController
   def index
+    @amazonia = Offer.select { |offer| offer.title == "Amazonia" }
+    @id = @amazonia[0].id
     if params[:query].present?
       @offers = policy_scope(Offer).search_by_city(params[:query])
     else

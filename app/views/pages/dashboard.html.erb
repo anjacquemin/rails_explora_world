@@ -70,8 +70,10 @@
         <p class="font-bold p-2 m-2"> Memories of my visits</p>
           <div class="my-3 mx-2">
             <div class="mosaic my-3">
-              <% current_user.rentals.each do |rental| %>
+              <% current_user.rentals.select {|rental| rental.slot.start_at < Date.today }.each do |rental| %>
                 <%= cl_image_tag rental.slot.offer.photos.all[0].key, height: 60, class: 'fit-picture' %>
+                <%= cl_image_tag rental.slot.offer.photos.all[1].key, height: 60, class: 'fit-picture' %>
+                <%= cl_image_tag rental.slot.offer.photos.all[2].key, height: 60, class: 'fit-picture' %>
               <% end %>
             </div>
           </div>
