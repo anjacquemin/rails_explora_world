@@ -1,21 +1,21 @@
 .footer {
-  background: #F1F3F7;
+  background: #3f51b5;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
+  height: 150px;
   padding: 0px 50px;
-  color: rgba(0, 0, 0, 0.8);
+  color: white;
   border-top: 1.5px solid rgba(0, 0, 0, 0.1);
 
-  .footer a {
+  .top {
     text-decoration: none;
-    color: black;
+    color: white;
 
       &:hover {
-      color: #466F88;
+      color: white;
       opacity: 0.7;
-   }
+    }
   }
 
 }
@@ -24,19 +24,21 @@
   align-items: center;
 }
 .footer-links a {
-  color: #466F88;
-  opacity: 0.15;
+  color: #F8DA99;
+  opacity: 0.8;
   text-decoration: none;
   font-size: 24px;
   padding: 0px 10px;
 }
 .footer-links a:hover {
+  color: #FABA2B;
   opacity: 1;
 }
 
 .footer .fa-globe-americas {
-  color: rgb(4, 4, 128);
+  color: #FABA2B;
   font-size: 20px;
+  padding: 5px;
 }
 
 .footer-copyright {
