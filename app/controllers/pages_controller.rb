@@ -31,6 +31,7 @@ class PagesController < ApplicationController
     @user = current_user
     @rentals = Rental.where(user_id: current_user.id)
     @last_rental = Rental.find(params[:id])
+    @pastvisit = @rentals.map { |rental| rental.slot if rental.slot.start_at < Date.today }.compact
     @markers = []
     @rentals.each do |rental|
       @markers <<
