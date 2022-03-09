@@ -647,7 +647,7 @@ end
 
 rentals = []
 
-slots.each do |slot|
+slots.sample(10).each do |slot|
   rental = Rental.new
   rental.user = raph
   rental.slot = slot
@@ -655,7 +655,7 @@ slots.each do |slot|
   rentals << rental
 end
 
-slots.each do |slot|
+slots.sample(10).each do |slot|
   rental = Rental.new
   rental.user = nico
   rental.slot = slot
