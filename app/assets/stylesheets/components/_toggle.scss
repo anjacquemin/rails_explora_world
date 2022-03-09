@@ -1,7 +1,6 @@
 .df-switch {
-  margin-top: 20px;
-  padding: 2rem;
   text-align: center;
+  height: 44px;
 }
 .btn-toggle {
   top: 50%;
@@ -16,7 +15,7 @@
   width: 5rem;
   border-radius: 1.5rem;
   color: #6b7381;
-  background: #0885da;
+  background: $purple-explora;
 }
 .btn-toggle:focus,
 .btn-toggle.focus,
@@ -38,15 +37,15 @@
   transition: opacity 0.25s;
 }
 .btn-toggle:before {
-  content: 'MAP';
-  left: -5rem;
-  color: #109fff;
+  content: 'EARTH';
+  left: -4rem;
+  color: $purple-explora;
 }
 .btn-toggle:after {
-  content: 'Earth';
-  right: -5rem;
+  content: 'MAP';
+  right: -4rem;
   opacity: 0.5;
-  color: #F47280;
+  color: $purple-explora;
 }
 .btn-toggle > .inner-handle {
   border-radius: 13px;
@@ -55,7 +54,7 @@
   position: absolute;
   top: 6px;
   left: 8px;
-  background-color: #0f71bd;
+  background-color: white;
   box-shadow: inset 1px 1px 2px -1px black;
 }
 .btn-toggle.active > .inner-handle {
@@ -64,16 +63,16 @@
 .btn-toggle > .handle:before {
   content: "";
   position: absolute;
-  height: 34px;
+  height: 11px;
   width: 34px;
   top: 35%;
   left: 11px;
-  background-image: radial-gradient(circle at center, #0785da 5px, transparent 5px);
+  background-image: radial-gradient(circle at center, $purple-explora 5px, transparent 5px);
   background-size: 10px 10px;
   background-repeat: no-repeat;
 }
 .btn-toggle.active > .handle:before {
-  background-image: radial-gradient(circle at center, #F47280 5px, transparent 5px);
+  background-image: radial-gradient(circle at center, $purple-explora 5px, transparent 5px);
 }
 .btn-toggle > .handle {
   position: absolute;
@@ -98,10 +97,10 @@
 }
 .btn-toggle.active:after {
   opacity: 1;
-  color: #F47280;
+  color: $purple-explora;
 }
 .btn-toggle.active {
-  background-color: #F47280;
+  background-color: $purple-explora;
 }
 
 .title-index{

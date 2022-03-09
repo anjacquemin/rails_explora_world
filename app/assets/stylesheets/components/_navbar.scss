@@ -1,13 +1,14 @@
 .navbar-lewagon {
   justify-content: space-between;
-  // background: #F8F8F8;
-  // opacity:1;
   border: 0.5px;
   height: 10vh;
   color: white;
+  background-color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100000;
   h2 {
     font-family: $headers-font;
-    // text-shadow: $blue 1px 0 5px;
     margin: 0;
   }
 }

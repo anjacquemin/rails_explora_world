@@ -16,7 +16,7 @@ ActiveStorage.start()
 function initialize() {
   var map = WE.map('map', {
     center: [36.057944835, -112.18688965],
-    zoom: 3.1,
+    zoom: 3,
     dragging: true,
     scrollWheelZoom: true
   });
@@ -38,10 +38,10 @@ function initialize() {
   });
 
   //coordonnées amazonie en dur
-  var coords = [-10.45, -48.5];
+  var coords = [-15.64, -62.12];
   var inputRandom = document.querySelector("#map input");
     inputRandom.addEventListener("click", function(e) {
-    map.panTo(coords);
+    map.panTo([-10.971380, -30.826578]);
     var marker = WE.marker(coords).addTo(map);
     marker.bindPopup('<a href=/offers/12>Discover me !</a>', {maxWidth: 150, closeButton: true}).openPopup();
   })

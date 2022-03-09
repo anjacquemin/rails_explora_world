@@ -4,51 +4,54 @@
 
 
 <div class="">
-  <p class="title-index">All offers</p>
+  <div class="ps-5">
+    <div class="d-flex justify-content-around">
+      <div data-controller="categories">
 
-  <div class="d-flex justify-content-around">
-    <div data-controller="categories">
+        <div class="d-flex">
+          <div style="width: 70%;">
+            <p class="title-index">All offers</p>
 
-      <div class="d-flex">
-        <div style="width: 70%;">
-          <div class="tab px-4 mt-2 d-flex justify-content-start">
-            <button class="tab-ghost" data-action="click->categories#openTab" data-tab="Museums">Museums</button>
-            <button class="tab-ghost" data-action="click->categories#openTab" data-tab="Monuments">Monuments</button>
-            <button class="tab-ghost" data-action="click->categories#openTab" data-tab="Neighborhoods">Neighborhoods</button>
+            <div class="tab px-4 mt-2 d-flex justify-content-start">
+              <button class="tab-ghost" data-action="click->categories#openTab" data-tab="Museums">Museums</button>
+              <button class="tab-ghost" data-action="click->categories#openTab" data-tab="Monuments">Monuments</button>
+              <button class="tab-ghost" data-action="click->categories#openTab" data-tab="Neighborhoods">Neighborhoods</button>
+            </div>
+            <div class="px-5">
+              <%= render "shared/card_index", locals: {category: @offers.select { |offer| offer.category.name == "Museum"}, category_name: "Museums" } %>
+              <%= render "shared/card_index", locals: {category: @offers.select { |offer| offer.category.name == "Monument"}, category_name: "Monuments"} %>
+              <%= render "shared/card_index", locals: {category: @offers.select { |offer| offer.category.name == "Neighborhood"}, category_name: "Neighborhoods"} %>
+            </div>
           </div>
-          <div class="px-5">
-            <%= render "shared/card_index", locals: {category: @offers.select { |offer| offer.category.name == "Museum"}, category_name: "Museums" } %>
-            <%= render "shared/card_index", locals: {category: @offers.select { |offer| offer.category.name == "Monument"}, category_name: "Monuments"} %>
-            <%= render "shared/card_index", locals: {category: @offers.select { |offer| offer.category.name == "Neighborhood"}, category_name: "Neighborhoods"} %>
-          </div>
+
+          <div class="position-sticky" style="top: 10vh; height: 90vh; width: 30%; overflow-x:hidden">
+
+            <div style="width: 600px; height: 800px; border-radius: 20px; margin-bottom: 50px;"
+              data-controller="mapbox"
+              data-mapbox-markers-value="<%= @markers.to_json %>"
+              data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+              class ="my-3 mx-4 position-sticky d-none"
+              id="map_index">
+            </div>
+
+            <div id="map" class="mt-0" style="margin-left: -40px; z-index: 1000;" data-markers="<%= @markers.to_json %>">
+              <div class="d-flex w-100 align-items-center justify-content-start py-5">
+                <div class="df-switch ms-5 me-4">
+                  <button type="button" class="btn btn-lg btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off">
+                    <div class="inner-handle"></div>
+                    <div class="handle"></div>
+                  </button>
+                </div>
+                <div id="buttons" class="">
+                  <input type="button" class="btn-ghost" value="I feel lucky !"><br>
+                </div>
+              </div>
+              <div id="coords"></div>
+            </div>
+
         </div>
-
-        <div class="position-sticky" style="top: 0px; height: fit-content; width: 30%; overflow-x:hidden">
-
-          <div style="width: 600px; height: 800px; border-radius: 20px; margin-bottom: 50px;"
-            data-controller="mapbox"
-            data-mapbox-markers-value="<%= @markers.to_json %>"
-            data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-            class ="my-3 mx-4 position-sticky d-none"
-            id="map_index">
-          </div>
-
-          <div class="df-switch">
-            <button type="button" class="btn btn-lg btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off">
-              <div class="inner-handle"></div>
-              <div class="handle"></div>
-            </button>
-          </div>
-
-          <div id="map" class="" data-markers="<%= @markers.to_json %>">
-            <div id="coords"></div>
-            <div id="buttons" style="position: absolute;">
-              <input type="button" class="fill" value="I feel lucky !"><br>
-          </div>
-
-        </div>
-
       </div>
     </div>
   </div>
+
 </div>
