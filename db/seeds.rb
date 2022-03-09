@@ -639,7 +639,6 @@ Offer.all.each do |offer|
   chatroom = Chatroom.new
   chatroom.slot = slot
   chatroom.save!
-
 end
 
 
