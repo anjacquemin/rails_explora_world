@@ -17,6 +17,14 @@ class PagesController < ApplicationController
           lng: rental.slot.offer.longitude
         }
     end
+    @offers = Offer.all
+    @museums_visited = current_user.rentals.select { |rental| rental.slot.offer.category.name == "Museum" }.select { |rental| rental.slot.start_at < Date.today }.count
+    @monuments_visited = current_user.rentals.select { |rental| rental.slot.offer.category.name == "Monument" }.select { |rental| rental.slot.start_at < Date.today }.count
+    @neighborhoods_visited = current_user.rentals.select { |rental| rental.slot.offer.category.name == "Neighborhood" }.select { |rental| rental.slot.start_at < Date.today }.count
+
+    @museums = Offer.all.select { |offer| offer.category.name == "Museum" }
+    @monuments = Offer.all.select { |offer| offer.category.name == "Monument" }
+    @neighborhoods = Offer.all.select { |offer| offer.category.name == "Neighborhood" }
   end
 
   def dashboard_booking
@@ -32,6 +40,14 @@ class PagesController < ApplicationController
           lng: rental.slot.offer.longitude
         }
     end
+    @offers = Offer.all
+    @museums_visited = current_user.rentals.select { |rental| rental.slot.offer.category.name == "Museum" }.select { |rental| rental.slot.start_at < Date.today }.count
+    @monuments_visited = current_user.rentals.select { |rental| rental.slot.offer.category.name == "Monument" }.select { |rental| rental.slot.start_at < Date.today }.count
+    @neighborhoods_visited = current_user.rentals.select { |rental| rental.slot.offer.category.name == "Neighborhood" }.select { |rental| rental.slot.start_at < Date.today }.count
+
+    @museums = Offer.all.select { |offer| offer.category.name == "Museum" }
+    @monuments = Offer.all.select { |offer| offer.category.name == "Monument" }
+    @neighborhoods = Offer.all.select { |offer| offer.category.name == "Neighborhood" }
     render :dashboard
   end
 end
