@@ -9,7 +9,7 @@ class SlotsController < ApplicationController
     setup_video_call_token
 
     #Chatroom
-    @chatroom = Chatroom.find(params[:id])
+    @chatroom = Slot.find(params[:id]).chatroom
     @message = Message.new()
   end
 

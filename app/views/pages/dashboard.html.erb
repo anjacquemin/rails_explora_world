@@ -36,26 +36,26 @@
       <div class="whitebox p-3" style="width:19%;">
         <p class="font-bold"> Totals visits</p>
         <div class="count d-flex justify-content-end">
-          <%= "#{((current_user.rentals.count).fdiv(@offers.count)*100).round} %" %>
+          <%= "#{((current_user.rentals.select {|rental| rental.slot.start_at < Date.today}.count).fdiv(@offers.count)*100).round} %" %>
         </div>
       </div>
 
       <div class="whitebox p-3" style="width:19%;" >
-        <p class="font-bold"> Museums visited</p>
+        <p class="font-bold"> Visited Museums</p>
         <div class="count d-flex justify-content-end">
           <%= @museums_visited %>
         </div>
       </div>
 
       <div class="whitebox p-3" style="width:19%;" >
-        <p class="font-bold"> Monuments visited</p>
+        <p class="font-bold"> Visited Monuments</p>
         <div class="count d-flex justify-content-end">
           <%= @monuments_visited %>
         </div>
       </div>
 
       <div class="whitebox p-3" style="width:19%;" >
-        <p class="font-bold"> Neighborhoods visited</p>
+        <p class="font-bold"> Visited Places</p>
         <div class="count d-flex justify-content-end">
           <%= @neighborhoods_visited %>
           </div>
@@ -166,7 +166,7 @@
               </div>
               <div class="Neighborhoods">
                 <div class="explora-progress-bar">
-                  <span>Neighborhoods</span>
+                  <span>Places</span>
                   <span id="progress">50%</span>
                   <div class="progress-wrapper">
                     <div class="progress-input" style="width: 50%;"></div>

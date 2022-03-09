@@ -112,7 +112,7 @@
 
   <div class ="bg-white mt-1 mb-2 me-2 ms-2 p-1">
     <%= simple_form_for [@slot, @message], remote: true, html: {data: {chatroom_subscription_target: "form"}, class: "d-flex align-items-center"} do |f| %>
-      <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.id}", wrapper_html: {class: "flex-grow-1", id:"input-message"}%>
+      <%= f.input :content, label: false, placeholder: "Chat here...", wrapper_html: {class: "flex-grow-1", id:"input-message"}%>
       <%= button_tag type: "submit", class: "btn btn-primary btn-height" do %>
          <i class="fas fa-paper-plane"></i>
       <% end %>
@@ -130,9 +130,9 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body d-flex flex-column align-items-center">
-        <p class="mb-1">Review</p>
-        <input type="text" placeholder="Share your review">
-        <p class="mt-4 mb-1">Rating</p>
+        <h3 class="mb-2">Review</h3>
+        <textarea rows="4" cols="30" style="resize:none" placeholder="Share your review..."></textarea>
+        <h3 class="mb-2 mt-5">Rating</h3>
         <div class="rating d-flex justify-content-center">
             <input id="rating1" type="radio" name="rating" value="1">
             <label for="rating1">1</label>
@@ -145,28 +145,28 @@
             <input id="rating5" type="radio" name="rating" value="5">
             <label for="rating5">5</label>
         </div>
-        <p class="mt-4 mb-1">Tips</p>
-        <div class="d-flex">
-          <div class="form-check m-2">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios0" value="option0" checked>
+        <h3 class="mb-2 mt-5">Tips</h3>
+        <div class="d-flex" style="display: inline-block;">
+          <div class="">
+            <input class="checkbox_tips" type="radio" name="exampleRadios" id="exampleRadios0" value="option0" checked>
             <label class="form-check-label" for="exampleRadios0">
               0€
             </label>
           </div>
-          <div class="form-check m-2">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+          <div class="m-1">
+            <input class="checkbox_tips" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
             <label class="form-check-label" for="exampleRadios1">
               1€
             </label>
           </div>
-          <div class="form-check m-2">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+          <div class="m-1">
+            <input class="checkbox_tips" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
             <label class="form-check-label" for="exampleRadios2">
               5€
             </label>
           </div>
-          <div class="form-check m-2">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+          <div class="m-1">
+            <input class="checkbox_tips" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
             <label class="form-check-label" for="exampleRadios3">
               10€
             </label>
@@ -174,7 +174,7 @@
         </div>
       </div>
       <div class="modal-footer d-flex flex-column align-items-center">
-        <%= link_to '<i class="fas fa-paper-plane"></i>  Send'.html_safe, dashboard_path(), class: "btn btn-primary"%>
+        <%= link_to '<i class="fas fa-paper-plane"></i>  Send'.html_safe, dashboard_path(), class: "btn btn-ghost"%>
       </div>
     </div>
   </div>

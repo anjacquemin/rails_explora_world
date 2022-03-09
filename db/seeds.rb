@@ -107,7 +107,7 @@ antho.save!
 
 agents = [raph, nico, antho, julien]
 
-fake_users = [raph, nico, antho, julien]
+fake_users = [raph, nico, julien]
 
 url1 = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1539711591/f534ccgpn41ldspdnpjf.jpg"
 url2 = "https://avatars.githubusercontent.com/u/8135012?v=4"
@@ -642,36 +642,53 @@ Offer.all.each do |offer|
 end
 
 
-#Seed of rental
+#Seed for user Anthony
 
-rentals = []
+offers1 = [offer2, offer3, offer4, offer5, offer6, offer7]
 
-slots.sample(10).each do |slot|
+offers2 = [offer18, offer19, offer20, offer21]
+
+offers1.each do |offer|
+  date = DateTime.new(2022, rand(1..2), rand(1..28), rand(0..23), [0, 30].sample)
+  slot = Slot.new({ start_at: date })
+  slot.offer = offer
+  slot.user = agents.sample
+  slot.save!
   rental = Rental.new
-  rental.user = raph
+  rental.user = antho
   rental.slot = slot
   rental.save!
-  rentals << rental
+  chatroom = Chatroom.new
+  chatroom.slot = slot
+  chatroom.save!
 end
 
-slots.sample(10).each do |slot|
+offers2.each do |offer|
+  date = DateTime.new(2022, rand(3..6), rand(11..30), rand(0..23), [0, 30].sample)
+  slot = Slot.new({ start_at: date })
+  slot.offer = offer
+  slot.user = agents.sample
+  slot.save!
   rental = Rental.new
-  rental.user = nico
+  rental.user = antho
   rental.slot = slot
   rental.save!
-  rentals << rental
+  chatroom = Chatroom.new
+  chatroom.slot = slot
+  chatroom.save!
 end
+
 
 #Seed of reviews
 
-400.times do
-  review = Review.new({
-  content: Faker::Lorem.sentences(number: 2),
-  rating: rand(1..5)
-  })
-  review.rental = rentals.sample
-  review.save!
-end
+# 400.times do
+#   review = Review.new({
+#   content: Faker::Lorem.sentences(number: 2),
+#   rating: rand(1..5)
+#   })
+#   review.rental = rentals.sample
+#   review.save!
+# end
 
 #Seed of flashcards
 
@@ -683,6 +700,10 @@ end
   flashcard.offer = offers.sample
   flashcard.save!
 end
+
+
+
+
 
 
 ####################"LOOGING THE RESULTS FOR TESTING"#############
@@ -729,11 +750,11 @@ p rentals
 puts "-------------------------------------------"
 puts ""
 
-puts "------------------REVIEWS------------------"
-reviews = Review.all
-p reviews
-puts "-------------------------------------------"
-puts ""
+# puts "------------------REVIEWS------------------"
+# reviews = Review.all
+# p reviews
+# puts "-------------------------------------------"
+# puts ""
 
 
 puts "------------------Flashcard------------------"

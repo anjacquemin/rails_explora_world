@@ -31,7 +31,7 @@
             <%= link_to "Dashboard", dashboard_path, class: "nav-link mx-4" %>
           </li>
           <li class="nav-item dropdown">
-          <%= cl_image_tag current_user.photo.key, class: "avatar-bordered", alt: "avatar-bordered" %>
+          <%= cl_image_tag current_user.photo.key, class: "avatar-bordered dropdown-toggle", alt: "avatar-bordered", id: "navbarDropdown", data_bs_toggle: "dropdown", aria_haspopup: "true", aria_expanded: "false" %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
