@@ -1,13 +1,14 @@
 <div data-controller="maindashboard" class="dashboard-container ">
-  <div class="sidebar px-3 py-5 d-flex flex-column justify-content-between">
+  <div class="sidebar px-3  d-flex flex-column justify-content-between">
     <div class="items my-5">
       <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-visits"> <i class=" icone pe-4 fas fa-eye color-red"></i>My visits</div>
       <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-map"> <i class=" icone pe-4 fas  fa-map color-orange"></i>My map</div>
       <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-vod"> <i class=" icone pe-4 fas fa-video color-blue"></i>My vod</div>
       <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-friends"> <i class=" icone pe-4 fas fa-user-friends color-green"></i>My friends</div>
       <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-leaderboard"> <i class=" icone pe-4 fas fa-solid fa-graduation-cap color-violet"></i>Leaderboard</div>
+      <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-flashcards"> <i class=" icone pe-4 fas fa-copy color-marron "></i>Flashcards</div>
     </div>
-    <div class="explora-profile d-flex flex-column align-items-center">
+    <div class="explora-profile d-flex flex-column align-items-center mt-2">
       <%= cl_image_tag current_user.photo.key, class: "avatar-bordered", alt: "avatar-bordered" %>
       <h3> <%= current_user.first_name %> </h3>
       <div class="main-wrapper">
@@ -25,39 +26,48 @@
   <div class="dashboard-content bg-blue">
     <div class="d-flex w-100 align-items-center justify-content-between  mb-4">
 
-      <div class="whitebox p-3" style="width:19%;" >
-      <p class="font-bold"> Visits planned</p>
-       <%= current_user.rentals.select {|rental| rental.slot.start_at > Date.today}.count %>
+      <div class="whitebox  p-3" style="width:19%;" >
+        <p class="text-agregat font-bold"> Visits planned</p>
+        <div class="count d-flex justify-content-end">
+          <%= current_user.rentals.select {|rental| rental.slot.start_at > Date.today}.count %>
+        </div>
+      </div>
+
+      <div class="whitebox p-3" style="width:19%;">
+        <p class="font-bold"> Totals visits</p>
+        <div class="count d-flex justify-content-end">
+          <%= "#{((current_user.rentals.count).fdiv(@offers.count)*100).round} %" %>
+        </div>
       </div>
 
       <div class="whitebox p-3" style="width:19%;" >
-      <p class="font-bold"> Totals visits</p>
-      <%= "#{((current_user.rentals.count).fdiv(@offers.count)*100).round} %" %>
+        <p class="font-bold"> Museums visited</p>
+        <div class="count d-flex justify-content-end">
+          <%= @museums_visited %>
+        </div>
       </div>
 
       <div class="whitebox p-3" style="width:19%;" >
-      <p class="font-bold"> Museums visited</p>
-      <%= @museums_visited %>
+        <p class="font-bold"> Monuments visited</p>
+        <div class="count d-flex justify-content-end">
+          <%= @monuments_visited %>
+        </div>
       </div>
 
       <div class="whitebox p-3" style="width:19%;" >
-      <p class="font-bold"> Monuments visited</p>
-      <%= @monuments_visited %>
-      </div>
-
-      <div class="whitebox p-3" style="width:19%;" >
-      <p class="font-bold"> Neighborhoods visited</p>
-      <%= @neighborhoods_visited %>
+        <p class="font-bold"> Neighborhoods visited</p>
+        <div class="count d-flex justify-content-end">
+          <%= @neighborhoods_visited %>
+          </div>
       </div>
 
     </div>
-    <div class="d-flex w-100 justify-content-between mb-4" style="height:600px">
+    <div class="d-flex w-100 justify-content-between mb-2" style="height:600px">
 
-    <%# MAP %>
+      <%# MAP %>
       <div class="whitebox " style="width:70%;">
         <div id="my-map" class=" d-flex flex-column align-items-center">
           <div class=" map_dashboard" style="width: 100%; height: 600px;"
-
             data-controller="mapbox"
             data-mapbox-markers-value="<%= @markers.to_json %>"
             data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
@@ -65,7 +75,7 @@
         </div>
       </div>
 
-    <%# PICTURES %>
+      <%# PICTURES %>
       <div class="whitebox" style="width:28.5%;">
         <p class="font-bold p-2 m-2"> Memories of my visits</p>
           <div class="my-3 mx-2">
@@ -81,15 +91,15 @@
     <%# PAST VISIT HERE  %>
 
     <div class="past-visit">
-     <h2>Past Visits</h2>
-      <div class="whitebox d-flex flex-wrap w-100 align-items-start justify-content-evenly mb-4 p-2">
+     <h2 class="text-h2">Past Visits</h2>
+      <div class="whitebox d-flex flex-wrap w-100 align-items-start justify-content-evenly mb-2 p-2">
         <% if @pastvisit.empty? %>
           <p>THERE IS NO PAST VISITS</p>
         <% else %>
           <% @rentals.each do |rental| %>
             <% if (rental.slot.start_at < Date.today) %>
               <div class="card-category my-4" style="width:30%;">
-                <%= cl_image_tag rental.slot.offer.photos.all[0].key, height: 250 , style: "width:100%;"%>
+                <%= cl_image_tag rental.slot.offer.photos.all[0].key, height: 250 , class:"img-card", style: "width:100%;"%>
                 <div class="text mt-3">
                   <h3 class="title"><%= rental.slot.offer.title %></h3>
                   <p class="text-truncate"><%= rental.slot.offer.description %></p>
@@ -108,12 +118,12 @@
 
     <%# FUTURE VISIT HERE  %>
 
-      <h2>Future Visits</h2>
-      <div class="whitebox d-flex flex-wrap w-600 align-items-start justify-content-evenly mb-4 p-2">
+      <h2 class="text-h2">Future Visits</h2>
+      <div class="whitebox d-flex flex-wrap w-600 align-items-start justify-content-evenly mb-2 p-2">
         <% @rentals.each do |rental| %>
           <% if (rental.slot.start_at > Date.today) %>
-            <div class="card-category my-4" style="width:21%;">
-              <%= cl_image_tag rental.slot.offer.photos.all[0].key, height: 250 , style: "width:100%;"%>
+            <div class="card-category my-4" style="width:30%;">
+              <%= cl_image_tag rental.slot.offer.photos.all[0].key, height: 250 , class:"img-card", style: "width:100%;"%>
               <div class="text mt-3">
                 <h3 class="title"><%= rental.slot.offer.title %></h3>
                 <p class="text-truncate"><%= rental.slot.offer.description %></p>
@@ -128,14 +138,14 @@
       </div>
 
       <%# FLASHCARDS %>
-      <div class="whitebox p-3" style="width:50%;">
-          <div id="my-flashcards" class="">
-            <div class="flashcard m-5">
-              <h1 class="d-flex align-items-baseline">Flashcards<img class="deck " alt="flashcards-deck" src="https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/512x512/playing_cards_deck.png"></h1>
-              <div class="museum">
+      <h2 class="text-f ">Flashcards</h2>
+      <div class="whitebox pt-4 pb-1  w-600 " >
+          <div id="my-flashcards" class="" >
+            <div class="flashcard d-flex justify-content-between m-5 " >
+              <div class="museum ">
                 <div class="explora-progress-bar">
                   <span>Museums</span>
-                  <span id="progress">50%</span>
+                  <span id="progress">20%</span>
                   <div class="progress-wrapper">
                     <div class="progress-input" style="width: 20%;"></div>
                   </div>

@@ -1,6 +1,6 @@
 .sidebar{
   width: 18%;
-  height: calc(100vh - 66px);
+  height: calc(80vh - 66px);
   li{
     color: black;
     margin-bottom: 10px;
@@ -8,6 +8,21 @@
   border-right: 1.5px solid rgba(0, 0, 0, 0.1);
 }
 
+.text-h2{
+  margin-bottom: 20px !important;
+}
+
+.text-f{
+  display: flex;
+  justify-content: center;
+  margin-left: 8%;
+  margin-bottom: 20px;
+}
+
+.count{
+  font-size: 20px;
+  color: $purple-explora;
+}
 .mosaic{
 
   display: grid;
@@ -60,6 +75,7 @@
   }
 
 }
+
 
 .picture{
   display:flex;
