@@ -48,8 +48,7 @@ function initialize() {
   })
 }
 
-
-setTimeout(() => {  initialize(); }, 2000);
+initialize();
 // MAPMONDE //
 
 
