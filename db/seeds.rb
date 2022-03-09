@@ -58,7 +58,10 @@ raph = User.new({
   password_confirmation: "PASSWORD"
 })
 raph.agency = agency1
+file = URI.open("https://avatars.githubusercontent.com/u/88970113?v=4")
+raph.photo.attach(io: file, filename: "#{raph.last_name}-1")
 raph.save!
+
 
 nico = User.new({
   first_name: "Nicolas",
@@ -69,7 +72,10 @@ nico = User.new({
   password_confirmation: "PASSWORD"
 })
 nico.agency = agency2
+file = URI.open("https://avatars.githubusercontent.com/u/96418474?v=4")
+nico.photo.attach(io: file, filename: "#{nico.last_name}-1")
 nico.save!
+
 
 julien = User.new({
   first_name: "Julien",
@@ -80,7 +86,10 @@ julien = User.new({
   password_confirmation: "PASSWORD"
 })
 julien.agency = agency3
+file = URI.open("https://avatars.githubusercontent.com/u/97103056?v=4")
+julien.photo.attach(io: file, filename: "#{julien.last_name}-1")
 julien.save!
+
 
 antho = User.new({
   first_name: "Anthony",
@@ -91,13 +100,36 @@ antho = User.new({
   password_confirmation: "PASSWORD"
 })
 antho.agency = agency4
+file = URI.open("https://avatars.githubusercontent.com/u/88970113?v=4")
+antho.photo.attach(io: file, filename: "#{antho.last_name}-1")
 antho.save!
+
 
 agents = [raph, nico, antho, julien]
 
 fake_users = [raph, nico, antho, julien]
 
-20.times do
+url1 = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1539711591/f534ccgpn41ldspdnpjf.jpg"
+url2 = "https://avatars.githubusercontent.com/u/8135012?v=4"
+url3 = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1585588520/j0m6tlufeayghsj1uqdv.jpg"
+url4 = "https://avatars.githubusercontent.com/u/43373459?v=4"
+url5 = "https://avatars.githubusercontent.com/u/67561419?v=4"
+url6 = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1641761662/hh58c3zauyocldxakd32.jpg"
+url7 = "https://avatars.githubusercontent.com/u/39793588?v=4"
+url8 = "https://avatars.githubusercontent.com/u/96469106?v=4"
+url9 = "https://avatars.githubusercontent.com/u/65026732?v=4"
+url10 = "https://avatars.githubusercontent.com/u/96442481?v=4"
+url11 = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1641772302/dtm2zg3o6scbtsxinmkb.jpg"
+url12 = "https://avatars.githubusercontent.com/u/86692082?v=4"
+url13 = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1641812431/p0bndradvq1oioufn2mx.jpg"
+url14 = "https://avatars.githubusercontent.com/u/96295313?v=4"
+url15 = "https://avatars.githubusercontent.com/u/89845255?v=4"
+url16 = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1641934018/ht03mphxzhpaui3w0ebr.jpg"
+
+
+photos_url = [url1, url2, url3, url4, url5, url6, url7, url8, url9, url10, url11, url12, url13, url14, url15, url16]
+
+photos_url.each do |url|
   user = User.new({
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -107,6 +139,8 @@ fake_users = [raph, nico, antho, julien]
     password_confirmation: "PASSWORD"
   })
     user.agency = agency1
+    file = URI.open(url)
+    user.photo.attach(io: file, filename: "#{user.last_name}-1")
     user.save!
     fake_users << user
 end
@@ -164,7 +198,7 @@ offer2 = Offer.new({
 })
 
 offer2.user = raph
-offer2.category = category3
+offer2.category = category1
 file = URI.open("https://cdn.getyourguide.com/img/location/5d2c5760b47fd.jpeg/88.jpg")
 offer2.photos.attach(io: file, filename: "#{offer2.title}-1")
 
@@ -593,7 +627,7 @@ offers = [offer1, offer2, offer3, offer4, offer5, offer6, offer7, offer8, offer9
 #Seed of slots + chatrooms
 
 slots = []
-100.times do
+80.times do
   date = DateTime.new(2022, rand(1..6), rand(1..28), rand(0..23), [0, 30].sample)
 
   slot = Slot.new({
@@ -613,7 +647,7 @@ end
 #Seed of rental
 
 rentals = []
-500.times do
+200.times do
   rental = Rental.new
   rental.user = fake_users.sample
   rental.slot = slots.sample
@@ -624,7 +658,7 @@ end
 
 #Seed of reviews
 
-500.times do
+400.times do
   review = Review.new({
   content: Faker::Lorem.sentences(number: 2),
   rating: rand(1..5)
@@ -635,7 +669,7 @@ end
 
 #Seed of flashcards
 
-300.times do
+250.times do
   flashcard = Flashcard.new({
     question: Faker::Lorem.sentences(number: 1),
     answer: Faker::Lorem.sentences(number: 2)
