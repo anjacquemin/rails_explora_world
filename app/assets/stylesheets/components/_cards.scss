@@ -134,6 +134,29 @@ border-radius: 6px;
   }
 }
 
+.paul-table{
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)) ,url("tabledehaut");
+  background-size: cover;
+  background-position: center;
+}
+
+.paul-picture {
+  border: solid 5px white;
+  box-shadow: 3px 1px 5px #707070;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  text-decoration: none;
+  width: 200px;
+  margin-left: -140px;
+  transition: all 0.5s ease;
+  &:hover {
+      transform: rotate(0deg) scale(1.1) translate(0%, -50%) !important;
+      z-index: 1;
+
+    }
+}
+
 
 .fit-picture {
   width: 100%;
