@@ -25,16 +25,18 @@ export default class extends Controller {
       const customMarker = document.createElement("div")
       customMarker.className = "marker"
       customMarker.style.backgroundImage = `url('${marker.image_url}')`
-      customMarker.style.backgroundSize = "cover"
       if (marker.guide == true) {
+        customMarker.style.backgroundSize = "contain"
         customMarker.style.borderRadius = "50%"
         customMarker.style.backgroundRepeat = "no-repeat"
         customMarker.style.width = "35px"
         customMarker.style.height = "35px"
       }
-      else
-      customMarker.style.width = "50px"
-      customMarker.style.height = "50px"
+      else {
+        customMarker.style.backgroundSize = "cover"
+        customMarker.style.width = "50px"
+        customMarker.style.height = "50px"
+      }
       new mapboxgl.Marker(customMarker)
         .setLngLat([ marker.lng, marker.lat ])
         .addTo(this.map)
