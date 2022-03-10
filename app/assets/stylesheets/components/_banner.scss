@@ -44,15 +44,34 @@
 }
 
 .banner-test {
-  background-color: $yellow-light-explora;
+  background-color: black;
+    h1 {
+      color: white;
+    }
+
+    h2 {
+      color: white;
+      margin-top: 30px;
+
+    }
+
+    h3 {
+      color: white;
+      font-size: 20px;
+    }
+    .pictures-banner {
+      border : 3px solid white;
+      // box-shadow: 10px 5px 5px white;
+    }
 }
+
 
 .homepage  {
   background-color: white;
   text-align: center;
   color: black;
   font-size:larger;
-  padding-bottom: 50px;
+
 }
 
 .category {
@@ -65,11 +84,7 @@
 
 }
 
-h2 {
-  text-align: center;
-  color: #466F88;
-  margin-top: 20px;
-}
+
 
 .section-title {
   position: relative;
