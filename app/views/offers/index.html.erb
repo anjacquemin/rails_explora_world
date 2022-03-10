@@ -15,7 +15,7 @@
             <div class="tab px-4 mt-2 d-flex justify-content-start">
               <button class="tab-ghost" data-action="click->categories#openTab" data-tab="Museums">Museums</button>
               <button class="tab-ghost" data-action="click->categories#openTab" data-tab="Monuments">Monuments</button>
-              <button class="tab-ghost" data-action="click->categories#openTab" data-tab="Neighborhoods">Neighborhoods</button>
+              <button class="tab-ghost" data-action="click->categories#openTab" data-tab="Neighborhoods">Places</button>
             </div>
             <div class="px-5">
               <%= render "shared/card_index", locals: {category: @offers.select { |offer| offer.category.name == "Museum"}, category_name: "Museums" } %>
