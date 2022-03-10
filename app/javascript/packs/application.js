@@ -44,7 +44,7 @@ function initialize() {
     inputRandom.addEventListener("click", function(e) {
     map.panTo([-10.971380, -30.826578]);
     var marker = WE.marker(coords).addTo(map);
-    marker.bindPopup('<a href=/offers/'.concat(amazonia).concat('>Discover me !</a>'), {maxWidth: 150, closeButton: true}).openPopup();
+    marker.bindPopup('<a id="popup" href=/offers/'.concat(amazonia).concat('>Discover me !</a>'), {maxWidth: 150, closeButton: true}).openPopup();
   })
 }
 
