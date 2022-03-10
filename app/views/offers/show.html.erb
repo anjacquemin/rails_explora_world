@@ -49,21 +49,24 @@
       <div style="width: 100%; height: 400px; border-radius:10px;"
         data-controller="mapbox"
         data-mapbox-markers-value="<%= @markers.to_json %>"
-        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+        data-mapbox-max-zoom-value=15>
       </div>
     </div>
   </div>
 </div>
 
-
-<div class="d-flex justify-content-around m-5">
+<div class="d-flex justify-content-center align-items-center m-5 py-5">
   <div class= "d-flex flex-column align-items-center">
-    <h3 class ="mt-3 mb-5">LIVE</h3>
-      <div class="card-cta mb-5">
+    <%# <h3 class ="mt-3 mb-5">LIVE</h3> %>
+      <div class="card-cta card-cta-first-choice ">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTw7mZikTnK02y6yEyj1NqcJOQUlya9HJRHrg&usqp=CAU" />
         <div class="card-cta-infos">
           <div>
             <h2><%= @offer.title %></h2>
+            <p ><i class="fas fa-check me-1" style="color: #3f51b5"></i></i>Live talk</p>
+            <p> <i class="fas fa-check me-1" style="color: #3f51b5"></i></i>Live chat</p>
+            <p> <i class="fas fa-check me-1" style="color: #3f51b5"></i></i>Guide's photos</p>
           </div>
         </div>
         <div class="separator-thin">
@@ -91,28 +94,30 @@
               <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-cta-user avatar-bordered" />
               <div class="ms-2">
                 <p><%= "#{@offer.slots.all[0].user.first_name} #{@offer.slots.all[0].user.last_name}"%></p>
-                <p>06.00.00.00.00</p>
               </div>
             </div>
           </div>
           <div class="separator-thin"></div>
           <div class = "d-flex justify-content-center align-items-center card-cta-button">
             <div class="card-cta-price d-flex align-items-center">
-              <h2 class="text-white"><%= @offer.price.round %>€</h2>
+              <h2 class="text-white"><%= 5*@offer.price.round %>€</h2>
             </div>
             <button class="card-cta-booking"><%= link_to "Register", slot_rentals_path(@offer.slots.all[0]), method: :post%></button>
           </div>
         </div>
       </div>
   </div>
-  <div>
+
     <div class= "d-flex flex-column align-items-center">
-      <h3 class ="mt-3 mb-5">VOD</h3>
-        <div class="card-cta">
-          <img src="https://www.cb-expert.fr/wp-content/uploads/2018/03/Couv-Mediametrie-VOD-360-750x440.jpg" />
+      <%# <h3 class ="mt-3 mb-5">VOD</h3> %>
+        <div class="card-cta card-cta-second-choice ms-4">
+          <div class="img" style="background-image: linear-gradient(rgba(95, 64, 64, 0.1), rgba(0, 0, 0, 0.5), rgba(95, 64, 64, 0.1)), url(https://www.cb-expert.fr/wp-content/uploads/2018/03/Couv-Mediametrie-VOD-360-750x440.jpg)"></div>
+
+          <%# <img src="https://www.cb-expert.fr/wp-content/uploads/2018/03/Couv-Mediametrie-VOD-360-750x440.jpg" /> %>
           <div class="card-cta-infos">
             <div>
               <h2><%= @offer.title %></h2>
+              <p ><i class="fas fa-check me-1" style="color: #3f51b5"></i></i>Video on demand</p>
             </div>
           </div>
           <div class="separator-thin">
@@ -131,13 +136,12 @@
               </p>
             </div>
             <div class="card-cta-separator-thin"></p></div>
-            <div class="card-cta-guide py-2 ">
+            <div class="card-cta-guide py-1">
               <p class="ms-3"><strong>Guide</strong></p>
               <div class="d-flex align-items-center ms-3">
                 <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-cta-user avatar-bordered" />
                 <div class="ms-2">
                   <p><%= "#{@offer.slots.all[0].user.first_name} #{@offer.slots.all[0].user.last_name}"%></p>
-                  <p>06.00.00.00.00</p>
                 </div>
               </div>
             </div>
@@ -150,11 +154,11 @@
             </div>
           </div>
         </div>
-    </div>
+
   </div>
 </div>
 
-<div class="d-flex justify-content-around gray-background p-3">
+<div class="d-flex justify-content-around gray-background px-3 py-5">
   <div class="show-description p-3" style="height:300px; width: 450px;">
     <h4 class="mt-3 mb-2"> Review from Jimmy </h4>
     <div class="stars  d-flex mb-2 mt-2">

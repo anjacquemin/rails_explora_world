@@ -11,6 +11,15 @@ class SlotsController < ApplicationController
     #Chatroom
     @chatroom = Slot.find(params[:id]).chatroom
     @message = Message.new()
+
+    #map
+    @markers = [
+      {
+        lat: -3.64,
+        lng: -62.12,
+        image_url: helpers.asset_url("frelon1.png")
+      }
+    ]
   end
 
   private
@@ -33,6 +42,4 @@ class SlotsController < ApplicationController
     @room_id = twilio.room_id
     p "room_id #{@room_id}"
   end
-
-
 end
