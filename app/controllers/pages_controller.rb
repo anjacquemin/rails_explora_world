@@ -14,7 +14,8 @@ class PagesController < ApplicationController
       @markers <<
         {
           lat: rental.slot.offer.latitude,
-          lng: rental.slot.offer.longitude
+          lng: rental.slot.offer.longitude,
+          image_url: helpers.asset_url("marker.png")
         }
     end
     @offers = Offer.all
@@ -37,7 +38,8 @@ class PagesController < ApplicationController
       @markers <<
         {
           lat: rental.slot.offer.latitude,
-          lng: rental.slot.offer.longitude
+          lng: rental.slot.offer.longitude,
+          image_url: helpers.asset_url("marker.png")
         }
     end
     @offers = Offer.all
