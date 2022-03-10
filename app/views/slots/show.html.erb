@@ -114,7 +114,7 @@
 
   <div class ="bg-white mt-1 mb-2 me-2 ms-2 p-1">
     <%= simple_form_for [@slot, @message], remote: true, html: {data: {chatroom_subscription_target: "form"}, class: "d-flex align-items-center"} do |f| %>
-      <%= f.input :content, label: false, placeholder: "Chat here...", wrapper_html: {class: "flex-grow-1", id:"input-message"}%>
+      <%= f.input :content, label: false, placeholder: "Message", wrapper_html: {class: "flex-grow-1", id:"input-message"}%>
       <%= button_tag type: "submit", class: "btn btn-primary btn-height" do %>
          <i class="fas fa-paper-plane"></i>
       <% end %>
@@ -125,16 +125,16 @@
 
 <!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Thanks for your visit</h5>
+        <h3 class="modal-title" id="staticBackdropLabel">Thanks for your visit</h3>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body d-flex flex-column align-items-center">
-        <h3 class="mb-2">Review</h3>
-        <textarea rows="4" cols="30" style="resize:none" placeholder="Share your review..."></textarea>
-        <h3 class="mb-2 mt-5">Rating</h3>
+        <h4 class="mb-2">Review</h4>
+        <textarea rows="4" cols="30" style="resize:none; width:80%;" placeholder="Share your review..." class="p-2"></textarea>
+        <h4 class="mb-2 mt-4">Rating</h4>
         <div class="rating d-flex justify-content-center">
             <input id="rating1" type="radio" name="rating" value="1">
             <label for="rating1">1</label>
@@ -147,7 +147,7 @@
             <input id="rating5" type="radio" name="rating" value="5">
             <label for="rating5">5</label>
         </div>
-        <h3 class="mb-2 mt-5">Tips</h3>
+        <h4 class="mb-2 mt-4">Tips</h4>
         <div class="d-flex" style="display: inline-block;">
           <div class="">
             <input class="checkbox_tips" type="radio" name="exampleRadios" id="exampleRadios0" value="option0" checked>
@@ -178,22 +178,6 @@
       <div class="modal-footer d-flex flex-column align-items-center">
         <%= link_to '<i class="fas fa-paper-plane"></i>  Send'.html_safe, dashboard_path(), class: "btn btn-ghost"%>
       </div>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="footer">
-    <div class="footer-links">
-      <a href="#"><i class="fab fa-github"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-linkedin"></i></a>
-    </div>
-    <a href="#top">Back to top</a>
-    <div class="footer-copyright">
-      Let's explore the <i class="fas fa-globe-americas"></i> with Explora World !
     </div>
   </div>
 </div>
