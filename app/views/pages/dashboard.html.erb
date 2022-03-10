@@ -1,12 +1,13 @@
 <div data-controller="maindashboard" class="dashboard-container ">
   <div class="sidebar px-3  d-flex flex-column justify-content-between">
     <div class="items my-5">
-      <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-visits"> <i class=" icone pe-4 fas fa-eye color-red"></i>My visits</div>
-      <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-map"> <i class=" icone pe-4 fas  fa-map color-orange"></i>My map</div>
-      <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-vod"> <i class=" icone pe-4 fas fa-video color-blue"></i>My vod</div>
-      <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-memories"> <i class=" icone pe-4 fas fa-images color-green"></i>My memories</div>
-      <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-leaderboard"> <i class=" icone pe-4 fas fa-solid fa-graduation-cap color-violet"></i>Leaderboard</div>
-      <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-flashcards"> <i class=" icone pe-4 fas fa-copy color-marron "></i>Flashcards</div>
+      <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-map"> <i class=" icone pe-4 fas  fa-map color-orange"></i><a style ="text-decoration: none;" href="#map_dashboard" data-turbolinks="false">My map</a></div>
+      <%# <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-vod"> <i class=" icone pe-4 fas fa-video color-blue"></i>My vod</div> %>
+      <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-memories"> <i class=" icone pe-4 fas fa-images color-green"></i><a style ="text-decoration: none;" href="#memories" data-turbolinks="false">My memories</a></div>
+      <%# <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-leaderboard"> <i class=" icone pe-4 fas fa-solid fa-graduation-cap color-violet"></i>Leaderboard</div> %>
+      <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-flashcards"> <i class=" icone pe-4 fas fa-copy color-marron "></i><a style ="text-decoration: none;" href="#flashcards" data-turbolinks="false"> My flashcards</a></div>
+      <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-visits"> <i class=" icone pe-4 fas fa-eye color-red"></i><a style ="text-decoration: none;" href="#past_visits" data-turbolinks="false">My past visits</a></div>
+      <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-visits"> <i class=" icone pe-4 fas fa-eye color-blue"></i><a style ="text-decoration: none;" href="#future_visits" data-turbolinks="false">My future visits</a></div>
     </div>
     <div class="explora-profile d-flex flex-column align-items-center mt-2">
       <%= cl_image_tag current_user.photo.key, class: "avatar-bordered", alt: "avatar-bordered" %>
@@ -65,7 +66,8 @@
     <div class="d-flex w-100 justify-content-between mb-2" style="height:600px">
 
       <%# MAP %>
-      <div class="whitebox " style="width:100%;">
+
+      <div id="map_dashboard" class="whitebox " style="width:100%;">
         <div id="my-map" class=" d-flex flex-column align-items-center">
           <div class=" map_dashboard" style="width: 100%; height: 600px;"
             data-controller="mapbox"
@@ -78,7 +80,7 @@
 
       <%# PICTURES %>
 
-    <h2 class="text-h2">My memories</h2>
+    <h2 id="memories" class="text-h2">My memories</h2>
       <div class="paul-table whitebox d-flex flex-wrap w-600 align-items-start justify-content-evenly mb-2 p-2">
         <div class="my-3 mx-2 paul-mosaic">
           <div class="d-flex flex-mosaic">
@@ -96,7 +98,7 @@
 
     <%# PAST VISIT HERE  %>
 
-    <div class="past-visit">
+    <div id="past_visits" class="past-visit">
      <h2 class="text-h2">Past Visits</h2>
       <div class="whitebox d-flex flex-wrap w-100 align-items-start justify-content-evenly mb-2 p-2">
         <% if @pastvisit.empty? %>
@@ -111,7 +113,7 @@
                   <p><%= rental.slot.start_at.strftime("Visited the %d/%m/%Y")  %></p>
                 </div>
                 <div class="card-text">
-                  <%= link_to "Visit again ?",  offer_path(rental.slot.offer)%>
+                  <%= link_to "Visit again ?",  offer_path(rental.slot.offer), class: "tab-ghost2", style:"text-decoration:none" %>
                 </div>
               </div>
             <% end %>
@@ -123,7 +125,7 @@
 
     <%# FUTURE VISIT HERE  %>
 
-      <h2 class="text-h2">Future Visits</h2>
+      <h2 id="future_visits" class="text-h2">Future Visits</h2>
       <div class="whitebox d-flex flex-wrap w-600 align-items-start justify-content-evenly mb-2 p-2">
         <% @rentals.each do |rental| %>
           <% if (rental.slot.start_at > Date.today) %>
@@ -134,7 +136,7 @@
                 <p><%= rental.slot.start_at.strftime("Starts : %d/%m/%Y at %H:%M")  %></p>
               </div>
               <div class="card-text">
-                <%= link_to "Go to the live visit !",  slot_path(rental.slot)%>
+                <%= link_to "Go to the live visit !",  slot_path(rental.slot), class: "tab-ghost2", style:"text-decoration:none" %>
               </div>
             </div>
           <% end %>
@@ -142,7 +144,7 @@
       </div>
 
       <%# FLASHCARDS %>
-      <h2 class="text-f ">Flashcards</h2>
+      <h2 id="flashcards" class="text-f ">Flashcards</h2>
       <div class="whitebox pt-4 pb-1  w-600 " >
           <div id="my-flashcards" class="" >
             <div class="flashcard d-flex justify-content-between m-5 " >

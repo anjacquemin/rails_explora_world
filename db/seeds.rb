@@ -71,8 +71,10 @@ nico = User.new({
   password: "PASSWORD",
   password_confirmation: "PASSWORD"
 })
+
+
 nico.agency = agency2
-file = URI.open("https://avatars.githubusercontent.com/u/96418474?v=4")
+file = URI.open("https://avatars.githubusercontent.com/u/7106777?v=4")
 nico.photo.attach(io: file, filename: "#{nico.last_name}-1")
 nico.save!
 
@@ -100,14 +102,14 @@ antho = User.new({
   password_confirmation: "PASSWORD"
 })
 antho.agency = agency4
-file = URI.open("https://avatars.githubusercontent.com/u/7106777?v=4")
+file = URI.open("https://avatars.githubusercontent.com/u/96418474?v=4")
 antho.photo.attach(io: file, filename: "#{antho.last_name}-1")
 antho.save!
 
 
 agents = [raph, nico, antho, julien]
 
-fake_users = [raph, nico, julien]
+fake_users = [raph, antho, julien]
 
 url1 = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1539711591/f534ccgpn41ldspdnpjf.jpg"
 url2 = "https://avatars.githubusercontent.com/u/8135012?v=4"
@@ -650,6 +652,9 @@ slot = Slot.new({ start_at: date })
 slot.offer = offer1
 slot.user = agents.sample
 slot.save!
+chatroom = Chatroom.new
+chatroom.slot = slot
+chatroom.save!
 
 
 #Seed for user Anthony
@@ -665,7 +670,7 @@ offers1.each do |offer|
   slot.user = agents.sample
   slot.save!
   rental = Rental.new
-  rental.user = antho
+  rental.user = nico
   rental.slot = slot
   rental.save!
   chatroom = Chatroom.new
@@ -680,7 +685,7 @@ offers2.each do |offer|
   slot.user = agents.sample
   slot.save!
   rental = Rental.new
-  rental.user = antho
+  rental.user = nico
   rental.slot = slot
   rental.save!
   chatroom = Chatroom.new
