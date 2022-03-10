@@ -12,44 +12,46 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-// MAPMONDE //
-function initialize() {
-  var map = WE.map('map', {
-    center: [36.057944835, -112.18688965],
-    zoom: 3,
-    dragging: true,
-    scrollWheelZoom: true
-  });
-  var baselayer = WE.tileLayer('https://webglearth.github.io/webglearth2-offline/{z}/{x}/{y}.jpg', {
-    tileSize: 256,
-    bounds: [[-85, -180], [85, 180]],
-    minZoom: 0,
-    maxZoom: 16,
-    attribution: 'WebGLEarth example',
-    tms: true
-  }).addTo(map);
+if (document.getElementById('earth')) {
+  // MAPMONDE //
+  function initialize() {
+    var map = WE.map('map', {
+      center: [36.057944835, -112.18688965],
+      zoom: 3,
+      dragging: true,
+      scrollWheelZoom: true
+    });
+    var baselayer = WE.tileLayer('https://webglearth.github.io/webglearth2-offline/{z}/{x}/{y}.jpg', {
+      tileSize: 256,
+      bounds: [[-85, -180], [85, 180]],
+      minZoom: 0,
+      maxZoom: 16,
+      attribution: 'WebGLEarth example',
+      tms: true
+    }).addTo(map);
 
 
-  // rechercher les markers dans le DOM
-  var markers = JSON.parse(document.getElementById("map").dataset.markers);
-  var amazonia = JSON.parse(document.getElementById("map").dataset.amazonia);
-  console.log(markers)
-  markers.forEach(function (marker) {
-      WE.marker(marker).addTo(map)
-  });
+    // rechercher les markers dans le DOM
+    var markers = JSON.parse(document.getElementById("map").dataset.markers);
+    var amazonia = JSON.parse(document.getElementById("map").dataset.amazonia);
+    // console.log(markers)
+    markers.forEach(function (marker) {
+        WE.marker(marker).addTo(map)
+    });
 
-  //coordonnées amazonie en dur
-  var coords = [-15.64, -62.12];
-  var inputRandom = document.querySelector("#map input");
-    inputRandom.addEventListener("click", function(e) {
-    map.panTo([-10.971380, -30.826578]);
-    var marker = WE.marker(coords).addTo(map);
-    marker.bindPopup('<a id="popup" href=/offers/'.concat(amazonia).concat('>Discover me !</a>'), {maxWidth: 150, closeButton: true}).openPopup();
-  })
+    //coordonnées amazonie en dur
+    var coords = [-15.64, -62.12];
+    var inputRandom = document.querySelector("#map input");
+      inputRandom.addEventListener("click", function(e) {
+      map.panTo([-10.971380, -30.826578]);
+      var marker = WE.marker(coords).addTo(map);
+      marker.bindPopup('<a id="popup" href=/offers/'.concat(amazonia).concat('>Discover me !</a>'), {maxWidth: 150, closeButton: true}).openPopup();
+    })
+  }
+
+  initialize();
+  // MAPMONDE //
 }
-
-initialize();
-// MAPMONDE //
 
 
 

@@ -4,7 +4,7 @@ export default class extends TwilioVideoController {
   static targets = ['noCall', 'awaitingBuddy', 'joinCallButton', 'endCallButton', "liveDisplay", "map"]
 
   callStarted() {
-    console.log('Call start')
+    // console.log('Call start')
     this.noCallTarget.classList.add('d-none')
     this.awaitingBuddyTarget.classList.remove('d-none')
     // console.log(this.liveDisplayTarget)
@@ -14,7 +14,7 @@ export default class extends TwilioVideoController {
   }
 
   callEnded() {
-    console.log('Call ended!')
+    // console.log('Call ended!')
     this.noCallTarget.classList.remove('d-none')
     this.liveDisplayTarget.classList.add('d-none')
     this.awaitingBuddyTarget.classList.add('d-none')
@@ -23,17 +23,17 @@ export default class extends TwilioVideoController {
   }
 
   buddyJoined() {
-    console.log('Buddy has joined')
+    // console.log('Buddy has joined')
     this.awaitingBuddyTarget.classList.add('d-none')
   }
 
   buddyLeft() {
-    console.log('Buddy has left')
+    // console.log('Buddy has left')
   }
 
   togglemap() {
-    console.log(`TOGGLE MAP`)
-    console.log(this.mapTarget.style)
+    // console.log(`TOGGLE MAP`)
+    // console.log(this.mapTarget.style)
     if (this.mapTarget.style.transform == "translateY(-5px)"){
       this.mapTarget.style.transform = "translateY(200px)"
     } else {

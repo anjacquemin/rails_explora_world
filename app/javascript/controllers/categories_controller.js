@@ -10,8 +10,8 @@ export default class extends Controller {
     const target = event.currentTarget.dataset.tab;
     const tab = document.querySelector(`#${target}`);
 
-    console.log(target)
-    console.log(tab)
+    // console.log(target)
+    // console.log(tab)
 
 
     // this.bookingsTarget.classlist.toggle("active")

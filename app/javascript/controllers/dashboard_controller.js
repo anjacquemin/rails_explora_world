@@ -14,13 +14,13 @@ export default class extends Controller {
     const tab1 = document.querySelector("#future-visits");
     const tab2 = document.querySelector("#past-visits");
 
-    console.log(tab)
-    console.log(tab1)
-    console.log(tab2)
+    // console.log(tab)
+    // console.log(tab1)
+    // console.log(tab2)
 
     const button3 = document.querySelector("#button3");
     const button4 = document.querySelector("#button4");
-    console.log(target)
+    // console.log(target)
 
 
     // // console.log(tab)

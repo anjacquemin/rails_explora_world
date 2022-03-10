@@ -11,33 +11,33 @@ const twilioInit = () => {
   // preview screen
   navigator.mediaDevices.getUserMedia({video: true, audio: true})
   .then(vid => {
-    console.log('get user media')
+    // console.log('get user media')
     video.srcObject = vid;
     localStream = vid;
-    console.log(video)
+    // console.log(video)
     leaveBtn.addEventListener('click', () => {
       const tracks = vid.getTracks();
       tracks.forEach(track => track.stop());
     });
   });
 
-  console.log(`before creating local track`)
-  console.log(`token : ${twilioContainer.dataset.token}`)
-  console.log(`room : ${twilioContainer.dataset.room}`)
-  console.log(`after showing Twilio token and room`)
+  // console.log(`before creating local track`)
+  // console.log(`token : ${twilioContainer.dataset.token}`)
+  // console.log(`room : ${twilioContainer.dataset.room}`)
+  // console.log(`after showing Twilio token and room`)
 
   createLocalTracks({
     audio: true,
     video: { width: 640 }
   }).then(localTracks => {
-    console.log("before connect ")
+    // console.log("before connect ")
     return connect(twilioContainer.dataset.token, {
       name: twilioContainer.dataset.room,
       tracks: localTracks
     });
   }).then(room => {
-    console.log(`After the then with room`)
-    console.log(`Connected to Room: ${room.name}`);
+    // console.log(`After the then with room`)
+    // console.log(`Connected to Room: ${room.name}`);
     videoRoom = room;
 
     room.participants.forEach(participantConnected);
@@ -50,16 +50,16 @@ const twilioInit = () => {
     // leave room
     leaveBtn.addEventListener('click', () => {
       videoRoom.disconnect();
-      console.log(`Disconnected from Room ${videoRoom.name}`);
+      // console.log(`Disconnected from Room ${videoRoom.name}`);
       link.click()
     });
-    console.log("before adding participant")
+    // console.log("before adding participant")
     twilioAddParticipant(room); //commented in github repo example
   });
 }
 
 const participantConnected = (participant) => {
-  console.log(`Participant ${participant.identity} connected'`);
+  // console.log(`Participant ${participant.identity} connected'`);
 
   const div = document.querySelector('.participant') //locates div for new participant
   div.id = participant.sid;
@@ -75,7 +75,7 @@ const participantConnected = (participant) => {
 }
 
 const participantDisconnected = (participant) => {
-  console.log(`Participant ${participant.identity} disconnected.`);
+  // console.log(`Participant ${participant.identity} disconnected.`);
   document.getElementById(participant.sid).style.visibility = "hidden";
 }
 
@@ -88,3 +88,4 @@ const trackUnsubscribed = (track) => {
 }
 
 export default twilioInit;
+s
