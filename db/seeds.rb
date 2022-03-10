@@ -621,14 +621,17 @@ offer21.save!
 
 
 video_type = ["Live", "VoD", "Both"]
+
 offers = [offer1, offer2, offer3, offer4, offer5, offer6, offer7, offer8, offer9, offer10, offer11, offer12, offer13, offer14, offer15, offer16, offer17, offer18, offer19, offer20, offer21]
+
+offers_for_seeds = [offer2, offer3, offer4, offer5, offer6, offer7, offer8, offer9, offer10, offer11, offer12, offer13, offer14, offer15, offer16, offer17, offer18, offer19, offer20, offer21]
 
 
 #Seed of slots + chatrooms
 
 slots = []
 
-Offer.all.each do |offer|
+offers_for_seeds.each do |offer|
   date = DateTime.new(2022, rand(1..5), rand(1..28), rand(0..23), [0, 30].sample)
   slot = Slot.new({ start_at: date })
   slot.offer = offer
@@ -640,6 +643,13 @@ Offer.all.each do |offer|
   chatroom.slot = slot
   chatroom.save!
 end
+
+#Seed slot Amazonia pour pitch
+date = DateTime.new(2022, 3, 11, 17, 30)
+slot = Slot.new({ start_at: date })
+slot.offer = offer1
+slot.user = agents.sample
+slot.save!
 
 
 #Seed for user Anthony
@@ -676,6 +686,16 @@ offers2.each do |offer|
   chatroom = Chatroom.new
   chatroom.slot = slot
   chatroom.save!
+end
+
+
+#Seed of rentals for other users
+
+130.times do
+  rental = Rental.new
+  rental.user = fake_users.sample
+  rental.slot = slots.sample
+  rental.save!
 end
 
 

@@ -36,7 +36,7 @@
       <div class="whitebox p-3" style="width:19%;">
         <p class="font-bold"> Totals visits</p>
         <div class="count d-flex justify-content-end">
-          <%= "#{((current_user.rentals.select {|rental| rental.slot.start_at < Date.today}.count).fdiv(@offers.count)*100).round} %" %>
+          <%= "#{ current_user.rentals.select {|rental| rental.slot.start_at < Date.today}.count }" %>
         </div>
       </div>
 
