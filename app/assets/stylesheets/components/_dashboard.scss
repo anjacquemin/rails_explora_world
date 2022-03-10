@@ -16,11 +16,61 @@
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+  margin-top: 20px;
+}
+.bulle-blue{
+  border-radius: 10em;
+
+  width: 55px;
+  background-color: rgba($color: $blue-explora, $alpha: 0.3);
+}
+.bulle-green{
+  border-radius: 10em;
+  width: 55px;
+  background-color: rgba($color: $green-explora, $alpha: 0.3);
 }
 
-.count{
+.bulle-red{
+  border-radius: 10em;
+  width: 55px;
+  background-color: rgba($color: $red-explora, $alpha: 0.3);
+}
+
+.bulle-violet{
+  border-radius: 10em;
+  width: 55px;
+  background-color: rgba($color: $purple-explora, $alpha: 0.3);
+}
+.bulle-orange{
+  border-radius: 10em;
+  width: 55px;
+  background-color: rgba($color: $orange-explora, $alpha: 0.3);
+}
+.count-blue{
+  font-size: 20px;
+  color: $blue-explora;
+  opacity: 1 !important;
+
+}
+.count-green{
+  font-size: 20px;
+  color: $green-explora;
+  opacity: 1;
+}
+.count-red{
+  font-size: 20px;
+  color: $red-explora;
+  opacity: 1;
+}
+.count-violet{
   font-size: 20px;
   color: $purple-explora;
+  opacity: 1;
+}
+.count-orange{
+  font-size: 20px;
+  color: $orange-explora;
+  opacity: 1;
 }
 .mosaic{
 
