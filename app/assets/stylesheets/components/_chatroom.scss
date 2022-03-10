@@ -47,6 +47,10 @@
     resize: none;
   }
 
+  #message_content:focus {
+    box-shadow: none;
+  }
+
   .messages-header {
     background-color: white;
     border-radius: 10px;
