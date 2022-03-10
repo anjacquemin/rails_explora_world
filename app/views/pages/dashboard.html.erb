@@ -1,5 +1,5 @@
 <div data-controller="maindashboard" class="dashboard-container ">
-  <div class="sidebar px-3  d-flex flex-column justify-content-between">
+  <div class="sidebar px-3  d-flex flex-column flex-grow-1 justify-content-between">
     <div class="items my-5">
       <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-map"> <i class=" icone pe-4 fas  fa-map color-orange"></i><a style ="text-decoration: none;" href="#map_dashboard" data-turbolinks="false">My map</a></div>
       <%# <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-vod"> <i class=" icone pe-4 fas fa-video color-blue"></i>My vod</div> %>
@@ -27,7 +27,7 @@
   <div class="dashboard-content bg-blue">
     <div class="d-flex w-100 align-items-center justify-content-between  mb-4">
 
-      <div class="whitebox  p-3" style="width:19%;" >
+      <div id="map_dashboard" class="whitebox  p-3" style="width:19%;" >
         <p class="text-agregat font-bold"> Visits planned</p>
         <div class="d-flex justify-content-end">
           <div class="bulle-blue d-flex justify-content-center">
@@ -87,7 +87,7 @@
 
       <%# MAP %>
 
-      <div id="map_dashboard" class="whitebox " style="width:100%;">
+      <div class="whitebox " style="width:100%;">
         <div id="my-map" class=" d-flex flex-column align-items-center">
           <div class=" map_dashboard" style="width: 100%; height: 600px;"
             data-controller="mapbox"
@@ -107,7 +107,7 @@
           <div class="d-flex flex-mosaic">
             <% angle = -30 %>
             <% current_user.rentals.select {|rental| rental.slot.start_at < Date.today }.each do |rental| %>
-              <% rental.slot.offer.photos.each do |photo| %>
+              <% rental.slot.offer.photos[0,2].each do |photo| %>
                 <%= cl_image_tag photo.key, height: 300, class: 'paul-picture', style: "transform: rotate(#{angle}deg)" %>
                 <% angle += 5 %>
               <% end %>
