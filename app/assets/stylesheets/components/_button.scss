@@ -95,6 +95,10 @@
   &:hover {
   background-color: #304099;
   color: white;
+  border: none !important;
+  }
+  &:focus {
+    box-shadow: none !important;
   }
 }
 
