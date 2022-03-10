@@ -1,8 +1,9 @@
 
 <div id="message-<%= message.id %>">
   <small>
+    <%= cl_image_tag message.user.photo.key, class: "avatar-bordered" %>
     <strong><%= message.user.email.delete_suffix("@gmail.com").capitalize %></strong>
     <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
   </small>
-  <p><%= message.content %></p>
+  <p class="mt-2"><%= message.content %></p>
 </div>
