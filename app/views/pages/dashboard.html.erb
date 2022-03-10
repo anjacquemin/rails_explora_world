@@ -28,7 +28,7 @@
     <div class="d-flex w-100 align-items-center justify-content-between  mb-4">
 
       <div id="map_dashboard" class="whitebox  p-3" style="width:19%;" >
-        <p class="text-agregat font-bold"> Visits planned</p>
+        <p class="text-agregat font-bold"> Planned Visits</p>
         <div class="d-flex justify-content-end">
           <div class="bulle-blue d-flex justify-content-center">
             <div class="count-blue ">
@@ -39,7 +39,7 @@
       </div>
 
       <div class="whitebox p-3" style="width:19%;">
-        <p class="font-bold"> Totals visits</p>
+        <p class="font-bold"> Past Visits</p>
         <div class="d-flex justify-content-end">
           <div class="bulle-green d-flex justify-content-center">
             <div class="count-green d-flex justify-content-end">
@@ -191,7 +191,7 @@
               <%= cl_image_tag rental.slot.offer.photos.all[0].key, height: 250 , class:"img-card", style: "width:100%;"%>
               <div class="text mt-3">
                 <h3 class="title"><%= rental.slot.offer.title %></h3>
-                <p><%= rental.slot.start_at.strftime("Starts : %d/%m/%Y at %H:%M")  %></p>
+                <p><i class="fas fa-calendar-day"></i><%= rental.slot.start_at.strftime(" %d/%m/%Y at %H:%M")  %></p>
               </div>
               <div class="card-text">
                 <%= link_to "Go to the live visit !",  slot_path(rental.slot), class: "tab-ghost2", style:"text-decoration:none" %>
