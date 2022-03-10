@@ -17,7 +17,8 @@ class SlotsController < ApplicationController
       {
         lat: -3.64,
         lng: -62.12,
-        image_url: helpers.asset_url("frelon1.png")
+        image_url: helpers.asset_url("frelon1.png"),
+        guide: true
       }
     ]
   end
