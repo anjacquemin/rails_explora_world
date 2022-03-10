@@ -21,36 +21,38 @@
     </div>
   </div>
 </div>
-
-
-<div class="container py-5">
-  <div class="homepage mb-5">
-    <div class="d-flex justify-content-center align-items-center my-5">
-      <div class="hp-border-title">....</div>
-      <h1 class="hp-title">Let's discover</h1>
-      <div class="hp-border-title">....</div>
-    </div>
-    <p>The Machu Pichu, the MOMA, and a lot more are knocking at your door !</p>
+<div style="overflow: hidden">
+  <div style="transform: translateY(-135px); transition: 0.3s transform; height: 0px;" data-controller="hpnavbar" data-action= "scroll@window->hpnavbar#display">
+  <%= render 'shared/navbar' %>
   </div>
-  <div class="d-flex justify-content-around pb-5">
-    <div class="yellow-card d-flex flex-column justify-content-center align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(https://media.vogue.fr/photos/5c8a60d93d44a01271cbef6a/master/w_1600%2Cc_limit/GettyImages-502721407.jpg)">
-      <h3 class="yellow-card-shadow title ">MUSEUMS</h3>
-      <div class="yellow-card-title-underline mx-3"></div>
-      <p class="yellow-card-shadow mx-3">Want to visit every famous museums one by one?</p>
+  <div class="container py-5">
+    <div class="homepage mb-5">
+      <div class="d-flex justify-content-center align-items-center my-5">
+        <div class="hp-border-title">....</div>
+        <h1 class="hp-title">Let's discover</h1>
+        <div class="hp-border-title">....</div>
+      </div>
+      <p>The Machu Picchu, the MOMA, and a lot more are knocking at your door !</p>
     </div>
-    <div class="yellow-card d-flex flex-column justify-content-center align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(https://www.batobus.com/sites/default/files/2019-08/stations_05_tour_eiffel_introduction_480x700.png)">
-      <h3 class="yellow-card-shadow title ">MONUMENTS</h3>
-      <div class="yellow-card-title-underline mx-3"></div>
-      <p class="yellow-card-shadow mx-3"> Want to see The Taj Mahal? The Eiffel Tower?</p>
-    </div>
-    <div class="yellow-card d-flex flex-column justify-content-center align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(https://www.nyc.fr/wp-content/uploads/2015/07/times_square.jpg)">
-      <h3 class="yellow-card-shadow title ">PLACES</h3>
-      <div class="yellow-card-title-underline mx-3"></div>
-      <p class="yellow-card-shadow mx-3">Want to discover the streets of New York, or Mexico ?</p>
+    <div class="d-flex justify-content-around pb-5">
+      <div class="yellow-card d-flex flex-column justify-content-center align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(https://media.vogue.fr/photos/5c8a60d93d44a01271cbef6a/master/w_1600%2Cc_limit/GettyImages-502721407.jpg)">
+        <h3 class="yellow-card-shadow title ">MUSEUMS</h3>
+        <div class="yellow-card-title-underline mx-3"></div>
+        <p class="yellow-card-shadow mx-3">Want to visit every famous museums one by one?</p>
+      </div>
+      <div class="yellow-card d-flex flex-column justify-content-center align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(https://www.batobus.com/sites/default/files/2019-08/stations_05_tour_eiffel_introduction_480x700.png)">
+        <h3 class="yellow-card-shadow title ">MONUMENTS</h3>
+        <div class="yellow-card-title-underline mx-3"></div>
+        <p class="yellow-card-shadow mx-3"> Want to see The Taj Mahal? The Eiffel Tower?</p>
+      </div>
+      <div class="yellow-card d-flex flex-column justify-content-center align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(https://www.nyc.fr/wp-content/uploads/2015/07/times_square.jpg)">
+        <h3 class="yellow-card-shadow title ">PLACES</h3>
+        <div class="yellow-card-title-underline mx-3"></div>
+        <p class="yellow-card-shadow mx-3">Want to discover the streets of New York, or Mexico ?</p>
+      </div>
     </div>
   </div>
 </div>
-
 <div class="gray-background">
   <div class="container py-5">
     <div class="d-flex justify-content-center align-items-center my-5">
