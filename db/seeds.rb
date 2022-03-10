@@ -107,7 +107,7 @@ antho.save!
 
 agents = [raph, nico, antho, julien]
 
-fake_users = [raph, nico, antho, julien]
+fake_users = [raph, nico, julien]
 
 url1 = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1539711591/f534ccgpn41ldspdnpjf.jpg"
 url2 = "https://avatars.githubusercontent.com/u/8135012?v=4"
@@ -621,14 +621,17 @@ offer21.save!
 
 
 video_type = ["Live", "VoD", "Both"]
+
 offers = [offer1, offer2, offer3, offer4, offer5, offer6, offer7, offer8, offer9, offer10, offer11, offer12, offer13, offer14, offer15, offer16, offer17, offer18, offer19, offer20, offer21]
+
+offers_for_seeds = [offer2, offer3, offer4, offer5, offer6, offer7, offer8, offer9, offer10, offer11, offer12, offer13, offer14, offer15, offer16, offer17, offer18, offer19, offer20, offer21]
 
 
 #Seed of slots + chatrooms
 
 slots = []
 
-Offer.all.each do |offer|
+offers_for_seeds.each do |offer|
   date = DateTime.new(2022, rand(1..5), rand(1..28), rand(0..23), [0, 30].sample)
   slot = Slot.new({ start_at: date })
   slot.offer = offer
@@ -639,40 +642,73 @@ Offer.all.each do |offer|
   chatroom = Chatroom.new
   chatroom.slot = slot
   chatroom.save!
-
 end
 
+#Seed slot Amazonia pour pitch
+date = DateTime.new(2022, 3, 11, 17, 30)
+slot = Slot.new({ start_at: date })
+slot.offer = offer1
+slot.user = agents.sample
+slot.save!
 
-#Seed of rental
 
-rentals = []
+#Seed for user Anthony
 
-slots.sample(10).each do |slot|
+offers1 = [offer2, offer3, offer4, offer5, offer6, offer7]
+
+offers2 = [offer18, offer19, offer20, offer21]
+
+offers1.each do |offer|
+  date = DateTime.new(2022, rand(1..2), rand(1..28), rand(0..23), [0, 30].sample)
+  slot = Slot.new({ start_at: date })
+  slot.offer = offer
+  slot.user = agents.sample
+  slot.save!
   rental = Rental.new
-  rental.user = raph
+  rental.user = antho
   rental.slot = slot
   rental.save!
-  rentals << rental
+  chatroom = Chatroom.new
+  chatroom.slot = slot
+  chatroom.save!
 end
 
-slots.sample(10).each do |slot|
+offers2.each do |offer|
+  date = DateTime.new(2022, rand(3..6), rand(11..30), rand(0..23), [0, 30].sample)
+  slot = Slot.new({ start_at: date })
+  slot.offer = offer
+  slot.user = agents.sample
+  slot.save!
   rental = Rental.new
-  rental.user = nico
+  rental.user = antho
   rental.slot = slot
   rental.save!
-  rentals << rental
+  chatroom = Chatroom.new
+  chatroom.slot = slot
+  chatroom.save!
 end
+
+
+#Seed of rentals for other users
+
+130.times do
+  rental = Rental.new
+  rental.user = fake_users.sample
+  rental.slot = slots.sample
+  rental.save!
+end
+
 
 #Seed of reviews
 
-400.times do
-  review = Review.new({
-  content: Faker::Lorem.sentences(number: 2),
-  rating: rand(1..5)
-  })
-  review.rental = rentals.sample
-  review.save!
-end
+# 400.times do
+#   review = Review.new({
+#   content: Faker::Lorem.sentences(number: 2),
+#   rating: rand(1..5)
+#   })
+#   review.rental = rentals.sample
+#   review.save!
+# end
 
 #Seed of flashcards
 
@@ -684,6 +720,10 @@ end
   flashcard.offer = offers.sample
   flashcard.save!
 end
+
+
+
+
 
 
 ####################"LOOGING THE RESULTS FOR TESTING"#############
@@ -730,11 +770,11 @@ p rentals
 puts "-------------------------------------------"
 puts ""
 
-puts "------------------REVIEWS------------------"
-reviews = Review.all
-p reviews
-puts "-------------------------------------------"
-puts ""
+# puts "------------------REVIEWS------------------"
+# reviews = Review.all
+# p reviews
+# puts "-------------------------------------------"
+# puts ""
 
 
 puts "------------------Flashcard------------------"

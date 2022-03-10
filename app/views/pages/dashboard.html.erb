@@ -4,7 +4,7 @@
       <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-visits"> <i class=" icone pe-4 fas fa-eye color-red"></i>My visits</div>
       <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-map"> <i class=" icone pe-4 fas  fa-map color-orange"></i>My map</div>
       <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-vod"> <i class=" icone pe-4 fas fa-video color-blue"></i>My vod</div>
-      <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-friends"> <i class=" icone pe-4 fas fa-user-friends color-green"></i>My friends</div>
+      <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-memories"> <i class=" icone pe-4 fas fa-images color-green"></i>My memories</div>
       <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-leaderboard"> <i class=" icone pe-4 fas fa-solid fa-graduation-cap color-violet"></i>Leaderboard</div>
       <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-flashcards"> <i class=" icone pe-4 fas fa-copy color-marron "></i>Flashcards</div>
     </div>
@@ -36,26 +36,26 @@
       <div class="whitebox p-3" style="width:19%;">
         <p class="font-bold"> Totals visits</p>
         <div class="count d-flex justify-content-end">
-          <%= "#{((current_user.rentals.count).fdiv(@offers.count)*100).round} %" %>
+          <%= "#{ current_user.rentals.select {|rental| rental.slot.start_at < Date.today}.count }" %>
         </div>
       </div>
 
       <div class="whitebox p-3" style="width:19%;" >
-        <p class="font-bold"> Museums visited</p>
+        <p class="font-bold"> Visited Museums</p>
         <div class="count d-flex justify-content-end">
           <%= @museums_visited %>
         </div>
       </div>
 
       <div class="whitebox p-3" style="width:19%;" >
-        <p class="font-bold"> Monuments visited</p>
+        <p class="font-bold"> Visited Monuments</p>
         <div class="count d-flex justify-content-end">
           <%= @monuments_visited %>
         </div>
       </div>
 
       <div class="whitebox p-3" style="width:19%;" >
-        <p class="font-bold"> Neighborhoods visited</p>
+        <p class="font-bold"> Visited Places</p>
         <div class="count d-flex justify-content-end">
           <%= @neighborhoods_visited %>
           </div>
@@ -65,7 +65,7 @@
     <div class="d-flex w-100 justify-content-between mb-2" style="height:600px">
 
       <%# MAP %>
-      <div class="whitebox " style="width:70%;">
+      <div class="whitebox " style="width:100%;">
         <div id="my-map" class=" d-flex flex-column align-items-center">
           <div class=" map_dashboard" style="width: 100%; height: 600px;"
             data-controller="mapbox"
@@ -74,21 +74,27 @@
           </div>
         </div>
       </div>
+    </div>
 
       <%# PICTURES %>
-      <div class="whitebox" style="width:28.5%;">
-        <p class="font-bold p-2 m-2"> Memories of my visits</p>
-          <div class="my-3 mx-2">
-            <div class="mosaic my-3">
-              <% current_user.rentals.select {|rental| rental.slot.start_at < Date.today }.each do |rental| %>
-                <%= cl_image_tag rental.slot.offer.photos.all[0].key, height: 60, class: 'fit-picture' %>
-                <%= cl_image_tag rental.slot.offer.photos.all[1].key, height: 60, class: 'fit-picture' %>
-                <%= cl_image_tag rental.slot.offer.photos.all[2].key, height: 60, class: 'fit-picture' %>
+
+    <h2 class="text-h2">My memories</h2>
+    <div class="div w-600">
+      <div class="paul-table whitebox d-flex flex-wrap w-500 align-items-start justify-content-evenly mb-2 p-2">
+        <div class="my-3 mx-2 paul-mosaic">
+          <div class="d-flex flex-mosaic">
+            <% angle = -30 %>
+            <% current_user.rentals.select {|rental| rental.slot.start_at < Date.today }.each do |rental| %>
+              <% rental.slot.offer.photos.each do |photo| %>
+                <%= cl_image_tag photo.key, height: 300, class: 'paul-picture', style: "transform: rotate(#{angle}deg)" %>
+                <% angle += 5 %>
               <% end %>
-            </div>
+            <% end %>
           </div>
+        </div>
       </div>
     </div>
+
 
     <%# PAST VISIT HERE  %>
 
@@ -100,11 +106,10 @@
         <% else %>
           <% @rentals.each do |rental| %>
             <% if (rental.slot.start_at < Date.today) %>
-              <div class="card-category my-4" style="width:30%;">
+              <div class="card-category my-4 " style="width:21%;">
                 <%= cl_image_tag rental.slot.offer.photos.all[0].key, height: 250 , class:"img-card", style: "width:100%;"%>
                 <div class="text mt-3">
                   <h3 class="title"><%= rental.slot.offer.title %></h3>
-                  <p class="text-truncate"><%= rental.slot.offer.description %></p>
                   <p><%= rental.slot.start_at.strftime("Visited the %d/%m/%Y")  %></p>
                 </div>
                 <div class="card-text">
@@ -124,11 +129,10 @@
       <div class="whitebox d-flex flex-wrap w-600 align-items-start justify-content-evenly mb-2 p-2">
         <% @rentals.each do |rental| %>
           <% if (rental.slot.start_at > Date.today) %>
-            <div class="card-category my-4" style="width:30%;">
+            <div class="card-category my-4" style="width:21%;">
               <%= cl_image_tag rental.slot.offer.photos.all[0].key, height: 250 , class:"img-card", style: "width:100%;"%>
               <div class="text mt-3">
                 <h3 class="title"><%= rental.slot.offer.title %></h3>
-                <p class="text-truncate"><%= rental.slot.offer.description %></p>
                 <p><%= rental.slot.start_at.strftime("Starts : %d/%m/%Y at %H:%M")  %></p>
               </div>
               <div class="card-text">
@@ -166,7 +170,7 @@
               </div>
               <div class="Neighborhoods">
                 <div class="explora-progress-bar">
-                  <span>Neighborhoods</span>
+                  <span>Places</span>
                   <span id="progress">50%</span>
                   <div class="progress-wrapper">
                     <div class="progress-input" style="width: 50%;"></div>
