@@ -28,9 +28,10 @@
       <div class="call-video-views">
         <div class="map" data-video-call-target="map">
           <div style="width: 100%; height: 100%; border-radius: 10px"
-      data-controller="mapbox"
-      data-mapbox-markers-value="<%= @markers.to_json %>"
-      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+                data-controller="mapbox"
+                data-mapbox-markers-value="<%= @markers.to_json %>"
+                data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+                data-mapbox-max-zoom-value=2>
           </div>
         </div>
         <div id="remote-video" data-video-call-target="buddyVideo">
