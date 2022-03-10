@@ -29,57 +29,37 @@
 
       <div class="whitebox  p-3" style="width:19%;" >
         <p class="text-agregat font-bold"> Visits planned</p>
-        <div class="d-flex justify-content-end">
-          <div class="bulle-blue d-flex justify-content-center">
-            <div class="count-blue ">
-              <%= current_user.rentals.select {|rental| rental.slot.start_at > Date.today}.count %>
-            </div>
-          </div>
+        <div class="count d-flex justify-content-end">
+          <%= current_user.rentals.select {|rental| rental.slot.start_at > Date.today}.count %>
         </div>
       </div>
 
       <div class="whitebox p-3" style="width:19%;">
         <p class="font-bold"> Totals visits</p>
-        <div class="d-flex justify-content-end">
-          <div class="bulle-green d-flex justify-content-center">
-            <div class="count-green d-flex justify-content-end">
-              <%= "#{ current_user.rentals.select {|rental| rental.slot.start_at < Date.today}.count }" %>
-            </div>
-          </div>
+        <div class="count d-flex justify-content-end">
+          <%= "#{ current_user.rentals.select {|rental| rental.slot.start_at < Date.today}.count }" %>
         </div>
       </div>
 
       <div class="whitebox p-3" style="width:19%;" >
         <p class="font-bold"> Visited Museums</p>
-        <div class="d-flex justify-content-end">
-          <div class="bulle-red d-flex justify-content-center bg-color-marron">
-            <div class="count-red d-flex justify-content-end">
-              <%= @museums_visited %>
-            </div>
-          </div>
+        <div class="count d-flex justify-content-end">
+          <%= @museums_visited %>
         </div>
       </div>
 
       <div class="whitebox p-3" style="width:19%;" >
         <p class="font-bold"> Visited Monuments</p>
-        <div class="d-flex justify-content-end">
-          <div class="bulle-violet d-flex justify-content-center">
-            <div class="count-violet d-flex justify-content-end">
-              <%= @monuments_visited %>
-            </div>
-          </div>
+        <div class="count d-flex justify-content-end">
+          <%= @monuments_visited %>
         </div>
       </div>
 
       <div class="whitebox p-3" style="width:19%;" >
         <p class="font-bold"> Visited Places</p>
-        <div class="d-flex justify-content-end">
-          <div class="bulle-orange d-flex justify-content-center">
-            <div class="count-orange d-flex justify-content-end">
-              <%= @neighborhoods_visited %>
-            </div>
+        <div class="count d-flex justify-content-end">
+          <%= @neighborhoods_visited %>
           </div>
-        </div>
       </div>
 
     </div>
@@ -101,35 +81,35 @@
 
       <%# PICTURES %>
 
-    <h2 class="text-f" id="memories">My memories</h2>
-    <div class="paul-table whitebox d-flex flex-wrap w-500 align-items-start justify-content-evenly mb-2 p-2">
-      <div class="my-3 mx-2 paul-mosaic">
-        <div class="d-flex flex-mosaic">
-          <% angle = -30 %>
-          <% current_user.rentals.select {|rental| rental.slot.start_at < Date.today }.each do |rental| %>
-            <% rental.slot.offer.photos.each do |photo| %>
-              <%= cl_image_tag photo.key, height: 300, class: 'paul-picture', style: "transform: rotate(#{angle}deg)" %>
-              <% angle += 5 %>
+    <h2 id="memories" class="text-h2">My memories</h2>
+      <div class="paul-table whitebox d-flex flex-wrap w-600 align-items-start justify-content-evenly mb-2 p-2">
+        <div class="my-3 mx-2 paul-mosaic">
+          <div class="d-flex flex-mosaic">
+            <% angle = -30 %>
+            <% current_user.rentals.select {|rental| rental.slot.start_at < Date.today }.each do |rental| %>
+              <% rental.slot.offer.photos.each do |photo| %>
+                <%= cl_image_tag photo.key, height: 300, class: 'paul-picture', style: "transform: rotate(#{angle}deg)" %>
+                <% angle += 5 %>
+              <% end %>
             <% end %>
-          <% end %>
+          </div>
         </div>
       </div>
-    </div>
 
 
     <%# PAST VISIT HERE  %>
 
-    <div class="past-visit" id="past_visits">
-     <h2 class="text-f" >Past Visits</h2>
-      <div class="whitebox d-flex flex-wrap w-100 align-items-start justify-content-evenly mb-2 p-2">
+    <div id="past_visits" class="past-visit">
+     <h2 class="text-h2">Past Visits</h2>
+      <div class="whitebox row w-100mb-2 p-2 mx-0">
         <% if @pastvisit.empty? %>
           <p>THERE IS NO PAST VISITS</p>
         <% else %>
           <% @rentals.each do |rental| %>
             <% if (rental.slot.start_at < Date.today) %>
-              <div class="card-category my-4 " style="width:21%;">
+              <div class="card-category my-4 col-3 px-4 d-flex flex-column">
                 <%= cl_image_tag rental.slot.offer.photos.all[0].key, height: 250 , class:"img-card", style: "width:100%;"%>
-                <div class="text mt-3">
+                <div class="text mt-3 flex-grow-1">
                   <h3 class="title"><%= rental.slot.offer.title %></h3>
                   <p><%= rental.slot.start_at.strftime("Visited the %d/%m/%Y")  %></p>
                 </div>
@@ -146,12 +126,11 @@
 
     <%# FUTURE VISIT HERE  %>
 
-
-      <h2 class="text-f" id="future_visits">Future Visits</h2>
-      <div class="whitebox d-flex flex-wrap w-600 align-items-start justify-content-evenly mb-2 p-2">
+      <h2 id="future_visits" class="text-h2">Future Visits</h2>
+      <div class="whitebox row w-600 mb-2 p-2 mx-0">
         <% @rentals.each do |rental| %>
           <% if (rental.slot.start_at > Date.today) %>
-            <div class="card-category my-4" style="width:21%;">
+            <div class="card-category my-4 col-3 d-flex flex-column">
               <%= cl_image_tag rental.slot.offer.photos.all[0].key, height: 250 , class:"img-card", style: "width:100%;"%>
               <div class="text mt-3">
                 <h3 class="title"><%= rental.slot.offer.title %></h3>
