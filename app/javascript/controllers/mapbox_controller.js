@@ -33,6 +33,7 @@ export default class extends Controller {
         customMarker.style.height = "35px"
       }
       else {
+        customMarker.style.marginTop = '-27px'
         customMarker.style.backgroundSize = "cover"
         customMarker.style.width = "50px"
         customMarker.style.height = "50px"
