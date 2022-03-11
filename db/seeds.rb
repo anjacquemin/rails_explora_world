@@ -647,7 +647,7 @@ offers_for_seeds.each do |offer|
 end
 
 #Seed slot Amazonia pour pitch
-date = DateTime.new(2022, 3, 11, 17, 15)
+date = DateTime.new(2022, 3, 11, 16, 15)
 slot = Slot.new({ start_at: date })
 slot.offer = offer1
 slot.user = raph
