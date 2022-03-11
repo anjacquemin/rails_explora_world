@@ -558,7 +558,7 @@ offer19 = Offer.new({
   description: "Temple Street is a street located in the areas of Jordan and Yau Ma Tei in Kowloon, Hong Kong. It is known for its night market and as one of the busiest flea markets at night in the territory. The night market lies in the Yau Ma Tei, Jordan part of the street. Popular with tourists and locals alike in the evening, it is also common to see the place crowded at dusk. It sells cheap merchandise and food items.",
   video_type: "Live",
   city: "Hong Kong",
-  title: "Temple Street Market",
+  title: "Temple Street",
   price: rand(5.0..10.0).round(1)
 })
 
@@ -647,10 +647,10 @@ offers_for_seeds.each do |offer|
 end
 
 #Seed slot Amazonia pour pitch
-date = DateTime.new(2022, 3, 11, 17, 30)
+date = DateTime.new(2022, 3, 11, 17, 15)
 slot = Slot.new({ start_at: date })
 slot.offer = offer1
-slot.user = agents.sample
+slot.user = raph
 slot.save!
 chatroom = Chatroom.new
 chatroom.slot = slot
