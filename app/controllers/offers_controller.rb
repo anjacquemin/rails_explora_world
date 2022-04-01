@@ -29,4 +29,28 @@ class OffersController < ApplicationController
     ]
     end
   end
+
+  def new
+    @offer = Offer.new
+    authorize @offer
+
+  end
+
+  def create
+    @offer = Offer.new(check_params)
+    @offer.user = current_user
+    authorize @offer
+    if @offer.save
+      redirect_to dashboard_guide_path()
+    else
+      render 'new'
+    end
+  end
+
+  private
+
+  def check_params
+    params.require(:offer).permit(:address, :description, :video_type, :category_id, :city, :title, :price, photos: [])
+  end
+
 end

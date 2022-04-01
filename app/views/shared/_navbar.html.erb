@@ -23,7 +23,10 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Dashboard", dashboard_path, class: "nav-link mx-4" %>
+            <%= link_to "Visitor Dashboard", dashboard_path, class: "nav-link mx-4" %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "Guide dashboard", dashboard_guide_path, class: "nav-link mx-4" %>
           </li>
           <li class="nav-item dropdown">
             <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>

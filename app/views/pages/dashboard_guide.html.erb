@@ -1,0 +1,124 @@
+<div data-controller="maindashboard" class="dashboard-container ">
+  <div class="sidebar px-3  d-flex flex-column flex-grow-1 justify-content-between">
+    <div class="items my-5">
+      <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-map"> <i class=" icone pe-4 fas  fa-map color-orange"></i><a style ="text-decoration: none;" href="#map_dashboard" data-turbolinks="false">My map</a></div>
+      <%# <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-vod"> <i class=" icone pe-4 fas fa-video color-blue"></i>My vod</div> %>
+      <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-memories"> <i class=" icone pe-4 fas fa-images color-green"></i><a style ="text-decoration: none;" href="#memories" data-turbolinks="false">My memories</a></div>
+      <%# <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-leaderboard"> <i class=" icone pe-4 fas fa-solid fa-graduation-cap color-violet"></i>Leaderboard</div> %>
+      <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-flashcards"> <i class=" icone pe-4 fas fa-copy color-violet "></i><a style ="text-decoration: none;" href="#flashcards" data-turbolinks="false"> My flashcards</a></div>
+      <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-visits"> <i class=" icone pe-4 fas fa-eye color-red"></i><a style ="text-decoration: none;" href="#past_visits" data-turbolinks="false">My past visits</a></div>
+      <div class="ok text-icon py-2" data-action="click->maindashboard#openTab" data-tab="my-visits"> <i class=" icone pe-4 fas fa-eye color-blue"></i><a style ="text-decoration: none;" href="#future_visits" data-turbolinks="false">My future visits</a></div>
+    </div>
+    <div class="explora-profile d-flex flex-column align-items-center mt-2">
+      <%= cl_image_tag current_user.photo.key, class: "avatar-bordered", alt: "avatar-bordered" %>
+      <h3> <%= current_user.first_name %> </h3>
+      <div class="main-wrapper">
+        <div class="explora-badge ">
+          <div class="badge-circle">
+            <i class="fas fa-tree"></i>
+              <div class="ribbon">JUNGLER</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <div class="dashboard-content bg-blue">
+    <div class="d-flex w-100 align-items-center justify-content-between  mb-4">
+
+      <div id="map_dashboard" class="whitebox  p-3" style="width:19%;" >
+        <p class="text-agregat font-bold"> Planned Visits</p>
+        <div class="d-flex justify-content-end">
+          <div class="bulle-blue d-flex justify-content-center">
+            <div class="count-blue ">
+              <%= @rentals.select {|rental| rental.slot.start_at > Date.today}.count %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="whitebox p-3" style="width:19%;">
+        <p class="font-bold"> Past Visits</p>
+        <div class="d-flex justify-content-end">
+          <div class="bulle-green d-flex justify-content-center">
+            <div class="count-green d-flex justify-content-end">
+              <%= "#{@rentals.select {|rental| rental.slot.start_at < Date.today}.count }" %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="whitebox p-3" style="width:19%;" >
+        <p class="font-bold"> Profit </p>
+        <div class="d-flex justify-content-end">
+          <div class="bulle-red d-flex justify-content-center bg-color-marron">
+            <div class="count-red d-flex justify-content-end">
+              <p>10</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="whitebox p-3" style="width:19%;" >
+        <p class="font-bold"> XXX</p>
+        <div class="d-flex justify-content-end">
+          <div class="bulle-orange d-flex justify-content-center">
+            <div class="count-orange d-flex justify-content-end">
+              <%= "XXX" %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <%# All my offers  %>
+
+    <div id="past_visits" class="past-visit">
+     <h2 class="text-h2">All my offer</h2>
+      <div class="whitebox row w-100mb-2 p-2 mx-0">
+        <% if @pastvisit.empty? %>
+          <p>You don't have any offer</p>
+        <% else %>
+          <% @offers.each do |offer| %>
+              <div class="card-category my-4 col-3 px-4 d-flex flex-column">
+                <%= cl_image_tag offer.photos.all[0].key, height: 250 , class:"img-card", style: "width:100%;"%>
+                <div class="text mt-3 flex-grow-1">
+                  <h3 class="title"><%= offer.title %></h3>
+                </div>
+                <div class="card-text">
+                  <%= link_to "See details",  offer_path(offer), class: "tab-ghost2", style:"text-decoration:none" %>
+                </div>
+              </div>
+          <% end %>
+        <% end %>
+        <%= link_to "Create new offer",  new_offer_path(), class: "tab-ghost2", style:"text-decoration:none" %>
+
+      </div>
+    </div>
+
+
+    <%# FUTURE VISIT HERE  %>
+
+      <h2 id="future_visits" class="text-h2">Future Visits</h2>
+      <div class="whitebox row w-600 mb-2 p-2 mx-0">
+        <% @rentals.each do |rental| %>
+          <% if (rental.slot.start_at > Date.today) %>
+            <div class="card-category my-4 col-3 d-flex flex-column">
+              <%= cl_image_tag rental.slot.offer.photos.all[0].key, height: 250 , class:"img-card", style: "width:100%;"%>
+              <div class="text mt-3">
+                <h3 class="title"><%= rental.slot.offer.title %></h3>
+                <p><i class="fas fa-calendar-day"></i><%= rental.slot.start_at.strftime(" %d/%m/%Y at %H:%M")  %></p>
+              </div>
+              <div class="card-text">
+                <%= link_to "See details",  slot_path(rental.slot), class: "tab-ghost2", style:"text-decoration:none" %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <%# FLASHCARDS %>
+  </div>
+</div>
