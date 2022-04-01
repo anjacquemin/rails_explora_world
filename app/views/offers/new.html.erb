@@ -1,0 +1,17 @@
+<div class="container my-5">
+  <div class="d-flex flex-column align-items-center">
+    <h2>Create a new offer</h2>
+    <!-- app/views/restaurants/_form.html.erb -->
+    <%= simple_form_for(@offer)do|f|%>
+      <%= f.input :title%>
+      <%= f.input :city%>
+      <%= f.input :address%>
+      <%= f.input :description%>
+      <%= f.association :category%>
+      <%= f.input :video_type%>
+      <%= f.input :price%>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      <%= f.submit%>
+    <%end%>
+  </div>
+</div>

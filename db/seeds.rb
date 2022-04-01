@@ -97,7 +97,7 @@ antho = User.new({
   first_name: "Anthony",
   last_name: "Jacquemin",
   email: "antho@gmail.com",
-  is_guide: false,
+  is_guide: true,
   password: "PASSWORD",
   password_confirmation: "PASSWORD"
 })
@@ -105,6 +105,20 @@ antho.agency = agency4
 file = URI.open("https://avatars.githubusercontent.com/u/96418474?v=4")
 antho.photo.attach(io: file, filename: "#{antho.last_name}-1")
 antho.save!
+
+
+thomas = User.new({
+  first_name: "thomas",
+  last_name: "voisin",
+  email: "thomas@gmail.com",
+  is_guide: true,
+  password: "PASSWORD",
+  password_confirmation: "PASSWORD"
+})
+thomas.agency = agency4
+file = URI.open("https://avatars.githubusercontent.com/u/86692082?v=4")
+thomas.photo.attach(io: file, filename: "#{thomas.last_name}-1")
+thomas.save!
 
 
 agents = [raph, nico, antho, julien]
